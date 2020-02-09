@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jacobberglund.com",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "My website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jacob Berglund <jacob@jberglund.se>",
   "dependencies": {
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
