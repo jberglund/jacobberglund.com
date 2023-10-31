@@ -1,0 +1,6 @@
+@custom-media --small (width <= 480px);
+@custom-media --medium (width >= 480px);
+@custom-media --large (width >= 980px);
+@custom-media --xlarge (width >= 1280px);
+
+@custom-media --no-reduced-motion (prefers-reduced-motion: no-preference);

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "jacobberglund.com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,12 +7,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update-packages": "npx npm-check-updates --interactive --format group"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/rss": "^2.4.4",
-    "@astrojs/sitemap": "^2.0.1",
-    "astro": "^2.10.7"
+    "@astrojs/mdx": "^1.1.3",
+    "@astrojs/prism": "^3.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.2",
+    "astro": "^3.4.0"
+  },
+  "devDependencies": {
+    "postcss-preset-env": "^9.2.0"
   }
 }

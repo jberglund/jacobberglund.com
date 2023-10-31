@@ -1,0 +1,22 @@
+---
+interface Props {
+  class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class={className} width="100%" height="100%">
+  <pattern
+    id="pattern-circles"
+    x="0"
+    y="0"
+    width="4"
+    height="4"
+    patternUnits="userSpaceOnUse"
+  >
+    <rect x="1" y="1" width="1" height="1" fill="currentColor"></rect>
+  </pattern>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"
+  ></rect>
+</svg>

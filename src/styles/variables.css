@@ -1,0 +1,121 @@
+:root[data-theme="light"] {
+  --color-text: hsl(213, 44%, 5%);
+  --color-background: hsl(209, 41%, 90%);
+  --color-primary: hsl(29, 43%, 59%);
+  --color-secondary: hsl(208, 42%, 94%);
+  --color-accent: hsl(29, 43%, 54%);
+}
+:root[data-theme="dark"] {
+  --color-text: hsl(213, 44%, 95%);
+  --color-text: #eaecdf;
+  --color-background: hsl(209, 41%, 10%);
+  --color-primary: hsl(29, 43%, 41%);
+  --color-secondary: hsl(208, 42%, 6%);
+  --color-accent: hsl(29, 43%, 46%);
+}
+
+:root {
+  --primary-color: oklch(52.94% 0.302 291);
+  --radius-1: 0.15rem;
+  --radius-2: 0.5rem;
+  --radius-3: 0.75rem;
+
+  --font-monospace: "Berkeley Mono", monospace;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,22,1.25,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  /* Step -3: 8.10px → 11.26px */
+  --step--3: clamp(0.51rem, calc(0.44rem + 0.34vw), 0.7rem);
+
+  /* Step -2: 9.72px → 14.08px */
+  --step--2: clamp(0.61rem, calc(0.51rem + 0.47vw), 0.88rem);
+
+  /* Step -1: 11.67px → 17.60px */
+  --step--1: clamp(0.73rem, calc(0.6rem + 0.64vw), 1.1rem);
+
+  /* Step 0: 14.00px → 22.00px */
+  --step-0: clamp(0.88rem, calc(0.7rem + 0.87vw), 1.38rem);
+
+  /* Step 1: 16.80px → 27.50px */
+  --step-1: clamp(1.05rem, calc(0.82rem + 1.16vw), 1.72rem);
+
+  /* Step 2: 20.16px → 34.38px */
+  --step-2: clamp(1.26rem, calc(0.95rem + 1.55vw), 2.15rem);
+
+  /* Step 3: 24.19px → 42.97px */
+  --step-3: clamp(1.51rem, calc(1.1rem + 2.04vw), 2.69rem);
+
+  /* Step 4: 29.03px → 53.71px */
+  --step-4: clamp(1.81rem, calc(1.28rem + 2.68vw), 3.36rem);
+
+  /* Step 5: 34.84px → 67.14px */
+  --step-5: clamp(2.18rem, calc(1.48rem + 3.51vw), 4.2rem);
+}
+
+:root {
+  --space-3xs: clamp(0.25rem, calc(0.21rem + 0.22vw), 0.38rem);
+  --space-2xs: clamp(0.44rem, calc(0.35rem + 0.43vw), 0.69rem);
+  --space-xs: clamp(0.69rem, calc(0.56rem + 0.65vw), 1.06rem);
+  --space-s: clamp(0.88rem, calc(0.7rem + 0.87vw), 1.38rem);
+  --space-m: clamp(1.31rem, calc(1.05rem + 1.3vw), 2.06rem);
+  --space-l: clamp(1.75rem, calc(1.4rem + 1.74vw), 2.75rem);
+  --space-xl: clamp(2.63rem, calc(2.1rem + 2.61vw), 4.13rem);
+  --space-2xl: clamp(3.5rem, calc(2.8rem + 3.48vw), 5.5rem);
+  --space-3xl: clamp(5.25rem, calc(4.21rem + 5.22vw), 8.25rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, calc(0.1rem + 0.76vw), 0.69rem);
+  --space-2xs-xs: clamp(0.44rem, calc(0.22rem + 1.09vw), 1.06rem);
+  --space-xs-s: clamp(0.69rem, calc(0.45rem + 1.2vw), 1.38rem);
+  --space-s-m: clamp(0.88rem, calc(0.46rem + 2.07vw), 2.06rem);
+  --space-m-l: clamp(1.31rem, calc(0.81rem + 2.5vw), 2.75rem);
+  --space-l-xl: clamp(1.75rem, calc(0.92rem + 4.13vw), 4.13rem);
+  --space-xl-2xl: clamp(2.63rem, calc(1.63rem + 5vw), 5.5rem);
+  --space-2xl-3xl: clamp(3.5rem, calc(1.85rem + 8.26vw), 8.25rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(0.88rem, 0.22rem + 3.26vw, 2.75rem);
+}
+
+/* @link https://utopia.fyi/grid/calculator?c=320,14,1.2,1240,22,1.25,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12 */
+:root {
+  /* I just like this naming convention, mkay? */
+  --spacing-4: var(--space-3xs);
+  --spacing-8: var(--space-2xs);
+  --spacing-12: var(--space-xs);
+  --spacing-16: var(--space-s);
+  --spacing-24: var(--space-m);
+  --spacing-32: var(--space-l);
+  --spacing-48: var(--space-xl);
+  --spacing-64: var(--space-2xl);
+  --spacing-96: var(--space-3xl);
+}
+
+:root {
+  --grid-max-width: 93rem;
+  --grid-gutter: var(--space-s-l, clamp(1rem, 0.4345rem + 2.7586vw, 3rem));
+  --grid-columns: 12;
+}
+
+:root {
+  --text-opacity: 1;
+  --astro-code-color-text: var(--color-text);
+  --astro-code-color-background: transparent;
+  --astro-code-token-constant: rgb(45 212 191 / 100%);
+  --astro-code-token-constant: color(display-p3 0.38 0.57 1);
+  --astro-code-token-string: rgb(253 230 138 / 100%);
+  --astro-code-token-comment: rgb(100 116 139 / 100%);
+  --astro-code-token-keyword: rgb(248 113 113 / 100%);
+  --astro-code-token-keyword: color(display-p3 0.14 0.46 1);
+  --astro-code-token-keyword: color(display-p3 0.84 0.64 1);
+  --astro-code-token-parameter: #aa0000;
+  --astro-code-token-function: rgb(52 211 153 / 100%);
+  --astro-code-token-function: color(display-p3 0.87 0.51 0.44);
+  --astro-code-token-string-expression: rgb(253 230 138 / 100%);
+  --astro-code-token-string-expression: color(display-p3 1 0.72 0.32);
+  --astro-code-token-string-expression: color(display-p3 0.21 0.94 0.69);
+  --astro-code-token-punctuation: #7e7e7e;
+  --astro-code-token-link: #ee0000;
+}

@@ -1,0 +1,73 @@
+---
+interface Props {
+  gap?: "l" | "xl" | "m" | "xs" | "2xs" | "3xs";
+  justifyContent?: "between" | "center" | "around" | "start" | "end";
+  alignItems?: "center" | "start" | "end";
+}
+
+const { gap, justifyContent = "start", alignItems = "start" } = Astro.props;
+---
+
+<div class=`gap-${gap} justify-${justifyContent} align-${alignItems} flex`>
+  <slot />
+</div>
+
+<style>
+  .flex {
+    display: flex;
+  }
+
+  .gap-l {
+    gap: var(--space-l);
+  }
+  .gap-xl {
+    gap: var(--space-xl);
+  }
+  .gap-m {
+    gap: var(--space-m);
+  }
+  .gap-s {
+    gap: var(--space-s);
+  }
+  .gap-xs {
+    gap: var(--space-xs);
+  }
+  .gap-2xs {
+    gap: var(--space-2xs);
+  }
+  .gap-3xs {
+    gap: var(--space-3xs);
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .align-start {
+    align-items: start;
+  }
+
+  .align-end {
+    align-items: end;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-around {
+    justify-content: space-around;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-start {
+    justify-content: start;
+  }
+
+  .justify-end {
+    justify-content: end;
+  }
+</style>
