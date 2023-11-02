@@ -13,11 +13,12 @@
 
 /* PostCSS media queries */
 :where(.u-grid) > * {
-  grid-column: 3 / span 7;
+  grid-column: 5 / span 7;
+  @media (--small) {
+    grid-column: 2 / -1;
+  }
 }
 
-@media (--small) {
-  :where(.u-grid) > * {
-    grid-column: 2 / span 11;
-  }
+:where(.u-grid) .u-full {
+  grid-column: 2 / -1;
 }

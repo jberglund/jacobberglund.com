@@ -20,7 +20,7 @@
   --radius-2: 0.5rem;
   --radius-3: 0.75rem;
 
-  --font-monospace: "Berkeley Mono", monospace;
+  --font-monospace: "Berkeley-Mono", monospace;
 }
 
 /* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,22,1.25,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
@@ -52,6 +52,26 @@
 
   /* Step 5: 34.84px → 67.14px */
   --step-5: clamp(2.18rem, calc(1.48rem + 3.51vw), 4.2rem);
+
+  /* --step--3: clamp(0.5119rem, 0.4451rem + 0.3337vw, 0.7038rem);
+  --step--2: clamp(0.64rem, 0.5565rem + 0.4174vw, 0.88rem);
+  --step--1: clamp(0.8rem, 0.6957rem + 0.5217vw, 1.1rem);
+  --step-0: clamp(1rem, 0.8696rem + 0.6522vw, 1.375rem);
+  --step-1: clamp(1.25rem, 1.087rem + 0.8152vw, 1.7188rem);
+  --step-2: clamp(1.5625rem, 1.3586rem + 1.0196vw, 2.1488rem);
+  --step-3: clamp(1.9531rem, 1.6983rem + 1.2739vw, 2.6856rem);
+  --step-4: clamp(2.4413rem, 2.1228rem + 1.5924vw, 3.3569rem);
+  --step-5: clamp(3.0519rem, 2.6538rem + 1.9902vw, 4.1963rem); */
+
+  --step--3: clamp(0.7025rem, 0.702rem + 0.0023vw, 0.7038rem);
+  --step--2: clamp(0.79rem, 0.7532rem + 0.1636vw, 0.88rem);
+  --step--1: clamp(0.8888rem, 0.8023rem + 0.3841vw, 1.1rem);
+  --step-0: clamp(1rem, 0.8466rem + 0.6818vw, 1.375rem);
+  --step-1: clamp(1.125rem, 0.8821rem + 1.0795vw, 1.7188rem);
+  --step-2: clamp(1.2656rem, 0.9043rem + 1.6057vw, 2.1488rem);
+  --step-3: clamp(1.4238rem, 0.9075rem + 2.2943vw, 2.6856rem);
+  --step-4: clamp(1.6019rem, 0.8839rem + 3.1909vw, 3.3569rem);
+  --step-5: clamp(1.8019rem, 0.8224rem + 4.3534vw, 4.1963rem);
 }
 
 :root {
@@ -77,20 +97,6 @@
 
   /* Custom pairs */
   --space-s-l: clamp(0.88rem, 0.22rem + 3.26vw, 2.75rem);
-}
-
-/* @link https://utopia.fyi/grid/calculator?c=320,14,1.2,1240,22,1.25,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12 */
-:root {
-  /* I just like this naming convention, mkay? */
-  --spacing-4: var(--space-3xs);
-  --spacing-8: var(--space-2xs);
-  --spacing-12: var(--space-xs);
-  --spacing-16: var(--space-s);
-  --spacing-24: var(--space-m);
-  --spacing-32: var(--space-l);
-  --spacing-48: var(--space-xl);
-  --spacing-64: var(--space-2xl);
-  --spacing-96: var(--space-3xl);
 }
 
 :root {

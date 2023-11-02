@@ -21,17 +21,28 @@ html {
   --scrollbar-background: #333;
   scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
 }
-
 ::-webkit-scrollbar {
-  width: 10px; /* for vertical */
-  height: 10px; /* for horizontal */
+  width: 10px; /* Mostly for vertical scrollbars */
+  height: 10px; /* Mostly for horizontal scrollbars */
+}
+::-webkit-scrollbar-thumb {
+  /* Foreground */
+  background: var(--scrollbar-foreground);
+}
+::-webkit-scrollbar-track {
+  /* Background */
+  background: var(--scrollbar-background);
+}
+
+/* ::-webkit-scrollbar {
+  
 }
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-foreground);
 }
 ::-webkit-scrollbar-track {
   background: var(--scrollbar-background);
-}
+} */
 
 pre {
   width: 100%;
@@ -55,7 +66,7 @@ body {
   font-weight: 350;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  line-height: 1.5;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -98,7 +109,6 @@ h6,
 p,
 ul,
 ol {
-  line-height: 1.5;
   margin: var(--space-2xs) 0;
   text-wrap: pretty;
 }
@@ -138,7 +148,7 @@ p a {
   text-decoration: underline;
   text-decoration-color: var(--primary-color);
   font-weight: 600;
-  outline-offset: var(--spacing-8);
+  outline-offset: var(--space-xs);
   outline-color: transparent;
 }
 
@@ -175,11 +185,9 @@ hr {
 }
 
 code {
-  font-family: "Berkeley Mono", SF Mono, monospace;
-  /* font-size: var(--step-0); */
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-monospace);
   -moz-osx-font-smoothing: grayscale;
-
+  font-weight: 100;
   position: relative;
   display: inline;
 
@@ -187,11 +195,29 @@ code {
   -webkit-box-decoration-break: clone;
 }
 
+pre:where(.astro-code) {
+  --scrollbar-foreground: var(--astro-code-token-constant);
+  --scrollbar-background: #333;
+  white-space: pre !important;
+}
+
+pre code {
+  background-color: transparent;
+}
+
 p code {
-  background: rgba(115, 125, 140, 0.17);
+  /* background: rgba(115, 125, 140, 0.17);
   letter-spacing: -0.5px;
   padding: 4.5px 6px;
-  margin: 1px -1px;
+  margin: 1px -1px; */
+
+  background-color: #000;
+  color: var(--astro-code-token-string);
+  border: 2px solid #ccc3;
+  font-size: calc(1em - 2px);
+  padding: 2px var(--space-3xs);
+  margin: -1px;
+  display: inline;
 }
 
 pre {
@@ -211,16 +237,22 @@ pre code {
 }
 
 blockquote {
-  border-left: 4px solid #cccccc;
-  font-size: 1.4em;
-  font-style: italic;
+  border-left: 4px solid var(--astro-code-token-function);
+  color: var(--astro-code-token-function);
+  font-size: var(--step-1);
   margin: var(--space-s) 0;
-  padding-left: var(--space-m);
-  padding-right: var(--space-m);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-m);
+  p {
+    margin: 0;
+  }
 }
 
 :where(.u-grid) blockquote {
   grid-column: 2 / span 10;
+  @media (--small) {
+    grid-column: 1 / -1;
+  }
 }
 
 figure {
@@ -263,21 +295,23 @@ figure {
   --space-l5-sm: calc(var(--space-l5-lg) / 4);
   --space-l6-sm: calc(var(--space-l6-lg) / 4);
 
-  /* & :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: var(--space-m);
-  } */
+  & :is(h1, h2, h3, h4, h5, h6) {
+    color: #d7d081;
+    /* margin-top: var(--space-m); */
+    /* font-family: var(--font-monospace); */
+  }
   h2 {
     font-size: var(--step-2);
   }
   h3 {
-    font-size: var(--step-1);
+    font-size: var(--step-0);
   }
   h4 {
-    font-size: var(--step-1);
+    font-size: var(--step--1);
   }
   h5,
   h6 {
-    font-size: var(--step0);
+    font-size: var(--step--2);
   }
 
   /* Non-heading elements should have a big gap after them if followed by a heading. */

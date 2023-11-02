@@ -12,31 +12,26 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
   Astro.props;
 ---
 
-<style>
-  .hello {
-    height: var(--space-s);
-    margin: var(--space-s) auto;
-  }
-</style>
-
 <SiteLayout>
   <article class="u-grid">
-    <div class="hero-image">
-      {
-        heroImage && (
-          <img
-            transition:name="hero"
-            width={1020}
-            height={510}
-            src={heroImage}
-            alt=""
-          />
-        )
-      }
-    </div>
+    {
+      heroImage && (
+        <div class="hero-image">
+          {heroImage && (
+            <img
+              transition:name="hero"
+              width={1020}
+              height={510}
+              src={heroImage}
+              alt=""
+            />
+          )}
+        </div>
+      )
+    }
 
-    <div class="title">
-      <h1 class="h2">{title}</h1>
+    <header class="blog-header">
+      <h1 class="blog-heading">{title}</h1>
       <div class="meta">
         <Flex gap="m">
           <div class="date">
@@ -50,14 +45,14 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
             <FormattedDate date={pubDate} />
           </div>
 
-          <Flex gap="3xs">
+          <!-- <Flex gap="3xs">
             Tagged as:
             <a href="#">Web</a>
             <a href="#">Tips & tricks</a>
-          </Flex>
+          </Flex> -->
         </Flex>
       </div>
-    </div>
+    </header>
 
     {takeaways && <KeyTakeaways items={takeaways} />}
     <div class="prose u-grid">
@@ -70,12 +65,20 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
   .prose {
     grid-column: 1 / -1;
   }
-  .title {
-    grid-column: 3 / span 10;
+
+  .blog-header {
     padding-top: var(--space-2xl);
     padding-bottom: var(--space-l);
+    grid-column: 2 / -1;
+    display: grid;
+    gap: var(--space-xs);
+    @media (--desktop) {
+      grid-column: 2 / span 11;
+    }
+  }
+  .blog-heading {
   }
   .meta {
-    font-size: var(--step--2);
+    font-size: var(--step--1);
   }
 </style>

@@ -5,11 +5,13 @@ import { SITE_TITLE } from "../consts";
 
 <header class="u-container header">
   <nav class="u-grid">
-    <a class="logo" href="/">{SITE_TITLE}</a>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Writing</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+    <div class="u-full">
+      <a class="logo" href="/">{SITE_TITLE}</a>
+      <div class="internal-links">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Writing</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
     </div>
   </nav>
 </header>
@@ -20,7 +22,7 @@ import { SITE_TITLE } from "../consts";
     font-size: var(--step-1);
   }
   .header {
-    padding: var(--space-l);
+    padding-block: var(--space-l);
   }
   .internal-links {
     display: flex;

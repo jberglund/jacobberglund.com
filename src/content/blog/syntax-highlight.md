@@ -1,16 +1,16 @@
 ---
-title: 'A sample test for syntax highlightning'
-description: 'You know what it is'
-pubDate: 'Oct 31 2023'
-takeaways: ['hey', 'du']
+title: "A sample test for syntax highlightning"
+description: "You know what it is"
+pubDate: "Oct 31 2023"
+takeaways: ["hey", "du"]
 ---
 
 ```html
 <script>
-  let count = 0
+  let count = 0;
 
   function handleClick() {
-    count += 1
+    count += 1;
   }
 </script>
 
@@ -20,7 +20,7 @@ takeaways: ['hey', 'du']
 ```
 
 ```css
-.some-class{
+.some-class {
   --custom-properties: 100svh;
   display: grid;
   grid-columns: 1/-1;
@@ -28,7 +28,7 @@ takeaways: ['hey', 'du']
 ```
 
 ```ts
-import { object, string } from 'valibot'; // 0.63 kB
+import { object, string } from "valibot"; // 0.63 kB
 
 // TypeScript
 type LoginForm = {
@@ -41,4 +41,6 @@ const LoginSchema = object({
   email: string(),
   password: string(),
 });
+
+// areaaaaaaaaaaaaaaallllllllllyyyyyyyyyreaaaaaaaaaaaaaaallllllllllyyyyyyyyyloooooooong text
 ```
