@@ -9,28 +9,35 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <SiteLayout>
-  <section>
+  <section class="u-grid">
     {
       posts.map((post) => (
-        <a href={`/blog/${post.slug}/`}>
-          {post.data.heroImage && (
-            <img
-              width={720}
-              height={360}
-              src={post.data.heroImage}
-              alt=""
-              transition:name="hero"
-            />
-          )}
-
-          <h4 class="title">{post.data.title}</h4>
+        <div>
           <p class="date">
             <FormattedDate date={post.data.pubDate} />
           </p>
-        </a>
+          <a href={`/blog/${post.slug}/`}>
+            {post.data.heroImage && (
+              <img
+                width={720}
+                height={360}
+                src={post.data.heroImage}
+                alt=""
+                transition:name="hero"
+              />
+            )}
+
+            <h4 class="title h6">{post.data.title}</h4>
+          </a>
+        </div>
       ))
     }
   </section>
 </SiteLayout>
 
-<style></style>
+<style>
+  .date {
+    color: var(--secondary-300);
+    font-size: var(--step--1);
+  }
+</style>

@@ -56,18 +56,19 @@ pre {
 
 html {
   font-size: var(--step-0);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  display: grid;
   font-family: "Epilogue", sans-serif;
   font-weight: 350;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: max-content;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -133,35 +134,36 @@ li p {
 
 a {
   color: inherit;
-  transition: color linear 0.15s;
-
-  text-decoration-color: blue;
-  text-decoration: none;
+  text-decoration-color: transparent;
+  transition: color linear 0.15s, text-decoration linear 0.15s;
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--color-text);
+  text-decoration-color: var(--secondary-300);
 }
 
 p a {
   color: white;
-  text-decoration: underline;
-  text-decoration-color: var(--primary-color);
+  text-decoration-color: var(--tertiary-300);
+  text-decoration-line: underline;
+  /* text-decoration-color: var(--color-primary);
+  text-decoration-color: var(--primary-400); */
   font-weight: 600;
   outline-offset: var(--space-xs);
   outline-color: transparent;
 }
 
 :focus-visible {
-  outline: 3px solid var(--primary-color);
+  outline: 3px solid var(--color-primary);
   outline-offset: var(--space-2xs);
   border-radius: 12px;
 }
 
-p a:hover {
-  box-shadow: inset 0 -1.5em 0 var(--primary-color);
+/* p a:hover {
+  box-shadow: inset 0 -1.5em 0 var(--color-primary);
   color: #fff;
-}
+} */
 
 img {
   max-width: 100%;
@@ -211,8 +213,8 @@ p code {
   padding: 4.5px 6px;
   margin: 1px -1px; */
 
-  background-color: #000;
-  color: var(--astro-code-token-string);
+  background-color: var(--primary-900);
+  color: var(--primary-200);
   border: 2px solid #ccc3;
   font-size: calc(1em - 2px);
   padding: 2px var(--space-3xs);
@@ -224,7 +226,7 @@ pre {
   margin-block: var(--space-s);
   padding: var(--space-s);
   grid-column: 2 / span 10;
-  border: 4px solid rgb(255 255 255 / 10%);
+  border: 4px solid var(--surface-2);
   border-radius: var(--radius-3);
   grid-column: 2 / span 10;
   @media (--small) {
@@ -296,7 +298,7 @@ figure {
   --space-l6-sm: calc(var(--space-l6-lg) / 4);
 
   & :is(h1, h2, h3, h4, h5, h6) {
-    color: #d7d081;
+    color: var(--tertiary-200);
     /* margin-top: var(--space-m); */
     /* font-family: var(--font-monospace); */
   }

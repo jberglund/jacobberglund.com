@@ -6,7 +6,7 @@
   --color-accent: hsl(29, 43%, 54%);
 }
 :root[data-theme="dark"] {
-  --color-text: var(--primary-100);
+  --color-text: var(--gray-100);
   --color-background: var(--primary-1000);
   --color-primary: var(--primary-300);
   --color-secondary: var(--secondary-300);
@@ -16,7 +16,6 @@
 /* rgb(14, 16, 15) */
 
 :root {
-  --primary-color: oklch(52.94% 0.302 291);
   --radius-1: 0.15rem;
   --radius-2: 0.5rem;
   --radius-3: 0.75rem;
