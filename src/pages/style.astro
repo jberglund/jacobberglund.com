@@ -3,6 +3,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
 <SiteLayout>
+  <h1>Playground!</h1>
   <div class="palette">
     <div class="swatch" style="--swatch: var(--primary-100)"></div>
     <div class="swatch" style="--swatch: var(--primary-200)"></div>
@@ -36,6 +37,17 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     <div class="swatch" style="--swatch: var(--tertiary-800)"></div>
     <div class="swatch" style="--swatch: var(--tertiary-900)"></div>
     <div class="swatch" style="--swatch: var(--tertiary-1000)"></div>
+
+    <div class="swatch" style="--swatch: var(--gray-100)"></div>
+    <div class="swatch" style="--swatch: var(--gray-200)"></div>
+    <div class="swatch" style="--swatch: var(--gray-300)"></div>
+    <div class="swatch" style="--swatch: var(--gray-400)"></div>
+    <div class="swatch" style="--swatch: var(--gray-500)"></div>
+    <div class="swatch" style="--swatch: var(--gray-600)"></div>
+    <div class="swatch" style="--swatch: var(--gray-700)"></div>
+    <div class="swatch" style="--swatch: var(--gray-800)"></div>
+    <div class="swatch" style="--swatch: var(--gray-900)"></div>
+    <div class="swatch" style="--swatch: var(--gray-1000)"></div>
   </div>
   <div>
     <div class="card">
@@ -48,9 +60,10 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       </p>
     </div>
   </div>
-  <div class="gradients">
+  <!-- <div class="gradients">
     <div class="gradient"></div>
-  </div>
+    <div class="radial-gradient"></div>
+  </div> -->
 </SiteLayout>
 <style>
   .card {
@@ -87,5 +100,12 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       var(--secondary-400) 46%,
       var(--tertiary-200) 100%
     );
+  }
+
+  .radial-gradient{
+    background: radial-gradient(circle, var(--secondary-400) 0%, var(--color-background) 66% );
+    width: 80vw;
+    height: 80vw;
+    opacity: 0.6;
   }
 </style>
