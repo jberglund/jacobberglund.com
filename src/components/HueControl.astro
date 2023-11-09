@@ -1,0 +1,60 @@
+<div class="controls">
+  <div>
+    <label for="hue">Hue</label>
+    <input
+      id="hue"
+      name="hue"
+      type="range"
+      max="360"
+      value="230"
+      min="0"
+      step="1"
+    />
+    <output for="hue">230</output>
+  </div>
+
+  <div>
+    <label for="angle">Angle</label>
+    <input
+      id="angle"
+      name="angle"
+      type="range"
+      max="360"
+      value="40"
+      min="0"
+      step="1"
+    />
+    <output for="angle">40</output>
+  </div>
+</div>
+
+<style>
+  .controls {
+    width: 100%;
+    display: flex;
+    gap: var(--space-xs);
+    position: sticky;
+    bottom: 0%;
+    padding: var(--space-xs);
+  }
+</style>
+
+<script is:inline>
+const hue = document.querySelector('input[name="hue"]');
+hue.addEventListener("input", (event) => {
+  document.documentElement.style.setProperty(
+    "--hue-primary",
+    event.target.value
+  );
+  document.querySelector('output[for="hue"]').value = event.target.value;
+});
+
+const angle = document.querySelector('input[name="angle"]');
+angle.addEventListener("input", (event) => {
+  document.documentElement.style.setProperty(
+    "--hue-angle",
+    event.target.value
+  );
+  document.querySelector('output[for="angle"]').value = event.target.value;
+});
+</script>

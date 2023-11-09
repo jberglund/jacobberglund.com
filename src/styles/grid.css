@@ -11,6 +11,10 @@
   grid-template-columns: repeat(12, 1fr);
 }
 
+.u-grid[data-space="m"] {
+  gap: var(--space-m) var(--grid-gutter);
+}
+
 :where(.u-grid) > * {
   grid-column: 2 / -1;
   @media (--desktop) {
