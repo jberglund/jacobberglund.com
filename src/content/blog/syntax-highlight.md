@@ -51,6 +51,11 @@ takeaways: ["hey", "du"]
   display: grid;
   grid-columns: 1/-1;
 }
+@supports (display: grid) {
+  .some-class {
+    display: grid;
+  }
+}
 ```
 
 ```ts

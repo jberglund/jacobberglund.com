@@ -1,16 +1,27 @@
 ---
-interface Props {
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
   gap?: "l" | "xl" | "m" | "xs" | "2xs" | "3xs";
   justifyContent?: "between" | "center" | "around" | "start" | "end";
   alignItems?: "center" | "start" | "end";
-}
+}>;
 
-const { gap, justifyContent = "start", alignItems = "start" } = Astro.props;
+const {
+  as: Tag = "div",
+  class: providedProps,
+  gap,
+  justifyContent = "start",
+  alignItems = "start",
+  ...props
+} = Astro.props;
+const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItems} flex`;
 ---
 
-<div class=`gap-${gap} justify-${justifyContent} align-${alignItems} flex`>
+<Tag {...props} class:list={[componentClasses, providedProps]}>
   <slot />
-</div>
+</Tag>
 
 <style>
   .flex {

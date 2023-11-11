@@ -15,7 +15,8 @@
 
 :root[data-theme="dark"] {
   --hue-angle: 30;
-  --hue-primary: 200;
+  --hue-angle: 100;
+  --hue-primary: 285;
   --primary-100: oklch(99% 0.05 var(--hue-primary));
   --primary-200: oklch(90% 0.1 var(--hue-primary));
   --primary-300: oklch(80% 0.2 var(--hue-primary));
