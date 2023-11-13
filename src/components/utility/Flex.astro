@@ -1,22 +1,37 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
+const flex = {
+  gap: ["none", "3xs", "2xs", "xs", "s", "m", "l", "xl", "gutter"],
+  justifyContent: ["between", "center", "around", "start", "end"],
+  alignItems: ["center", "start", "end"],
+  direction: ["column", "row"],
+  grow: ["1"],
+} as const;
+
+type Flex = typeof flex;
+
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
-  gap?: "l" | "xl" | "m" | "xs" | "2xs" | "3xs";
-  justifyContent?: "between" | "center" | "around" | "start" | "end";
-  alignItems?: "center" | "start" | "end";
+  gap?: Flex["gap"][number];
+  justifyContent?: Flex["justifyContent"][number];
+  alignItems?: Flex["alignItems"][number];
+  direction?: Flex["direction"][number];
+  grow?: Flex["grow"][number];
 }>;
 
 const {
   as: Tag = "div",
   class: providedProps,
   gap,
-  justifyContent = "start",
-  alignItems = "start",
+  justifyContent,
+  alignItems,
+  direction,
+  grow,
   ...props
 } = Astro.props;
-const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItems} flex`;
+
+const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItems} direction-${direction} grow-${grow} flex`;
 ---
 
 <Tag {...props} class:list={[componentClasses, providedProps]}>
@@ -28,6 +43,9 @@ const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItem
     display: flex;
   }
 
+  .gap-none {
+    gap: 0;
+  }
   .gap-l {
     gap: var(--space-l);
   }
@@ -49,17 +67,20 @@ const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItem
   .gap-3xs {
     gap: var(--space-3xs);
   }
+  .gap-gutter {
+    gap: var(--grid-gutter);
+  }
 
   .align-center {
     align-items: center;
   }
 
   .align-start {
-    align-items: start;
+    align-items: flex-start;
   }
 
   .align-end {
-    align-items: end;
+    align-items: flex-end;
   }
 
   .justify-between {
@@ -75,10 +96,22 @@ const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItem
   }
 
   .justify-start {
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .justify-end {
-    justify-content: end;
+    justify-content: flex-end;
+  }
+
+  .direction-column {
+    flex-direction: column;
+  }
+
+  .direction-row {
+    flex-direction: row;
+  }
+
+  .grow-1 {
+    flex-grow: 1;
   }
 </style>

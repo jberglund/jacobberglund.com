@@ -1,0 +1,74 @@
+---
+import Flex from "@components/utility/Flex.astro";
+import { Code } from "astro:components";
+
+type Props = {
+  test: string;
+  class?: string;
+};
+const { test, class: providedClass } = Astro.props;
+---
+
+<Flex
+  justifyContent="between"
+  alignItems="center"
+  gap="2xs"
+  class:list={["supports js-css-supports", providedClass]}
+  data-test={test}
+  data-supported="undetermined"
+>
+  <Code
+    code={`@supports ( ${test} )`}
+    lang="css"
+    inline
+    theme="css-variables"
+  />
+</Flex>
+
+<script>
+  const elements = document.querySelectorAll(".js-css-supports");
+  elements.forEach((element) => {
+    if (element instanceof HTMLElement) {
+      const test = element.dataset.test!;
+      const supported = CSS.supports(test);
+      element.dataset.supported = supported ? "supported" : "unsupported";
+    }
+  });
+</script>
+
+<style>
+  [data-supported="undetermined"] {
+    --_background: var(--gray-900);
+    --_border: var(--gray-800);
+    filter: grayscale(50%);
+  }
+  [data-supported="unsupported"] {
+    --_background: var(--tertiary-900);
+    --_border: var(--tertiary-800);
+  }
+  [data-supported="supported"] {
+    --_background: var(--primary-900);
+    --_border: var(--primary-800);
+    text-decoration: none;
+    transition: filter 500ms ease;
+  }
+
+  [data-supported="unsupported"]:after {
+    content: "{ Nope :/ }";
+  }
+
+  [data-supported="supported"]:after {
+    content: "{ Yass! }";
+  }
+
+  .supports {
+    display: inline-flex;
+    font-size: var(--step--3);
+    border-radius: var(--radius-3);
+    border: 2px solid var(--_border);
+    background-color: var(--_background);
+    padding: 2px var(--space-3xs);
+    width: 100%;
+    font-family: var(--font-monospace);
+  }
+</style>

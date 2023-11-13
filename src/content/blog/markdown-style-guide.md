@@ -125,39 +125,80 @@ Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et
 
 Ad amet irure est magna id mollit Lorem in do duis enim. Excepteur velit nisi magna ea pariatur pariatur ullamco fugiat deserunt sint non sint. Duis duis est `code in text` velit velit aute culpa ex quis pariatur pariatur laborum aute pariatur duis tempor sunt ad. Irure magna voluptate dolore consectetur consectetur irure esse. Anim magna `<strong>in culpa qui officia</strong>` dolor eiusmod esse amet aute cupidatat aliqua do id voluptate cupidatat reprehenderit amet labore deserunt.
 
-### Highlighted
+### Syntax Highlight
 
 Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum Lorem proident. In sint dolor ullamco ad do adipisicing amet id excepteur Lorem aliquip sit irure veniam laborum duis cillum. Aliqua occaecat minim cillum deserunt magna sunt laboris do do irure ea nostrud consequat ut voluptate ex.
+
+#### HTML
 
 ```html
 <div class="md:flex">
   <div class="md:flex-shrink-0">
     <img
       class="rounded-lg md:w-56"
-      src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
-      alt="Woman paying for a purchase"
+      src="some-random-image.jpg"
+      alt="A picture of some random file"
     />
   </div>
   <div class="mt-4 md:mt-0 md:ml-6">
     <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
-      Marketing
+      Avast ye, landlubber. Here be treasure. Treasure, I tell ye!
     </div>
     <a
       href="#"
       class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-      >Finding customers for your new business</a
+      >Finding gold for your new treasury</a
     >
     <p class="mt-2 text-gray-600">
-      Getting a new business off the ground is a lot of hard work. Here are five
-      ideas you can use to find your first customers.
+      Getting a new treasury off the ground is a lot of hard work. Here are five
+      ideas you can use to get started on your new hoard.
     </p>
   </div>
 </div>
 ```
 
-Ex amet id ex aliquip id do laborum excepteur exercitation elit sint commodo occaecat nostrud est. Nostrud pariatur esse veniam laborum non sint magna sit laboris minim in id. Aliqua pariatur pariatur excepteur adipisicing irure culpa consequat commodo et ex id ad.
+#### CSS
+
+```css
+.some-class {
+  --custom-properties: 100svh;
+  display: grid;
+  grid-columns: 1/-1;
+}
+@supports (display: grid) {
+  .some-class {
+    display: grid;
+  }
+}
+```
+
+#### Typescript
+
+```ts
+import { object, string } from "valibot"; // 0.63 kB
+
+// TypeScript
+type LoginForm = {
+  email: string;
+  password: string;
+};
+
+// Valibot
+const LoginSchema = object({
+  email: string(),
+  password: string(),
+});
+
+// reaaaaaaaaaaaaaaallllllllllyyyyyyyyyreaaaaaaaaaaaaaaallllllllllyyyyyyyyyloooooooong text
+```
+
+#### Mixed
 
 ```html
+<button on:click="{handleClick}">
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+
 <script>
   let count = 0;
 
@@ -166,9 +207,13 @@ Ex amet id ex aliquip id do laborum excepteur exercitation elit sint commodo occ
   }
 </script>
 
-<button on:click="{handleClick}">
-  Clicked {count} {count === 1 ? 'time' : 'times'}
-</button>
+<style>
+  @supports (grid-columns) {
+    .span-all-the-columns {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
 ```
 
 ### <a name="Inline"></a>Inline elements

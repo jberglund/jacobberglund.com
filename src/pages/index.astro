@@ -1,7 +1,43 @@
 ---
-import SiteLayout from "../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "@components/formatters/FormattedDate.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <SiteLayout>
-  <h1>tjena</h1>
+  <section class="u-grid">
+    {
+      posts.map((post) => (
+        <div>
+          <p class="date">
+            <FormattedDate date={post.data.pubDate} />
+          </p>
+          <a href={`/blog/${post.slug}/`}>
+            {post.data.heroImage && (
+              <img
+                width={720}
+                height={360}
+                src={post.data.heroImage}
+                alt=""
+                transition:name="hero"
+              />
+            )}
+
+            <h4 class="title h6">{post.data.title}</h4>
+          </a>
+        </div>
+      ))
+    }
+  </section>
 </SiteLayout>
+
+<style>
+  .date {
+    color: var(--secondary-300);
+    font-size: var(--step--1);
+  }
+</style>

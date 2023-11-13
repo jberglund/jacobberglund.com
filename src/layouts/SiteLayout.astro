@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { ViewTransitions } from "astro:transitions";
-import HueControl from "../components/HueControl.astro";
 ---
 
 <!doctype html>
@@ -13,22 +12,25 @@ import HueControl from "../components/HueControl.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <ViewTransitions />
   </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main class="u-container">
-      <slot />
-    </main>
+  <body class="layout">
+    <div class="layout-content">
+      <Header title={SITE_TITLE} />
+      <main class="u-container">
+        <slot />
+      </main>
+    </div>
     <Footer />
-
-    <HueControl />
-    <script>
-      document.addEventListener(
-        "astro:load",
-        () => {
-          console.log("once");
-        },
-        { once: true }
-      );
-    </script>
+    <style>
+      .layout {
+        display: grid;
+        min-height: 100svh;
+        grid-template-rows: auto 1fr;
+      }
+      .layout-content {
+        min-height: 100svh;
+        display: grid;
+        grid-template-rows: max-content auto;
+      }
+    </style>
   </body>
 </html>

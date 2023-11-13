@@ -1,0 +1,55 @@
+---
+title: "Stuff I used building this website"
+description: "You know what it is"
+pubDate: "Oct 31 2023"
+---
+
+import CSSSupport from "@components/CSS/CSSSupport.astro";
+
+<CSSSupport test={"display: grid"} />
+<CSSSupport test={"margin-block: auto"} />
+<CSSSupport test={"display: flex"} />
+<CSSSupport test={"text-box-edge: ex alphabetic"} />
+
+I suppose an introduction is in order. I'm Jacob and I have been building
+web things for over a decade now. About five years ago I started doing mainly
+web app development (read: React) and as such, my career as a maker of consumer
+facing website came to a natural stop. Instead of mainly juggling CMSes I was
+trying to make React behave nicely with D3. A learning curve, to be sure. Not
+D3, but React. I'll admit: I did not like class components. A bit too much
+boilerplate for my taste. Then, enter Functional Component. My Javascript
+knowledge went from passable to proefficient. Life was good.
+
+### Modern CSS features present on this site
+
+Please excuse the profanity — I fucking love the web. And let me tell you, 2023 is a damn good year for web development.
+I get ahead of myself. Why is it better? Several reasons, in fact:
+
+- Browsers auto updates and users tend to let them do it.
+- The Web Platform Tests https://web-platform-tests.org/intro-video-transcript.html
+- The Interop initiave, which started in 2022 and now https://wpt.fyi/interop-2023
+
+### Interop
+
+You noticed that we vendor prefixes stopped being a thing? Vendor prefixes gave browsers a way to push forward, but it also introduced divergence, Before Interop and The Web Platform Tests we were reliant on browser vendors agreeing to do the same thing.
+I remember thinking "oh, nice, hehe, see you in 4 years".
+Well, whaddayaknow Cascade Layers sits at 93.19% https://caniuse.com/css-cascade-layers
+"One of the big new web-platform features in 2022 was Cascade Layers".
+
+In summary, the Web Platform Tests project has had a positive impact on the development of web browsers by promoting interoperability, consistency, and a collaborative approach to implementing and evolving web standards. It has become a crucial tool in the web development ecosystem, contributing to a more stable and predictable web platform.
+
+```css
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+```
+
+Explainer: So smooth scrolling has been done with JS for quite some time.
+
+- p3-color
+- focus-visible
+
+Things on the horizon:
+https://web.dev/articles/css-trig-functions

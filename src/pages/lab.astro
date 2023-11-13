@@ -1,5 +1,5 @@
 ---
-import CSSSupports from "../components/CSSSupports.astro";
+import CSSSupport from "../components/CSS/CSSSupport.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
@@ -9,14 +9,27 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       <h1 class="h3">Welcome to the lab!</h1>
       <p>A workbench for mad science.</p>
     </div>
-    <CSSSupports
-      tests={[
-        "color: oklch(100% 0 0)",
-        "grid-column: subgrid",
-        "content-visibility: visible",
-        "text-box-edge: ex alphabetic",
-      ]}
-    />
+    <div>
+      <h2 class="h5">Features featured on this site:</h2>
+      <CSSSupport test={"text-wrap: balance"} />
+      <CSSSupport test={"text-wrap: pretty"} />
+      <CSSSupport test={"color: oklch(100% 0 0)"} />
+      <CSSSupport test={"content-visibility: visible"} />
+      <CSSSupport test={"grid-column: subgrid"} />
+      <CSSSupport test={"-webkit-box-decoration-break: clone"} />
+      <CSSSupport test={"selector(&)"} />
+
+      <h2 class="h5">Looking to try out:</h2>
+      <CSSSupport test={"view-transition-name: are-we-there-yet"} />
+      <CSSSupport test={"text-box-edge: ex alphabetic"} />
+      <CSSSupport
+        test={"offset: path('M 100 100 L 300 100 L 200 300 z') auto"}
+        <CSSSupport
+        test={"translate: calc(cos(30deg) * 10vmin)"}
+      />
+      <CSSSupport test={"translate: calc(sin(30deg) * 100svh)"} />
+       />
+    </div>
     <div class="palette">
       <div class="swatch swatch-title">Primary</div>
       <div class="swatch" style="--swatch: var(--primary-100)">100</div>
@@ -98,11 +111,11 @@ import SiteLayout from "../layouts/SiteLayout.astro";
         </p>
       </div>
     </div>
-    <div class="gradients">
+    <!-- <div class="gradients">
       <div class="gradient"></div>
       <div class="radial-gradient" style="--from: var(--primary-200"></div>
       <div class="radial-gradient"></div>
-    </div>
+    </div> -->
   </div>
 </SiteLayout>
 <style>
@@ -143,7 +156,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
   .swatch-title {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     padding: var(--space-3xs);
     color: var(--gray-200);

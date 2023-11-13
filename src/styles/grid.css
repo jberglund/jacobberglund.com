@@ -23,5 +23,5 @@
 }
 
 :where(.u-grid) .u-full {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
 }

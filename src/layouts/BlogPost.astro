@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import FormattedDate from "../components/FormattedDate.astro";
-import Flex from "../components/utility/Flex.astro";
+import FormattedDate from "@components/formatters/FormattedDate.astro";
+import Flex from "@components/utility/Flex.astro";
 import SiteLayout from "./SiteLayout.astro";
-import KeyTakeaways from "../components/KeyTakeaways.astro";
+import KeyTakeaways from "@components/KeyTakeaways.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -70,8 +70,7 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
       grid-column: 2 / span 11;
     }
   }
-  .blog-heading {
-  }
+
   .meta {
     font-size: var(--step--1);
   }
