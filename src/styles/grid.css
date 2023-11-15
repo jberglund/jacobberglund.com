@@ -18,10 +18,16 @@
 :where(.u-grid) > * {
   grid-column: 2 / -1;
   @media (--desktop) {
-    grid-column: 5 / span 7;
+    grid-column: 3 / span 7;
   }
 }
 
 :where(.u-grid) .u-full {
   grid-column: 1 / -1;
+}
+
+:where(.u-grid) .u-stretch {
+  @media (--desktop) {
+    grid-column: 3/ -1;
+  }
 }

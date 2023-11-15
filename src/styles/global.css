@@ -126,18 +126,22 @@ a {
   transition: color linear 0.15s, text-decoration linear 0.15s;
 }
 
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--primary-200, currentColor);
+  text-decoration-color: var(--gray-600);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 0.15em;
+  font-weight: 500;
+  outline-offset: var(--space-xs);
+  outline-color: transparent;
+}
+
 a:hover {
   color: var(--color-text);
   text-decoration-color: var(--secondary-300);
-}
-
-p a {
-  color: white;
-  text-decoration-color: var(--tertiary-300);
-  text-decoration-line: underline;
-  font-weight: 600;
-  outline-offset: var(--space-xs);
-  outline-color: transparent;
 }
 
 :focus-visible {

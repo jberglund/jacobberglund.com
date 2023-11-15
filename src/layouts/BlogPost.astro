@@ -30,7 +30,7 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
       )
     }
 
-    <header class="blog-header">
+    <header class="blog-header u-stretch">
       <h1 class="blog-heading">{title}</h1>
       <div class="meta">
         <Flex gap="m">
@@ -63,12 +63,9 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
   .blog-header {
     padding-top: var(--space-2xl);
     padding-bottom: var(--space-l);
-    grid-column: 2 / -1;
+    /* grid-column: 2 / -1; */
     display: grid;
     gap: var(--space-xs);
-    @media (--desktop) {
-      grid-column: 2 / span 11;
-    }
   }
 
   .meta {
