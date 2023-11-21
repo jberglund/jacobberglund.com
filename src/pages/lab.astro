@@ -1,4 +1,5 @@
 ---
+import HueControl from "@components/HueControl.astro";
 import CSSSupport from "../components/CSS/CSSSupport.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
@@ -24,60 +25,86 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       <CSSSupport test={"text-box-edge: ex alphabetic"} />
       <CSSSupport
         test={"offset: path('M 100 100 L 300 100 L 200 300 z') auto"}
-        <CSSSupport
-        test={"translate: calc(cos(30deg) * 10vmin)"}
       />
+      <CSSSupport test={"translate: calc(cos(30deg) * 10vmin)"} />
       <CSSSupport test={"translate: calc(sin(30deg) * 100svh)"} />
-       />
     </div>
-    <div class="palette">
-      <div class="swatch swatch-title">Primary</div>
-      <div class="swatch" style="--swatch: var(--primary-100)">100</div>
-      <div class="swatch" style="--swatch: var(--primary-200)">200</div>
-      <div class="swatch" style="--swatch: var(--primary-300)">300</div>
-      <div class="swatch" style="--swatch: var(--primary-400)">400</div>
-      <div class="swatch" style="--swatch: var(--primary-500)">500</div>
-      <div class="swatch" style="--swatch: var(--primary-600)">600</div>
-      <div class="swatch" style="--swatch: var(--primary-700)">700</div>
-      <div class="swatch" style="--swatch: var(--primary-800)">800</div>
-      <div class="swatch" style="--swatch: var(--primary-900)">900</div>
-      <div class="swatch" style="--swatch: var(--primary-1000)">1000</div>
-
-      <div class="swatch swatch-title">Secondary</div>
-      <div class="swatch" style="--swatch: var(--secondary-100)">100</div>
-      <div class="swatch" style="--swatch: var(--secondary-200)">200</div>
-      <div class="swatch" style="--swatch: var(--secondary-300)">300</div>
-      <div class="swatch" style="--swatch: var(--secondary-400)">400</div>
-      <div class="swatch" style="--swatch: var(--secondary-500)">500</div>
-      <div class="swatch" style="--swatch: var(--secondary-600)">600</div>
-      <div class="swatch" style="--swatch: var(--secondary-700)">700</div>
-      <div class="swatch" style="--swatch: var(--secondary-800)">800</div>
-      <div class="swatch" style="--swatch: var(--secondary-900)">900</div>
-      <div class="swatch" style="--swatch: var(--secondary-1000)">1000</div>
-
-      <div class="swatch swatch-title">Tertiary</div>
-      <div class="swatch" style="--swatch: var(--tertiary-100)">100</div>
-      <div class="swatch" style="--swatch: var(--tertiary-200)">200</div>
-      <div class="swatch" style="--swatch: var(--tertiary-300)">300</div>
-      <div class="swatch" style="--swatch: var(--tertiary-400)">400</div>
-      <div class="swatch" style="--swatch: var(--tertiary-500)">500</div>
-      <div class="swatch" style="--swatch: var(--tertiary-600)">600</div>
-      <div class="swatch" style="--swatch: var(--tertiary-700)">700</div>
-      <div class="swatch" style="--swatch: var(--tertiary-800)">800</div>
-      <div class="swatch" style="--swatch: var(--tertiary-900)">900</div>
-      <div class="swatch" style="--swatch: var(--tertiary-1000)">1000</div>
-
-      <div class="swatch swatch-title">Gray</div>
-      <div class="swatch" style="--swatch: var(--gray-100)">100</div>
-      <div class="swatch" style="--swatch: var(--gray-200)">200</div>
-      <div class="swatch" style="--swatch: var(--gray-300)">300</div>
-      <div class="swatch" style="--swatch: var(--gray-400)">400</div>
-      <div class="swatch" style="--swatch: var(--gray-500)">500</div>
-      <div class="swatch" style="--swatch: var(--gray-600)">600</div>
-      <div class="swatch" style="--swatch: var(--gray-700)">700</div>
-      <div class="swatch" style="--swatch: var(--gray-800)">800</div>
-      <div class="swatch" style="--swatch: var(--gray-900)">900</div>
-      <div class="swatch" style="--swatch: var(--gray-1000)">1000</div>
+    <HueControl />
+    <div class="palettes">
+      <!-- <div class="palette">
+        <div class="swatch swatch-title">Primary</div>
+        <div class="swatch" style="--swatch: #ecfdf5">100</div>
+        <div class="swatch" style="--swatch: #d1fae5">200</div>
+        <div class="swatch" style="--swatch: #a7f3d0">300</div>
+        <div class="swatch" style="--swatch: #86efac">400</div>
+        <div class="swatch" style="--swatch: #4ade80">500</div>
+        <div class="swatch" style="--swatch: #22c55e">600</div>
+        <div class="swatch" style="--swatch: #16a34a">700</div>
+        <div class="swatch" style="--swatch: #15803d">800</div>
+        <div class="swatch" style="--swatch: #166534">900</div>
+        <div class="swatch" style="--swatch: #14532d">950</div>
+        <div class="swatch" style="--swatch: #022c22">1000</div>
+      </div> -->
+      <div class="palette">
+        <div class="swatch swatch-title">Primary</div>
+        <div class="swatch" style="--swatch: var(--primary-50)">50</div>
+        <div class="swatch" style="--swatch: var(--primary-100)">100</div>
+        <div class="swatch" style="--swatch: var(--primary-200)">200</div>
+        <div class="swatch" style="--swatch: var(--primary-300)">300</div>
+        <div class="swatch" style="--swatch: var(--primary-400)">400</div>
+        <div class="swatch" style="--swatch: var(--primary-500)">500</div>
+        <div class="swatch" style="--swatch: var(--primary-600)">600</div>
+        <div class="swatch" style="--swatch: var(--primary-700)">700</div>
+        <div class="swatch" style="--swatch: var(--primary-800)">800</div>
+        <div class="swatch" style="--swatch: var(--primary-900)">900</div>
+        <div class="swatch" style="--swatch: var(--primary-950)">950</div>
+        <div class="swatch" style="--swatch: var(--primary-1000)">1000</div>
+      </div>
+      <div class="palette">
+        <div class="swatch swatch-title">Secondary</div>
+        <div class="swatch" style="--swatch: var(--secondary-50)">50</div>
+        <div class="swatch" style="--swatch: var(--secondary-100)">100</div>
+        <div class="swatch" style="--swatch: var(--secondary-200)">200</div>
+        <div class="swatch" style="--swatch: var(--secondary-300)">300</div>
+        <div class="swatch" style="--swatch: var(--secondary-400)">400</div>
+        <div class="swatch" style="--swatch: var(--secondary-500)">500</div>
+        <div class="swatch" style="--swatch: var(--secondary-600)">600</div>
+        <div class="swatch" style="--swatch: var(--secondary-700)">700</div>
+        <div class="swatch" style="--swatch: var(--secondary-800)">800</div>
+        <div class="swatch" style="--swatch: var(--secondary-900)">900</div>
+        <div class="swatch" style="--swatch: var(--secondary-950)">950</div>
+        <div class="swatch" style="--swatch: var(--secondary-1000)">1000</div>
+      </div>
+      <div class="palette">
+        <div class="swatch swatch-title">Tertiary</div>
+        <div class="swatch" style="--swatch: var(--tertiary-50)">50</div>
+        <div class="swatch" style="--swatch: var(--tertiary-100)">100</div>
+        <div class="swatch" style="--swatch: var(--tertiary-200)">200</div>
+        <div class="swatch" style="--swatch: var(--tertiary-300)">300</div>
+        <div class="swatch" style="--swatch: var(--tertiary-400)">400</div>
+        <div class="swatch" style="--swatch: var(--tertiary-500)">500</div>
+        <div class="swatch" style="--swatch: var(--tertiary-600)">600</div>
+        <div class="swatch" style="--swatch: var(--tertiary-700)">700</div>
+        <div class="swatch" style="--swatch: var(--tertiary-800)">800</div>
+        <div class="swatch" style="--swatch: var(--tertiary-900)">900</div>
+        <div class="swatch" style="--swatch: var(--tertiary-950)">950</div>
+        <div class="swatch" style="--swatch: var(--tertiary-1000)">1000</div>
+      </div>
+      <div class="palette">
+        <div class="swatch swatch-title">Gray</div>
+        <div class="swatch" style="--swatch: var(--gray-50)">50</div>
+        <div class="swatch" style="--swatch: var(--gray-100)">100</div>
+        <div class="swatch" style="--swatch: var(--gray-200)">200</div>
+        <div class="swatch" style="--swatch: var(--gray-300)">300</div>
+        <div class="swatch" style="--swatch: var(--gray-400)">400</div>
+        <div class="swatch" style="--swatch: var(--gray-500)">500</div>
+        <div class="swatch" style="--swatch: var(--gray-600)">600</div>
+        <div class="swatch" style="--swatch: var(--gray-700)">700</div>
+        <div class="swatch" style="--swatch: var(--gray-800)">800</div>
+        <div class="swatch" style="--swatch: var(--gray-900)">900</div>
+        <div class="swatch" style="--swatch: var(--gray-950)">950</div>
+        <div class="swatch" style="--swatch: var(--gray-1000)">1000</div>
+      </div>
     </div>
 
     <div class="cards u-full">
@@ -136,11 +163,15 @@ import SiteLayout from "../layouts/SiteLayout.astro";
   small {
     color: var(--text-2);
   }
+
+  .palettes {
+    display: flex;
+  }
   .palette {
     width: 100%;
     display: grid;
     grid-auto-columns: var(--space-3xl);
-    grid-template-rows: repeat(11, var(--space-xl));
+    grid-template-rows: repeat(13, var(--space-xl));
     grid-auto-flow: column;
     justify-content: center;
   }

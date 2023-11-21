@@ -9,6 +9,22 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <SiteLayout>
+  <div>
+    <p>
+      Yello! I am a passionate frontend developer with over a decade of work
+      experience.
+    </p><p>
+      And lemme tell you — I've seen some weird stuff. I have used tables for
+      layouts before we even had CSS. Created grids with floats. Even used float
+      for what it was meant to do. @font-face? That is new compared to the
+      techniques like sIFR and Cufón to include non-system typefaces. The rise
+      and fall of Flash (thankyouverymuch).
+    </p><p>
+      Yep, truly ancient in web years, but just as passionate about developing
+      for the web. I love this gig and I love crafting delightful user
+      interfaces.
+    </p>
+  </div>
   <section class="u-grid">
     {
       posts.map((post) => (
@@ -18,13 +34,7 @@ const posts = (await getCollection("blog")).sort(
           </p>
           <a href={`/blog/${post.slug}/`}>
             {post.data.heroImage && (
-              <img
-                width={720}
-                height={360}
-                src={post.data.heroImage}
-                alt=""
-                transition:name="hero"
-              />
+              <img width={720} height={360} src={post.data.heroImage} alt="" />
             )}
 
             <h4 class="title h6">{post.data.title}</h4>

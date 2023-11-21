@@ -4,7 +4,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 const flex = {
   gap: ["none", "3xs", "2xs", "xs", "s", "m", "l", "xl", "gutter"],
   justifyContent: ["between", "center", "around", "start", "end"],
-  alignItems: ["center", "start", "end"],
+  alignItems: ["center", "start", "end", "baseline"],
   direction: ["column", "row"],
   grow: ["1"],
 } as const;
@@ -71,6 +71,9 @@ const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItem
     gap: var(--grid-gutter);
   }
 
+  .align-baseline {
+    align-items: baseline;
+  }
   .align-center {
     align-items: center;
   }

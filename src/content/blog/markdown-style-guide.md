@@ -175,7 +175,7 @@ Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum Lorem proid
 #### Typescript
 
 ```ts
-import { object, string } from "valibot"; // 0.63 kB
+import { derp, boop, bleep } from "valibot"; // 0.63 kB
 
 // TypeScript
 type LoginForm = {

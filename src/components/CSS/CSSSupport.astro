@@ -26,13 +26,19 @@ const { test, class: providedClass } = Astro.props;
 </Flex>
 
 <script>
-  const elements = document.querySelectorAll(".js-css-supports");
-  elements.forEach((element) => {
-    if (element instanceof HTMLElement) {
-      const test = element.dataset.test!;
-      const supported = CSS.supports(test);
-      element.dataset.supported = supported ? "supported" : "unsupported";
-    }
+  function doTheThing() {
+    const elements = document.querySelectorAll(".js-css-supports");
+    elements.forEach((element) => {
+      if (element instanceof HTMLElement) {
+        const test = element.dataset.test as string;
+        const supported = CSS.supports(test);
+        element.dataset.supported = supported ? "supported" : "unsupported";
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    doTheThing();
   });
 </script>
 

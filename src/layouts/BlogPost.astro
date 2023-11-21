@@ -5,6 +5,7 @@ import FormattedDate from "@components/formatters/FormattedDate.astro";
 import Flex from "@components/utility/Flex.astro";
 import SiteLayout from "./SiteLayout.astro";
 import KeyTakeaways from "@components/KeyTakeaways.astro";
+import SlideUp from "@components/Animations/SlideUp.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -16,41 +17,42 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
   <article class="u-grid">
     {
       heroImage && (
-        <div class="hero-image">
-          {heroImage && (
-            <img
-              transition:name="hero"
-              width={1020}
-              height={510}
-              src={heroImage}
-              alt=""
-            />
-          )}
-        </div>
+        <SlideUp index={0}>
+          <div class="hero-image">
+            {heroImage && (
+              <img width={1020} height={510} src={heroImage} alt="" />
+            )}
+          </div>
+        </SlideUp>
       )
     }
 
     <header class="blog-header u-stretch">
-      <h1 class="blog-heading">{title}</h1>
-      <div class="meta">
-        <Flex gap="m">
-          <div class="date">
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
-            <FormattedDate date={pubDate} />
-          </div>
-        </Flex>
-      </div>
+      <SlideUp index={1}>
+        <h1 class="blog-heading">{title}</h1>
+
+        <div class="meta">
+          <Flex gap="m">
+            <div class="date">
+              {
+                updatedDate && (
+                  <div class="last-updated-on">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+              <FormattedDate date={pubDate} />
+            </div>
+          </Flex>
+        </div>
+      </SlideUp>
     </header>
 
     {takeaways && <KeyTakeaways items={takeaways} />}
     <div class="prose u-grid">
-      <slot />
+      <SlideUp index={2}>
+        <slot />
+      </SlideUp>
     </div>
   </article>
 </SiteLayout>

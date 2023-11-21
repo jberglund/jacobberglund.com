@@ -1,5 +1,9 @@
+---
+import Flex from "./utility/Flex.astro";
+---
+
 <div class="controls">
-  <div>
+  <Flex gap="2xs" alignItems="baseline">
     <label for="hue">Hue</label>
     <input
       id="hue"
@@ -11,9 +15,9 @@
       step="1"
     />
     <output for="hue">230</output>
-  </div>
+  </Flex>
 
-  <div>
+  <Flex gap="2xs" alignItems="baseline">
     <label for="angle">Angle</label>
     <input
       id="angle"
@@ -25,7 +29,7 @@
       step="1"
     />
     <output for="angle">40</output>
-  </div>
+  </Flex>
 </div>
 
 <style>
@@ -34,27 +38,31 @@
     display: flex;
     gap: var(--space-xs);
     position: sticky;
-    bottom: 0%;
+    top: 0%;
     padding: var(--space-xs);
+    z-index: 100;
+  }
+  output {
+    width: 5ch;
   }
 </style>
 
 <script is:inline>
-const hue = document.querySelector('input[name="hue"]');
-hue.addEventListener("input", (event) => {
-  document.documentElement.style.setProperty(
-    "--hue-primary",
-    event.target.value
-  );
-  document.querySelector('output[for="hue"]').value = event.target.value;
-});
+  const hue = document.querySelector('input[name="hue"]');
+  hue.addEventListener("input", (event) => {
+    document.documentElement.style.setProperty(
+      "--hue-primary",
+      event.target.value
+    );
+    document.querySelector('output[for="hue"]').value = event.target.value;
+  });
 
-const angle = document.querySelector('input[name="angle"]');
-angle.addEventListener("input", (event) => {
-  document.documentElement.style.setProperty(
-    "--hue-angle",
-    event.target.value
-  );
-  document.querySelector('output[for="angle"]').value = event.target.value;
-});
+  const angle = document.querySelector('input[name="angle"]');
+  angle.addEventListener("input", (event) => {
+    document.documentElement.style.setProperty(
+      "--hue-angle",
+      event.target.value
+    );
+    document.querySelector('output[for="angle"]').value = event.target.value;
+  });
 </script>
