@@ -65,13 +65,18 @@ const angle = "280";
     gap: var(--space-xs);
     position: sticky;
     top: var(--space-xs);
-    padding: var(--space-xs);
+    padding: var(--space-2xs) var(--space-xs);
     z-index: 100;
     border: 2px solid var(--primary-950);
     border-radius: var(--radius-2);
     background-color: var(--primary-1000);
     container-type: inline-size;
     container-name: controls;
+
+    --shadow-color: color-mix(in oklch, var(--primary-1000) 60%, transparent);
+    box-shadow:
+      1px 4px 25px 12px var(--shadow-color),
+      1px 1px 6px 3px var(--shadow-color);
   }
 
   .control-wrapper {

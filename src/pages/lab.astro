@@ -168,10 +168,12 @@ import SiteLayout from "../layouts/SiteLayout.astro";
         </p>
       </div>
     </div> -->
-    <div class="gradients">
-      <div class="gradient"></div>
-      <div class="radial-gradient" style="--from: var(--primary-200"></div>
-      <div class="radial-gradient"></div>
+    <div class="gradients u-full">
+      <div class="gradient" data-variant="1"></div>
+      <div class="gradient" data-variant="2"></div>
+      <div class="gradient" data-variant="3"></div>
+      <!-- <div class="radial-gradient"></div>
+      <div class="radial-gradient"></div> -->
     </div>
   </div>
 </SiteLayout>
@@ -236,21 +238,47 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     text-align: right;
   }
 
+  .gradients {
+    display: flex;
+    /* flex-direction: column; */
+    gap: var(--space-l);
+  }
+
   .gradient {
-    height: 600px;
-    width: 200px;
+    flex-grow: 1;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-3);
     background-color: #4158d0;
     background-image: linear-gradient(
       43deg,
-      var(--primary-600) 0%,
-      var(--secondary-400) 46%,
-      var(--tertiary-200) 100%
+      var(--_start, var(--primary-600)) 0%,
+      var(--_center, var(--secondary-400)) 46%,
+      var(--_stop, var(--tertiary-200)) 100%
+    );
+  }
+
+  .gradient[data-variant="2"] {
+    --_start: var(--primary-300);
+    --_center: var(--tertiary-400);
+    --_stop: var(--secondary-600);
+  }
+
+  .gradient[data-variant="3"] {
+    --_start: var(--primary-300);
+    --_center: var(--tertiary-400);
+    --_stop: var(--secondary-600);
+
+    background: radial-gradient(
+      circle at -30% -30%,
+      var(--_start, var(--tertiary-600)) 0%,
+      var(--_center, var(--secondary-400)) 46%,
+      var(--_stop, var(--primary-100)) 100%
     );
   }
 
   .radial-gradient {
     background: radial-gradient(
-      circle,
+      circle at -40px 40px,
       var(--secondary-400) 0%,
       var(--color-background) 66%
     );
