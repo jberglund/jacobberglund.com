@@ -76,8 +76,9 @@ const angle = "280";
 
   .control-wrapper {
     flex-direction: column;
+    gap: var(--space-xs);
     @container controls (width > 700px) {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 
@@ -89,19 +90,18 @@ const angle = "280";
   }
 
   .wheel {
-    --_size: 3rem;
+    --_size: 3.5rem;
     --_point-size: 1ch;
+    @container controls (width < 700px) {
+      --_size: 6rem;
+      --_point-size: 2ch;
+    }
     display: block;
     width: var(--_size);
     height: var(--_size);
     aspect-ratio: 1;
     border-radius: 50%;
-    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-900);
-
-    /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect rx='1' width='1' height='1' x='0' y='3' fill='white' /%3E%3C/svg%3E");
-    background-size: 4px 4px;
-    background-repeat: repeat;
- */
+    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-950);
     position: relative;
   }
 
@@ -119,20 +119,19 @@ const angle = "280";
     width: var(--point-size);
     height: var(--point-size);
     border-radius: 50%;
-    box-shadow: 0px 0px 1px 1px #001c15;
   }
 
   .wheel-point[data-hue="primary"] {
     --angle: calc(var(--hue-primary) * 1deg);
-    --_color: var(--primary-500);
+    --_color: var(--primary-400);
   }
   .wheel-point[data-hue="secondary"] {
     --angle: calc(var(--hue-secondary) * 1deg);
-    --_color: var(--secondary-500);
+    --_color: var(--secondary-400);
   }
   .wheel-point[data-hue="tertiary"] {
     --angle: calc(var(--hue-tertiary) * 1deg);
-    --_color: var(--tertiary-500);
+    --_color: var(--tertiary-400);
   }
 
   input[type="range"] {
@@ -155,7 +154,7 @@ const angle = "280";
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -0.2rem;
-    box-shadow: 0px 0px 6px 4px #001c15;
+    box-shadow: 0px 0px 6px 4px var(--primary-1000);
   }
 
   input[type="range"]::-webkit-slider-runnable-track {

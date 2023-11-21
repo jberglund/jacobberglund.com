@@ -22,13 +22,16 @@ html {
   --scrollbar-background: var(--gray-1000);
   scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
 }
+
 ::-webkit-scrollbar {
   width: 10px; /* Mostly for vertical scrollbars */
   height: 5px; /* Mostly for horizontal scrollbars */
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-foreground);
 }
+
 ::-webkit-scrollbar-track {
   background: var(--scrollbar-background);
 }
@@ -129,10 +132,11 @@ a {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a:not([class]),
+.link {
   text-decoration-skip-ink: auto;
-  color: var(--primary-200, currentColor);
-  text-decoration-color: var(--gray-600);
+  /* color: var(--primary-200, currentColor); */
+  text-decoration-color: var(--secondary-300);
   text-decoration-line: underline;
   text-decoration-style: dashed;
   text-underline-offset: 0.15em;
@@ -143,7 +147,7 @@ a:not([class]) {
 
 a:hover {
   color: var(--color-text);
-  text-decoration-color: var(--secondary-300);
+  text-decoration-color: var(--secondary-500);
 }
 
 :focus-visible {

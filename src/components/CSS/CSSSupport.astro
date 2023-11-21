@@ -53,19 +53,19 @@ const { test, class: providedClass } = Astro.props;
     --_border: var(--tertiary-800);
   }
   [data-supported="supported"] {
-    --_background: var(--primary-900);
-    --_border: var(--primary-800);
+    --_background: var(--primary-1000);
+    --_border: var(--primary-950);
     text-decoration: none;
     transition: filter 500ms ease;
   }
 
-  /* [data-supported="unsupported"]:after {
+  [data-supported="unsupported"]:after {
     content: "{ Nope :/ }";
   }
 
   [data-supported="supported"]:after {
     content: "{ Yass! }";
-  } */
+  }
 
   .css-supports {
     display: inline-flex;
@@ -73,7 +73,7 @@ const { test, class: providedClass } = Astro.props;
     border-radius: var(--radius-3);
     border: 2px solid var(--_border);
     background-color: var(--_background);
-    padding: 2px var(--space-3xs);
+    padding: var(--space-3xs) var(--space-xs);
     width: 100%;
     font-family: var(--font-monospace);
   }
