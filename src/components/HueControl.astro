@@ -1,35 +1,61 @@
 ---
 import Flex from "./utility/Flex.astro";
+const hue = "185";
+const angle = "280";
 ---
 
 <div class="controls">
-  <Flex gap="2xs" alignItems="baseline">
-    <label for="hue">Hue</label>
-    <input
-      id="hue"
-      name="hue"
-      type="range"
-      max="360"
-      value="230"
-      min="0"
-      step="1"
-    />
-    <output for="hue">230</output>
-  </Flex>
+  <Flex class="control-wrapper" grow="1">
+    <Flex
+      class="control-group"
+      gap="2xs"
+      grow="1"
+      alignItems="baseline"
+      direction="column"
+    >
+      <Flex justifyContent="between" style="width: 100%" alignItems="baseline">
+        <label for="hue">Primary Hue</label>
+        <output for="hue">{hue}</output>
+      </Flex>
+      <input
+        id="hue"
+        name="hue"
+        type="range"
+        max="360"
+        value={hue}
+        min="0"
+        step="1"
+      />
+    </Flex>
 
-  <Flex gap="2xs" alignItems="baseline">
-    <label for="angle">Angle</label>
-    <input
-      id="angle"
-      name="angle"
-      type="range"
-      max="360"
-      value="40"
-      min="0"
-      step="1"
-    />
-    <output for="angle">40</output>
+    <Flex
+      class="control-group"
+      gap="2xs"
+      grow="1"
+      alignItems="baseline"
+      direction="column"
+    >
+      <Flex justifyContent="between" style="width: 100%" alignItems="baseline">
+        <label for="angle">Distance</label>
+        <output for="angle">{angle}</output>
+      </Flex>
+      <input
+        id="angle"
+        name="angle"
+        type="range"
+        max="360"
+        value={angle}
+        min="0"
+        step="1"
+      />
+    </Flex>
   </Flex>
+  <div class="wheel">
+    <div class="wheel-indicator"></div>
+    <div class="wheel-point" data-hue="primary"></div>
+    <div class="wheel-point" data-hue="secondary"></div>
+    <div class="wheel-point" data-hue="tertiary"></div>
+  </div>
 </div>
 
 <style>
@@ -38,29 +64,132 @@ import Flex from "./utility/Flex.astro";
     display: flex;
     gap: var(--space-xs);
     position: sticky;
-    top: 0%;
+    top: var(--space-xs);
     padding: var(--space-xs);
     z-index: 100;
+    border: 2px solid var(--primary-950);
+    border-radius: var(--radius-2);
+    background-color: var(--primary-1000);
+    container-type: inline-size;
+    container-name: controls;
   }
+
+  .control-wrapper {
+    flex-direction: column;
+    @container controls (width > 700px) {
+      flex-direction: column;
+    }
+  }
+
   output {
     width: 5ch;
+    text-align: right;
+    font-family: var(--font-monospace);
+    color: var(--secondary-200);
+  }
+
+  .wheel {
+    --_size: 3rem;
+    --_point-size: 1ch;
+    display: block;
+    width: var(--_size);
+    height: var(--_size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-900);
+
+    /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect rx='1' width='1' height='1' x='0' y='3' fill='white' /%3E%3C/svg%3E");
+    background-size: 4px 4px;
+    background-repeat: repeat;
+ */
+    position: relative;
+  }
+
+  .wheel-point {
+    --angle: calc(var(--hue-primary) * 1deg);
+    --point-size: var(--_point-size);
+    --radius: calc((var(--_size) / 2) - (var(--point-size) / 2));
+    --x: calc(var(--radius) * cos(var(--angle)));
+    --y: calc(var(--radius) * sin(var(--angle)));
+
+    position: absolute;
+    transform: translateX(calc(var(--radius) + var(--x)))
+      translateY(calc(var(--radius) + var(--y)));
+    background-color: var(--_color, currentColor);
+    width: var(--point-size);
+    height: var(--point-size);
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #001c15;
+  }
+
+  .wheel-point[data-hue="primary"] {
+    --angle: calc(var(--hue-primary) * 1deg);
+    --_color: var(--primary-500);
+  }
+  .wheel-point[data-hue="secondary"] {
+    --angle: calc(var(--hue-secondary) * 1deg);
+    --_color: var(--secondary-500);
+  }
+  .wheel-point[data-hue="tertiary"] {
+    --angle: calc(var(--hue-tertiary) * 1deg);
+    --_color: var(--tertiary-500);
+  }
+
+  input[type="range"] {
+    unset: all;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    border: none;
+    height: 1rem;
+    width: 2rem;
+    border-radius: 6px;
+    background: #dadada;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -0.2rem;
+    box-shadow: 0px 0px 6px 4px #001c15;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.6rem;
+    width: 90%;
+    /* background-color: tomato; */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' x='0' y='0' fill='white' /%3E%3C/svg%3E");
+    background-size: 4px 4px;
+    background-repeat: repeat;
+    color: white;
   }
 </style>
 
 <script is:inline>
+  const properties = {
+    primary: "--hue-primary",
+    angle: "--hue-angle",
+  };
   const hue = document.querySelector('input[name="hue"]');
+  const root = getComputedStyle(document.documentElement);
+  hue.value = root.getPropertyValue(properties.primary);
   hue.addEventListener("input", (event) => {
     document.documentElement.style.setProperty(
-      "--hue-primary",
+      properties.primary,
       event.target.value
     );
     document.querySelector('output[for="hue"]').value = event.target.value;
   });
 
   const angle = document.querySelector('input[name="angle"]');
+  angle.value = root.getPropertyValue(properties.angle);
   angle.addEventListener("input", (event) => {
     document.documentElement.style.setProperty(
-      "--hue-angle",
+      properties.angle,
       event.target.value
     );
     document.querySelector('output[for="angle"]').value = event.target.value;

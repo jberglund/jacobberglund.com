@@ -31,7 +31,16 @@ const {
   ...props
 } = Astro.props;
 
-const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItems} direction-${direction} grow-${grow} flex`;
+//const componentClasses = `gap-${gap} justify-${justifyContent} align-${alignItems} direction-${direction} grow-${grow} flex`;
+
+const componentClasses = [
+  [gap, `gap-${gap}`],
+  [justifyContent, `justify-${justifyContent}`],
+  [alignItems, `align-${alignItems}`],
+  [direction, `direction-${direction}`],
+  [grow, `grow-${grow}`],
+  [true, `flex`],
+].filter(([yes]) => Boolean(yes));
 ---
 
 <Tag {...props} class:list={[componentClasses, providedProps]}>

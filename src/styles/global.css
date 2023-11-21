@@ -58,6 +58,7 @@ body {
   padding: 0;
   display: grid;
   grid-template-rows: max-content;
+  overscroll-behavior-x: none;
 }
 
 :is(h1, h2, h3, h4, h5, h6, blockquote) {
@@ -277,7 +278,7 @@ figure {
   --space-l6-sm: calc(var(--space-l6-lg) / 4);
 
   & :is(h1, h2, h3, h4, h5, h6) {
-    color: var(--tertiary-200);
+    color: var(--primary-200);
     /* margin-top: var(--space-m); */
     /* font-family: var(--font-monospace); */
   }

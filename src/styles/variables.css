@@ -13,7 +13,7 @@
   --font-monospace: "Berkeley-Mono", monospace;
 }
 :root {
-  --hue-primary: 151;
+  --hue-primary: 185;
   --hue-shift: 1;
   --hue-shift-initial: 0;
 
@@ -66,11 +66,9 @@
   --h-1000: 25;
 }
 
-:root[data-theme="dark"] {
+:root {
   --hue-angle: 30;
-  --hue-angle: 180; /* // green */
-  /* --hue-primary: 285; */
-  /* --hue-primary: 150;  */ /* // green */
+  --hue-angle: 280;
   --primary-50: oklch(
     var(--l-50) var(--c-50) calc(var(--hue-primary) + var(--h-50))
   );
@@ -118,9 +116,10 @@
     var(--l-1000) var(--c-1000) calc(var(--hue-primary) + var(--h-1000))
   );
 
-  --hue-secondary: 270;
-  --hue-secondary: calc((180 + var(--hue-primary)) - (var(--hue-angle) / 2));
+  --hue-secondary: calc((var(--hue-primary)) - (var(--hue-angle) / 2));
+
   --secondary-50: oklch(var(--l-50) var(--c-50) var(--hue-secondary));
+
   --secondary-100: oklch(var(--l-100) var(--c-100) var(--hue-secondary));
 
   --secondary-200: oklch(var(--l-200) var(--c-200) var(--hue-secondary));
@@ -143,9 +142,10 @@
 
   --secondary-1000: oklch(var(--l-1000) var(--c-1000) var(--hue-secondary));
 
-  --hue-tertiary: 170;
-  --hue-tertiary: calc((180 + var(--hue-primary)) + (var(--hue-angle) / 2));
+  --hue-tertiary: calc((var(--hue-primary)) + (var(--hue-angle) / 2));
+
   --tertiary-50: oklch(var(--l-50) var(--c-50) var(--hue-tertiary));
+
   --tertiary-100: oklch(var(--l-100) var(--c-100) var(--hue-tertiary));
 
   --tertiary-200: oklch(var(--l-200) var(--c-200) var(--hue-tertiary));
@@ -172,123 +172,56 @@
   --gray-multiplier: 0.2;
   --gray-50: oklch(
     var(--l-50) calc(var(--c-50) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-50))
   );
   --gray-100: oklch(
     var(--l-100) calc(var(--c-100) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-100))
   );
   --gray-200: oklch(
     var(--l-200) calc(var(--c-200) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-200))
   );
   --gray-300: oklch(
     var(--l-300) calc(var(--c-300) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-300))
   );
   --gray-400: oklch(
     var(--l-400) calc(var(--c-400) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-400))
   );
   --gray-500: oklch(
     var(--l-500) calc(var(--c-500) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-500))
   );
   --gray-600: oklch(
     var(--l-600) calc(var(--c-600) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-600))
   );
   --gray-700: oklch(
     var(--l-700) calc(var(--c-700) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-700))
   );
   --gray-800: oklch(
     var(--l-800) calc(var(--c-800) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-800))
   );
   --gray-900: oklch(
     var(--l-900) calc(var(--c-900) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-900))
   );
   --gray-950: oklch(
     var(--l-950) calc(var(--c-950) * var(--gray-multiplier))
-      var(--gray-follows-primary)
+      calc(var(--gray-follows-primary) + var(--h-950))
   );
-  --gray-1000: oklch(var(--l-1000) var(--c-1000) var(--gray-follows-primary));
-  /* --gray-follows-hue: var(--hue-primary);
-  --gray-100: oklch(99% 0.005 var(--gray-follows-hue));
-  --gray-200: oklch(90% 0.01 var(--gray-follows-hue));
-  --gray-300: oklch(80% 0.02 var(--gray-follows-hue));
-  --gray-400: oklch(72% 0.025 var(--gray-follows-hue));
-  --gray-500: oklch(67% 0.031 var(--gray-follows-hue));
-  --gray-600: oklch(50% 0.027 var(--gray-follows-hue));
-  --gray-700: oklch(35% 0.025 var(--gray-follows-hue));
-  --gray-800: oklch(25% 0.02 var(--gray-follows-hue));
-  --gray-900: oklch(15% 0.02 var(--gray-follows-hue));
-  --gray-950: oklch(15% 0.02 var(--gray-follows-hue));
-  --gray-1000: oklch(5% 0.01 var(--gray-follows-hue)); */
+  --gray-1000: oklch(
+    var(--l-1000) calc(var(--c-1000) * var(--gray-multiplier))
+      calc(var(--gray-follows-primary) + var(--h-1000))
+  );
 }
 
 :root[data-theme="light"] {
-  --hue-angle: 60;
-  --hue-primary: 300;
-  --hue-primary: 230;
-  --primary-1000: oklch(99% 0.05 var(--hue-primary));
-  --primary-900: oklch(90% 0.1 var(--hue-primary));
-  --primary-800: oklch(80% 0.2 var(--hue-primary));
-  --primary-700: oklch(72% 0.25 var(--hue-primary));
-  --primary-600: oklch(67% 0.31 var(--hue-primary));
-  --primary-500: oklch(50% 0.27 var(--hue-primary));
-  --primary-400: oklch(35% 0.25 var(--hue-primary));
-  --primary-300: oklch(25% 0.2 var(--hue-primary));
-  --primary-200: oklch(9% 0.2 var(--hue-primary));
-  --primary-100: oklch(5% 0.1 var(--hue-primary));
-
-  --hue-secondary: 270;
-  --hue-secondary: calc((180 + var(--hue-primary)) - (var(--hue-angle) / 2));
-  --secondary-1000: oklch(99% 0.05 var(--hue-secondary));
-  --secondary-900: oklch(90% 0.1 var(--hue-secondary));
-  --secondary-800: oklch(80% 0.2 var(--hue-secondary));
-  --secondary-700: oklch(72% 0.25 var(--hue-secondary));
-  --secondary-600: oklch(67% 0.31 var(--hue-secondary));
-  --secondary-500: oklch(50% 0.27 var(--hue-secondary));
-  --secondary-400: oklch(35% 0.25 var(--hue-secondary));
-  --secondary-300: oklch(25% 0.2 var(--hue-secondary));
-  --secondary-200: oklch(9% 0.2 var(--hue-secondary));
-  --secondary-100: oklch(5% 0 var(--hue-secondary));
-
-  --hue-tertiary: 170;
-  --hue-tertiary: calc((180 + var(--hue-primary)) + (var(--angle) / 2));
-  --tertiary-1000: oklch(99% 0.05 var(--hue-tertiary));
-  --tertiary-900: oklch(90% 0.1 var(--hue-tertiary));
-  --tertiary-800: oklch(80% 0.2 var(--hue-tertiary));
-  --tertiary-700: oklch(72% 0.25 var(--hue-tertiary));
-  --tertiary-600: oklch(67% 0.31 var(--hue-tertiary));
-  --tertiary-500: oklch(50% 0.27 var(--hue-tertiary));
-  --tertiary-400: oklch(35% 0.25 var(--hue-tertiary));
-  --tertiary-300: oklch(25% 0.2 var(--hue-tertiary));
-  --tertiary-200: oklch(9% 0.2 var(--hue-tertiary));
-  --tertiary-100: oklch(5% 0.1 var(--hue-tertiary));
-
-  --gray-follows-hue: var(--hue-primary);
-  --gray-1000: oklch(99% 0.005 var(--gray-follows-hue));
-  --gray-900: oklch(90% 0.01 var(--gray-follows-hue));
-  --gray-800: oklch(80% 0.02 var(--gray-follows-hue));
-  --gray-700: oklch(72% 0.025 var(--gray-follows-hue));
-  --gray-600: oklch(67% 0.031 var(--gray-follows-hue));
-  --gray-500: oklch(50% 0.027 var(--gray-follows-hue));
-  --gray-400: oklch(35% 0.025 var(--gray-follows-hue));
-  --gray-300: oklch(25% 0.02 var(--gray-follows-hue));
-  --gray-200: oklch(9% 0.02 var(--gray-follows-hue));
-  --gray-100: oklch(5% 0.01 var(--gray-follows-hue));
 }
-/*  --text-1: var(--tertiary-100);
- --text-2: var(--tertiary-200);
- --surface-1: var(--tertiary-1000);
- --surface-2: var(--tertiary-900);
- --surface-3: var(--tertiary-800); */
-
-/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,22,1.25,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
   /* Step -3: 8.10px → 11.26px */

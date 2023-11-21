@@ -13,7 +13,7 @@ const { test, class: providedClass } = Astro.props;
   justifyContent="between"
   alignItems="center"
   gap="2xs"
-  class:list={["supports js-css-supports", providedClass]}
+  class:list={["css-supports js-css-supports", providedClass]}
   data-test={test}
   data-supported="undetermined"
 >
@@ -59,15 +59,15 @@ const { test, class: providedClass } = Astro.props;
     transition: filter 500ms ease;
   }
 
-  [data-supported="unsupported"]:after {
+  /* [data-supported="unsupported"]:after {
     content: "{ Nope :/ }";
   }
 
   [data-supported="supported"]:after {
     content: "{ Yass! }";
-  }
+  } */
 
-  .supports {
+  .css-supports {
     display: inline-flex;
     font-size: var(--step--3);
     border-radius: var(--radius-3);

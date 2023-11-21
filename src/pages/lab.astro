@@ -5,46 +5,29 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
 <SiteLayout>
-  <div class="u-grid" data-space="m">
+  <div class="u-grid prose" data-space="m">
     <div>
       <h1 class="h3">Welcome to the lab!</h1>
       <p>A workbench for mad science.</p>
     </div>
-    <div>
-      <h2 class="h5">Features featured on this site:</h2>
-      <CSSSupport test={"text-wrap: balance"} />
-      <CSSSupport test={"text-wrap: pretty"} />
-      <CSSSupport test={"color: oklch(100% 0 0)"} />
-      <CSSSupport test={"content-visibility: visible"} />
-      <CSSSupport test={"grid-column: subgrid"} />
-      <CSSSupport test={"-webkit-box-decoration-break: clone"} />
-      <CSSSupport test={"selector(&)"} />
 
-      <h2 class="h5">Looking to try out:</h2>
-      <CSSSupport test={"view-transition-name: are-we-there-yet"} />
-      <CSSSupport test={"text-box-edge: ex alphabetic"} />
-      <CSSSupport
-        test={"offset: path('M 100 100 L 300 100 L 200 300 z') auto"}
-      />
-      <CSSSupport test={"translate: calc(cos(30deg) * 10vmin)"} />
-      <CSSSupport test={"translate: calc(sin(30deg) * 100svh)"} />
-    </div>
     <HueControl />
-    <div class="palettes">
-      <!-- <div class="palette">
-        <div class="swatch swatch-title">Primary</div>
-        <div class="swatch" style="--swatch: #ecfdf5">100</div>
-        <div class="swatch" style="--swatch: #d1fae5">200</div>
-        <div class="swatch" style="--swatch: #a7f3d0">300</div>
-        <div class="swatch" style="--swatch: #86efac">400</div>
-        <div class="swatch" style="--swatch: #4ade80">500</div>
-        <div class="swatch" style="--swatch: #22c55e">600</div>
-        <div class="swatch" style="--swatch: #16a34a">700</div>
-        <div class="swatch" style="--swatch: #15803d">800</div>
-        <div class="swatch" style="--swatch: #166534">900</div>
-        <div class="swatch" style="--swatch: #14532d">950</div>
-        <div class="swatch" style="--swatch: #022c22">1000</div>
-      </div> -->
+    <div class="palettes u-full">
+      <div class="palette">
+        <div class="swatch swatch-title"></div>
+        <div class="swatc">50</div>
+        <div class="swatc">100</div>
+        <div class="swatc">200</div>
+        <div class="swatc">300</div>
+        <div class="swatc">400</div>
+        <div class="swatc">500</div>
+        <div class="swatc">600</div>
+        <div class="swatc">700</div>
+        <div class="swatc">800</div>
+        <div class="swatc">900</div>
+        <div class="swatc">950</div>
+        <div class="swatc">1000</div>
+      </div>
       <div class="palette">
         <div class="swatch swatch-title">Primary</div>
         <div class="swatch" style="--swatch: var(--primary-50)">50</div>
@@ -107,37 +90,57 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       </div>
     </div>
 
-    <div class="cards u-full">
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
+    <div>
+      <h2 class="h5">Features featured on this site:</h2>
+      <CSSSupport test={"text-wrap: balance"} />
+      <CSSSupport test={"text-wrap: pretty"} />
+      <CSSSupport test={"color: oklch(100% 0 0)"} />
+      <CSSSupport test={"content-visibility: visible"} />
+      <CSSSupport test={"grid-column: subgrid"} />
+      <CSSSupport test={"-webkit-box-decoration-break: clone"} />
+      <CSSSupport test={"selector(&)"} />
 
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
+      <h2 class="h5">Looking to try out:</h2>
+      <CSSSupport test={"view-transition-name: are-we-there-yet"} />
+      <CSSSupport test={"text-box-edge: ex alphabetic"} />
+      <CSSSupport
+        test={"offset: path('M 100 100 L 300 100 L 200 300 z') auto"}
+      />
+      <CSSSupport test={"translate: calc(cos(30deg) * 10vmin)"} />
+      <CSSSupport test={"translate: calc(sin(30deg) * 100svh)"} />
     </div>
+
+    <!-- <div class="cards u-full">
+      <div class="card">
+        <h4 class="h5">I'm a card</h4>
+        <small>Lorem ipsum dolor</small>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          doloremque modi veniam aspernatur voluptatum labore dolores
+          perspiciatis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 class="h5">I'm a card</h4>
+        <small>Lorem ipsum dolor</small>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          doloremque modi veniam aspernatur voluptatum labore dolores
+          perspiciatis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 class="h5">I'm a card</h4>
+        <small>Lorem ipsum dolor</small>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          doloremque modi veniam aspernatur voluptatum labore dolores
+          perspiciatis.
+        </p>
+      </div>
+    </div> -->
     <!-- <div class="gradients">
       <div class="gradient"></div>
       <div class="radial-gradient" style="--from: var(--primary-200"></div>
@@ -165,24 +168,32 @@ import SiteLayout from "../layouts/SiteLayout.astro";
   }
 
   .palettes {
-    display: flex;
+    display: grid;
+    gap: var(--space-3xs);
+    justify-content: center;
+    grid-template-columns: max-content repeat(4, minmax(var(--space-xl), 1fr));
+    grid-template-rows: max-content repeat(12, minmax(var(--space-m), auto));
+    container-type: inline-size;
   }
+
   .palette {
     width: 100%;
     display: grid;
-    grid-auto-columns: var(--space-3xl);
-    grid-template-rows: repeat(13, var(--space-xl));
-    grid-auto-flow: column;
-    justify-content: center;
+    grid-column: span 1;
+    grid-row: 1 / -1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
   }
 
   .swatch {
     background-color: var(--swatch);
     color: transparent;
     padding: var(--space-3xs);
+    border-radius: var(--radius-1);
   }
+
   .swatch:hover {
-    color: var(--primary-300);
+    color: var(--gray-1000);
   }
 
   .swatch-title {
@@ -191,6 +202,11 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     justify-content: center;
     padding: var(--space-3xs);
     color: var(--gray-200);
+
+    @container (width < 500px) {
+      writing-mode: tb-rl;
+      align-self: end;
+    }
   }
 
   .gradient {
