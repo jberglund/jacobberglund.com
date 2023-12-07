@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import FormattedDate from "@components/formatters/FormattedDate.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import Card from "@components/Card.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -9,6 +10,33 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <SiteLayout>
+  <div class="u-grid index-grid">
+    <div
+      style="grid-column: 2 / span 3; grid-row: 1 / span 2; --card-background: var(--tertiary-300)"
+    >
+      <Card />
+    </div>
+    <div
+      style="grid-column: 5 / span 2; grid-row: 1 / span 3; --card-background: var(--secondary-500)"
+    >
+      <Card />
+    </div>
+    <div
+      style="grid-column: 7 / span 2; grid-row: 1 / span 1; --card-background: var(--primary-500)"
+    >
+      <Card />
+    </div>
+    <div
+      style="grid-column: 9 / span 2; grid-row:  1 / span 1; --card-background: var(--gray-200)"
+    >
+      <Card />
+    </div>
+    <div
+      style="grid-column: 7 / span 4; grid-row: 2 / span 1; --card-background: var(--tertiary-400)"
+    >
+      <Card />
+    </div>
+  </div>
   <div>
     <p>
       Yello! I am a passionate frontend developer with over a decade of work
@@ -46,6 +74,13 @@ const posts = (await getCollection("blog")).sort(
 </SiteLayout>
 
 <style>
+  .index-grid {
+    display: grid;
+    /* min-height: 100svh; */
+    grid-template-rows: repeat(10, minmax(var(--space-2xs, 1fr)));
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: var(--step-0);
+  }
   .date {
     color: var(--secondary-300);
     font-size: var(--step--1);

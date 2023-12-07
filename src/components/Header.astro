@@ -3,21 +3,34 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="u-container header">
-  <nav class="u-grid">
-    <a class="logo" href="/">{SITE_TITLE}</a>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Writing</HeaderLink>
-      <HeaderLink href="/lab">Lab</HeaderLink>
-    </div>
-  </nav>
+<header class="header u-container">
+  <div class="u-grid">
+    <nav class="nav">
+      <a class="logo" href="/">{SITE_TITLE}</a>
+      <div class="internal-links">
+        <HeaderLink href="/blog">Writing</HeaderLink>
+        <HeaderLink href="/lab">Lab</HeaderLink>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <style>
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3xs) var(--grid-gutter);
+    margin-inline: calc(var(--grid-gutter) * -1);
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, 0.045);
+    font-weight: 600;
+    grid-column: 3 / span 5;
+  }
   .logo {
-    font-weight: 500;
-    font-size: var(--step-1);
+    /* text-transform: uppercase; */
+    /* font-weight: 500; */
+    /* font-size: var(--step--1); */
   }
   .header {
     padding-block: var(--space-l);

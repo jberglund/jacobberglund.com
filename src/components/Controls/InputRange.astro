@@ -1,0 +1,66 @@
+---
+import Flex from "@components/utility/Flex.astro";
+
+export type Props = {
+  title: string;
+  name: string;
+  min: number | string;
+  max: number | string;
+  value: number | string;
+  step?: number | string;
+};
+const { title, name, min = 0, max = 100, step = 1, value } = Astro.props;
+---
+
+<Flex gap="2xs" grow="1" alignItems="baseline" direction="column">
+  <Flex justifyContent="between" style="width: 100%" alignItems="baseline">
+    <label for={name}>{title}</label>
+    <output for={name}>{value}</output>
+  </Flex>
+  <input
+    id={name}
+    name={name}
+    type="range"
+    max={max}
+    min={min}
+    step={step}
+    value={value}
+  />
+</Flex>
+
+<script is:inline></script>
+
+<style>
+  input[type="range"] {
+    unset: all;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    border: none;
+    height: 1rem;
+    width: 2rem;
+    border-radius: 6px;
+    background: #dadada;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -0.2rem;
+    box-shadow: 0px 0px 6px 4px var(--primary-1000);
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.6rem;
+    width: 90%;
+    /* background-color: tomato; */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' x='0' y='0' fill='white' /%3E%3C/svg%3E");
+    background-size: 4px 4px;
+    background-repeat: repeat;
+    color: white;
+  }
+</style>

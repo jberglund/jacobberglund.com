@@ -1,0 +1,46 @@
+---
+import Flex from "@components/utility/Flex.astro";
+---
+
+<div class="controls">
+  <Flex class="control-wrapper" grow="1">
+    <slot />
+  </Flex>
+  <slot name="decoration" />
+</div>
+
+<style>
+  .controls {
+    width: 100%;
+    display: flex;
+    gap: var(--space-s);
+    position: sticky;
+    top: var(--space-xs);
+    padding: var(--space-2xs) var(--space-xs);
+    z-index: 100;
+    border: 2px solid var(--primary-950);
+    border-radius: var(--radius-2);
+    background-color: var(--primary-1000);
+    container-type: inline-size;
+    container-name: controls;
+    --shadow-color: color-mix(in oklch, var(--primary-1000) 60%, transparent);
+    box-shadow:
+      1px 4px 25px 12px var(--shadow-color),
+      1px 1px 6px 3px var(--shadow-color);
+  }
+
+  .control-wrapper {
+    flex-direction: column;
+    gap: var(--space-xs);
+    @container controls (width > 700px) {
+      flex-direction: row;
+    }
+  }
+
+  output {
+    width: 5ch;
+    text-align: right;
+    font-family: var(--font-monospace);
+    color: var(--secondary-200);
+  }
+</style>

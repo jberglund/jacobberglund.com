@@ -1,0 +1,19 @@
+---
+import Flex from "@components/utility/Flex.astro";
+
+export type Props = {
+  title: string;
+  name: string;
+  value: string;
+};
+const { title, name, value } = Astro.props;
+---
+
+<Flex gap="2xs" grow="1" alignItems="baseline" direction="column">
+  <Flex justifyContent="between" style="width: 100%" alignItems="baseline">
+    <label for={name}>{title}</label>
+  </Flex>
+  <input type="checkbox" name={name} />
+</Flex>
+
+<style></style>

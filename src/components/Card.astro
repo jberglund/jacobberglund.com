@@ -1,0 +1,105 @@
+---
+
+---
+
+<div class="card">
+  <!-- <div class="palette">
+    <div class="palette-row">
+      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
+    </div>
+    <div class="palette-row">
+      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
+    </div>
+    <div class="palette-row">
+      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
+    </div>
+    <div class="palette-row">
+      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
+    </div>
+  </div> -->
+  <div class="card-content">
+    <h6>OKLCH Color Palette</h6>
+  </div>
+</div>
+
+<style>
+  .card {
+    --shadow: 2px 2px;
+    color: var(--primary-950);
+    border-radius: 0.3rem;
+    border: 1px solid #241f38;
+    background: #ffb69f;
+    box-shadow: var(--shadow) 0px 0px #241f38;
+    background-color: var(--card-background, var(--primary-400));
+    /* background-image: radial-gradient(transparent 1px, var(--primary-800) 1px);
+    background-size: 6px 6px; */
+    height: 100%;
+    min-height: var(--space-2xl);
+    transition: all 100ms ease-in-out;
+    padding: var(--space-2xs);
+    font-weight: 600;
+    display: flex;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+  .card:active {
+    translate: var(--shadow);
+    box-shadow: 1px 1px 0px 0px #241f38;
+  }
+
+  .card-content {
+    z-index: 2;
+  }
+  /* 
+  .palette {
+    --_gap: 5px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(24, var(--space-l));
+    grid-auto-rows: var(--space-m);
+    gap: 5px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    translate: -20% -50%;
+    rotate: -10deg;
+    opacity: 0.9;
+  }
+  .palette-row {
+    display: grid;
+
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+
+  @keyframes palette {
+    from {
+      translate: calc((-100% * 5) - (var(--_gap) * 0)) 0;
+    }
+    to {
+      translate: 0 0;
+    }
+  }
+
+  .palette-item {
+    background-color: var(--tertiary-400);
+    border-radius: 0.3rem;
+    animation: palette 9s linear infinite;
+    &:hover {
+      background-color: var(--tertiary-600);
+    }
+  }
+
+  .palette-row:nth-child(2) .palette-item {
+    animation-delay: -3s;
+    animation-duration: 6s;
+  }
+  .palette-row:nth-child(3) .palette-item {
+    animation-delay: -6s;
+    animation-duration: 6s;
+    animation-direction: reverse;
+  } */
+</style>

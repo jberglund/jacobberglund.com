@@ -1,0 +1,92 @@
+---
+import Controls from "./Controls.astro";
+import InputRange from "./InputRange.astro";
+const hue = "270";
+const angle = "240";
+---
+
+<Controls>
+  <InputRange title="Hue Primary" name="hue" min={0} max={360} value={hue} />
+  <InputRange title="Distance" name="angle" min={0} max={360} value={angle} />
+
+  <div class="wheel" slot="decoration">
+    <div class="wheel-indicator"></div>
+    <div class="wheel-point" data-hue="primary"></div>
+    <div class="wheel-point" data-hue="secondary"></div>
+    <div class="wheel-point" data-hue="tertiary"></div>
+  </div>
+</Controls>
+
+<style>
+  .wheel {
+    --_size: 3.5rem;
+    --_point-size: 1ch;
+    @container controls (width < 700px) {
+      --_size: 5rem;
+      --_point-size: 1rem;
+      align-self: center;
+    }
+    display: block;
+    width: var(--_size);
+    height: var(--_size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-950);
+    position: relative;
+  }
+
+  .wheel-point {
+    --angle: calc(var(--hue-primary) * 1deg);
+    --point-size: var(--_point-size);
+    --radius: calc((var(--_size) / 2) - (var(--point-size) / 2));
+    --x: calc(var(--radius) * cos(var(--angle)));
+    --y: calc(var(--radius) * sin(var(--angle)));
+
+    position: absolute;
+    transform: translateX(calc(var(--radius) + var(--x)))
+      translateY(calc(var(--radius) + var(--y)));
+    background-color: var(--_color, currentColor);
+    width: var(--point-size);
+    height: var(--point-size);
+    border-radius: 50%;
+  }
+
+  .wheel-point[data-hue="primary"] {
+    --angle: calc(var(--hue-primary) * 1deg);
+    --_color: var(--primary-400);
+  }
+  .wheel-point[data-hue="secondary"] {
+    --angle: calc(var(--hue-secondary) * 1deg);
+    --_color: var(--secondary-400);
+  }
+  .wheel-point[data-hue="tertiary"] {
+    --angle: calc(var(--hue-tertiary) * 1deg);
+    --_color: var(--tertiary-400);
+  }
+</style>
+
+<script is:inline>
+  const properties = {
+    primary: "--hue-primary",
+    angle: "--hue-angle",
+  };
+
+  function setPropertyAndValue(inputName, propertyName) {
+    const input = document.querySelector(`input[name="${inputName}"]`);
+    const output = document.querySelector(`output[for="${inputName}"]`);
+    const root = getComputedStyle(document.documentElement);
+
+    input.value = root.getPropertyValue(propertyName);
+
+    input.addEventListener("input", (event) => {
+      document.documentElement.style.setProperty(
+        propertyName,
+        event.target.value
+      );
+      output.value = event.target.value;
+    });
+  }
+
+  setPropertyAndValue("hue", properties.primary);
+  setPropertyAndValue("angle", properties.angle);
+</script>
