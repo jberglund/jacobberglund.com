@@ -6,7 +6,8 @@ const flex = {
   justifyContent: ["between", "center", "around", "start", "end"],
   alignItems: ["center", "start", "end", "baseline"],
   direction: ["column", "row"],
-  grow: ["1"],
+  grow: ["1", "0"],
+  width: ["100%", "max-content", "min-content", "auto"],
 } as const;
 
 type Flex = typeof flex;
@@ -18,6 +19,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
   alignItems?: Flex["alignItems"][number];
   direction?: Flex["direction"][number];
   grow?: Flex["grow"][number];
+  width?: Flex["width"][number];
 }>;
 
 const {
@@ -28,6 +30,7 @@ const {
   alignItems,
   direction,
   grow,
+  width,
   ...props
 } = Astro.props;
 
@@ -39,6 +42,7 @@ const componentClasses = [
   [alignItems, `align-${alignItems}`],
   [direction, `direction-${direction}`],
   [grow, `grow-${grow}`],
+  [width, `width-${width}`],
   [true, `flex`],
 ].filter(([yes]) => Boolean(yes));
 ---
@@ -50,6 +54,7 @@ const componentClasses = [
 <style>
   .flex {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .gap-none {
@@ -125,5 +130,14 @@ const componentClasses = [
 
   .grow-1 {
     flex-grow: 1;
+  }
+  .grow-0 {
+    flex-grow: 0;
+  }
+  .width-100\% {
+    width: 100%;
+  }
+  .width-max-content {
+    width: max-content;
   }
 </style>

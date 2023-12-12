@@ -20,18 +20,22 @@ import Flex from "@components/utility/Flex.astro";
     z-index: 100;
     border: 2px solid var(--primary-950);
     border-radius: var(--radius-2);
-    background-color: var(--primary-1000);
+    background-color: var(--gray-300);
+    color: var(--primary-950);
     container-type: inline-size;
     container-name: controls;
     --shadow-color: color-mix(in oklch, var(--primary-1000) 60%, transparent);
+
     box-shadow:
       1px 4px 25px 12px var(--shadow-color),
       1px 1px 6px 3px var(--shadow-color);
+    box-shadow: 4px 4px 0px 0px var(--shadow-color);
   }
 
   .control-wrapper {
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--space-xs);
+    font-size: var(--step--2);
     @container controls (width > 700px) {
       flex-direction: row;
     }

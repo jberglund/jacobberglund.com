@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "@components/formatters/FormattedDate.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
 import Card from "@components/Card.astro";
+import Hue from "@components/Controls/Hue.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -14,63 +15,30 @@ const posts = (await getCollection("blog")).sort(
     <div
       style="grid-column: 2 / span 3; grid-row: 1 / span 2; --card-background: var(--tertiary-300)"
     >
-      <Card />
+      <Card to="/lab/hue">The Hue Lab</Card>
     </div>
     <div
       style="grid-column: 5 / span 2; grid-row: 1 / span 3; --card-background: var(--secondary-500)"
     >
-      <Card />
+      <Card to="/lab/motion">Motion Lab</Card>
     </div>
     <div
       style="grid-column: 7 / span 2; grid-row: 1 / span 1; --card-background: var(--primary-500)"
     >
-      <Card />
+      <Card to="/lab/hue" />
     </div>
     <div
       style="grid-column: 9 / span 2; grid-row:  1 / span 1; --card-background: var(--gray-200)"
     >
-      <Card />
+      <Card to="/lab/hue" />
     </div>
     <div
       style="grid-column: 7 / span 4; grid-row: 2 / span 1; --card-background: var(--tertiary-400)"
     >
-      <Card />
+      <Card to="/lab/hue" />
     </div>
   </div>
-  <div>
-    <p>
-      Yello! I am a passionate frontend developer with over a decade of work
-      experience.
-    </p><p>
-      And lemme tell you — I've seen some weird stuff. I have used tables for
-      layouts before we even had CSS. Created grids with floats. Even used float
-      for what it was meant to do. @font-face? That is new compared to the
-      techniques like sIFR and Cufón to include non-system typefaces. The rise
-      and fall of Flash (thankyouverymuch).
-    </p><p>
-      Yep, truly ancient in web years, but just as passionate about developing
-      for the web. I love this gig and I love crafting delightful user
-      interfaces.
-    </p>
-  </div>
-  <section class="u-grid">
-    {
-      posts.map((post) => (
-        <div>
-          <p class="date">
-            <FormattedDate date={post.data.pubDate} />
-          </p>
-          <a href={`/blog/${post.slug}/`}>
-            {post.data.heroImage && (
-              <img width={720} height={360} src={post.data.heroImage} alt="" />
-            )}
-
-            <h4 class="title h6">{post.data.title}</h4>
-          </a>
-        </div>
-      ))
-    }
-  </section>
+  <Hue />
 </SiteLayout>
 
 <style>
@@ -80,9 +48,5 @@ const posts = (await getCollection("blog")).sort(
     grid-template-rows: repeat(10, minmax(var(--space-2xs, 1fr)));
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: var(--step-0);
-  }
-  .date {
-    color: var(--secondary-300);
-    font-size: var(--step--1);
   }
 </style>

@@ -1,26 +1,15 @@
 ---
-
+type Props = {
+  to: string;
+};
+const { to } = Astro.props;
 ---
 
-<div class="card">
-  <!-- <div class="palette">
-    <div class="palette-row">
-      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
-    </div>
-    <div class="palette-row">
-      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
-    </div>
-    <div class="palette-row">
-      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
-    </div>
-    <div class="palette-row">
-      {Array.from(Array(24)).map((i) => <div class="palette-item" />)}
-    </div>
-  </div> -->
+<a href={to} class="card">
   <div class="card-content">
-    <h6>OKLCH Color Palette</h6>
+    <slot />
   </div>
-</div>
+</a>
 
 <style>
   .card {
@@ -29,7 +18,7 @@
     border-radius: 0.3rem;
     border: 1px solid #241f38;
     background: #ffb69f;
-    box-shadow: var(--shadow) 0px 0px #241f38;
+    box-shadow: var(--shadow) 0px 0px var(--jb-box-shadow-color);
     background-color: var(--card-background, var(--primary-400));
     /* background-image: radial-gradient(transparent 1px, var(--primary-800) 1px);
     background-size: 6px 6px; */
@@ -42,7 +31,7 @@
     align-items: end;
     position: relative;
     overflow: hidden;
-    container-type: inline-size;
+    container-type: size;
   }
   .card:active {
     translate: var(--shadow);
@@ -51,6 +40,8 @@
 
   .card-content {
     z-index: 2;
+    width: 100%;
+    height: 100%;
   }
   /* 
   .palette {

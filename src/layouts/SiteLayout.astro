@@ -34,5 +34,25 @@ import HueControl from "@components/Controls/Hue.astro";
         grid-template-rows: max-content auto;
       }
     </style>
+    <script>
+      import { overrideCSSProperties } from "../store";
+
+      overrideCSSProperties.subscribe((properties) => {
+        Object.entries(properties).map(([key, value]) =>
+          document.documentElement.style.setProperty(key, value)
+        );
+      });
+      document.addEventListener("astro:page-load", () => {
+        Object.entries(overrideCSSProperties.get()).map(([key, value]) =>
+          document.documentElement.style.setProperty(key, value)
+        );
+      });
+    </script>
+    <script is:inline>
+      document.addEventListener("astro:before-swap", (ev) => {
+        // Pass the incoming document to set the theme on it
+        console.log(ev.newDocument);
+      });
+    </script>
   </body>
 </html>

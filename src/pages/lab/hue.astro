@@ -1,8 +1,8 @@
 ---
 import HueControl from "@components/Controls/Hue.astro";
-import CSSSupport from "../components/CSS/CSSSupport.astro";
-import SiteLayout from "../layouts/SiteLayout.astro";
-import Noise from "@components/Controls/Noise.astro";
+import CSSSupport from "../../components/CSS/CSSSupport.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import Noise from "@components/Controls/NoiseFilter.astro";
 ---
 
 <SiteLayout>
@@ -138,44 +138,11 @@ import Noise from "@components/Controls/Noise.astro";
       <CSSSupport test={"translate: calc(sin(30deg) * 100svh)"} />
     </div>
 
-    <!-- <div class="cards u-full">
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4 class="h5">I'm a card</h4>
-        <small>Lorem ipsum dolor</small>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          doloremque modi veniam aspernatur voluptatum labore dolores
-          perspiciatis.
-        </p>
-      </div>
-    </div> -->
-    <Noise />
+    <!-- <Noise /> -->
     <div class="gradients u-full">
       <div class="gradient" data-variant="1"></div>
       <div class="gradient" data-variant="2"></div>
       <div class="gradient" data-variant="3"></div>
-      <!-- <div class="radial-gradient"></div>
-      <div class="radial-gradient"></div> -->
     </div>
   </div>
 </SiteLayout>

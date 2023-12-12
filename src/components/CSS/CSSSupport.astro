@@ -53,28 +53,31 @@ const { test, class: providedClass } = Astro.props;
     --_border: var(--tertiary-800);
   }
   [data-supported="supported"] {
-    --_background: var(--primary-1000);
+    --_background: var(--primary-900);
     --_border: var(--primary-950);
     text-decoration: none;
     transition: filter 500ms ease;
   }
 
   [data-supported="unsupported"]:after {
-    content: "{ Nope :/ }";
+    content: "👎";
   }
 
   [data-supported="supported"]:after {
-    content: "{ Yass! }";
+    content: "👍";
   }
 
   .css-supports {
     display: inline-flex;
     font-size: var(--step--3);
-    border-radius: var(--radius-3);
-    border: 2px solid var(--_border);
+    border-radius: var(--radius-1);
+    /* border: 2px solid var(--_border); */
     background-color: var(--_background);
     padding: var(--space-3xs) var(--space-xs);
     width: 100%;
     font-family: var(--font-monospace);
+  }
+  .css-supports + .css-supports {
+    margin-top: var(--space-3xs);
   }
 </style>

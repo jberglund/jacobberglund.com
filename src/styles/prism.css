@@ -17,8 +17,8 @@
 
   /* themed */
   --astro-code-token-constant: var(--tertiary-300);
-  --astro-code-token-keyword: var(--primary-400);
-  --astro-code-token-function: var(--secondary-400);
+  --astro-code-token-keyword: var(--secondary-200);
+  --astro-code-token-function: var(--secondary-500);
   --astro-code-token-string-expression: var(--tertiary-200);
 }
 

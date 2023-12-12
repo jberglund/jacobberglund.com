@@ -1,19 +1,27 @@
 :root {
   --color-text: var(--primary-100);
-  --color-background: var(--primary-800);
+  --color-background: var(--gray-800);
   --color-primary: var(--primary-300);
   --color-secondary: var(--secondary-300);
   --color-accent: var(--tertiary-300);
+
+  --jb-box-shadow-color: var(--primary-950);
+  --jb-focus-color: var(--tertiary-400);
+  --jb-focus-offset: var(--space-3xs);
+}
+
+[surface-theme="dark"] {
+  --jb-surface-back-background: var(--primary-800);
+  --jb-surface-middle-background: var(--primary-700);
+  --jb-surface-font-background: var(--primary-300);
+  --jb-text-color: var(--primary-200);
 }
 
 :root {
-  --radius-1: 0.15rem;
+  --radius-1: 0.25rem;
   --radius-2: 0.5rem;
   --radius-3: 0.75rem;
   --font-monospace: "Berkeley-Mono", monospace;
-}
-
-:root[data-theme="light"] {
 }
 
 :root {
@@ -53,6 +61,15 @@
   --step-3: clamp(1.4238rem, 0.9075rem + 2.2943vw, 2.6856rem);
   --step-4: clamp(1.6019rem, 0.8839rem + 3.1909vw, 3.3569rem);
   --step-5: clamp(1.8019rem, 0.8224rem + 4.3534vw, 4.1963rem);
+
+  --step--2: clamp(0.79rem, 0.7213rem + 0.3435vw, 0.9875rem);
+  --step--1: clamp(0.8888rem, 0.8114rem + 0.387vw, 1.1113rem);
+  --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+  --step-1: clamp(1.125rem, 1.0272rem + 0.4891vw, 1.4063rem);
+  --step-2: clamp(1.2656rem, 1.1556rem + 0.55vw, 1.5819rem);
+  --step-3: clamp(1.4238rem, 1.2998rem + 0.6196vw, 1.78rem);
+  --step-4: clamp(1.6019rem, 1.4625rem + 0.6967vw, 2.0025rem);
+  --step-5: clamp(1.8019rem, 1.6451rem + 0.7837vw, 2.2525rem);
 }
 
 :root {

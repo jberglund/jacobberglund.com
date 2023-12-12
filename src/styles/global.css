@@ -50,7 +50,7 @@ pre {
 html {
   font-size: var(--step-0);
   font-family: "Epilogue", sans-serif;
-  font-weight: 350;
+  font-weight: 400;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.45;
@@ -71,45 +71,31 @@ body {
   letter-spacing: -0.03em;
 }
 
-h1,
-.h1 {
+:is(h1, .h1) {
   font-size: var(--step-4);
 }
-
-h2,
-.h2 {
+:is(h2, .h2) {
   font-size: var(--step-3);
 }
-
-h3,
-.h3 {
+:is(h3, .h3) {
   font-size: var(--step-3);
 }
-
-h4,
-.h4 {
+:is(h4, .h4) {
   font-size: var(--step-2);
 }
-
-h5,
-.h5 {
+:is(h5, .h5) {
   font-size: var(--step-2);
 }
-
-h6,
-.h6 {
+:is(h6, .h6) {
   font-size: var(--step-1);
 }
 
-p,
-ul,
-ol {
+:is(p, ul, ol) {
   margin: var(--space-2xs) 0;
   text-wrap: pretty;
 }
 
-ol,
-ul {
+:is(ol, ul):not([class]) {
   padding-left: var(--space-s);
 }
 
@@ -146,14 +132,14 @@ a:not([class]),
   outline-color: transparent;
 }
 
-a:hover {
+a:not([class]):hover {
   color: var(--color-text);
   text-decoration-color: var(--secondary-500);
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: var(--space-2xs);
+  outline: 3px solid var(--jb-focus-color);
+  outline-offset: var(--jb-focus-offset);
   border-radius: 12px;
 }
 

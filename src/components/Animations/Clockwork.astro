@@ -1,0 +1,117 @@
+---
+import Card from "@components/Card.astro";
+type Props = {
+  numberOfSteps?: number;
+  text: string;
+};
+const { numberOfSteps = 28, text = "Lab" } = Astro.props;
+---
+
+<Card to="#">
+  <div class="stepper" style={`--_number-of-steps: ${numberOfSteps}`}>
+    {
+      Array.from(Array(numberOfSteps).keys()).map((step, index) => (
+        <div class="step" style={`--step: ${step}`}>
+          <div class="step__number">{text}</div>
+        </div>
+      ))
+    }
+  </div>
+  <div>Indikator</div>
+</Card>
+<style>
+  .stepper {
+    --_size: min(100cqw, 100cqh);
+    --_point-size: 1px;
+    --_duration: 1s;
+    --_increment: calc(360 / var(--_number-of-steps));
+    --_start-offset: 180deg;
+    display: grid;
+    grid-template-areas: "center";
+    grid-template-columns: var(--_size);
+    grid-template-rows: var(--_size);
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    animation-name: rotate;
+    animation-timing-function: cubic-bezier(0.67, 0.03, 0.08, 1.01);
+    animation-duration: var(--_duration);
+    animation-iteration-count: infinite;
+
+    position: relative;
+    left: -50%;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(
+        calc(
+          (var(--_increment) - (var(--_increment))) * 1deg -
+            var(--_start-offset)
+        )
+      );
+    }
+    30% {
+      transform: rotate(
+        calc((var(--_increment)) * 1deg - var(--_start-offset))
+      );
+    }
+    100% {
+      transform: rotate(
+        calc((var(--_increment)) * 1deg - var(--_start-offset))
+      );
+    }
+  }
+
+  .step {
+    --angle: calc(var(--step) * (var(--_increment)) * 1deg);
+    --point-size: var(--_point-size);
+    --radius: calc((var(--_size) / 2) - (var(--point-size) / 2));
+    --x: calc(var(--radius) * cos(var(--angle)));
+    --y: calc(var(--radius) * sin(var(--angle)));
+    display: inline-block;
+    grid-area: center;
+    text-align: center;
+    width: var(--_point-size);
+    height: var(--_point-size);
+
+    transform: translateX(calc(var(--radius) + var(--x)))
+      translateY(calc(var(--radius) + var(--y))) rotate(calc(var(--angle)));
+    transform-origin: center center;
+
+    align-self: start;
+    justify-self: start;
+
+    align-items: center;
+    justify-items: center;
+    display: inline-flex;
+  }
+
+  @media (--no-reduced-motion) {
+    .step {
+      opacity: 0;
+      animation: fadeIn 0.3s ease-in-out forwards;
+      animation-delay: calc(var(--step) * 0.05s);
+    }
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .stepper:after {
+    /*  content: ">";
+    color: var(--tertiary-500);
+    background-color: var(--tertiary-500);
+    display: block;
+    height: 2px;
+    width: 90%;
+    border-radius: 0%;
+    grid-area: center;
+    align-self: center;
+    justify-self: center; */
+  }
+</style>

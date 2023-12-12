@@ -6,32 +6,64 @@ export type Props = {
   name: string;
   min: number | string;
   max: number | string;
-  value: number | string;
+  value?: number | string;
   step?: number | string;
 };
 const { title, name, min = 0, max = 100, step = 1, value } = Astro.props;
 ---
 
-<Flex gap="2xs" grow="1" alignItems="baseline" direction="column">
+<Flex
+  gap="2xs"
+  grow="1"
+  alignItems="baseline"
+  direction="column"
+  class="input-container"
+>
   <Flex justifyContent="between" style="width: 100%" alignItems="baseline">
     <label for={name}>{title}</label>
-    <output for={name}>{value}</output>
+    <output class="range-output" for={name}>{value}</output>
   </Flex>
-  <input
-    id={name}
-    name={name}
-    type="range"
-    max={max}
-    min={min}
-    step={step}
-    value={value}
-  />
+  <Flex width="100%" class="input-wrapper">
+    <input
+      id={name}
+      name={name}
+      type="range"
+      max={max}
+      min={min}
+      step={step}
+      value={value}
+    />
+  </Flex>
 </Flex>
 
 <script is:inline></script>
 
 <style>
-  input[type="range"] {
+  .input-container {
+    font-weight: 600;
+  }
+  .input-wrapper {
+    --_input-shadow: var(--jb-box-shadow-color, var(--primary-950));
+    border-radius: 0.375rem;
+    border: 1px solid var(--_input-shadow);
+    padding: var(--space-3xs);
+    background: var(--primary-100);
+    box-shadow: 2px 2px 0px 0px var(--_input-shadow);
+    &:has(input[type="range"]:focus-visible) {
+      outline: 3px solid var(--jb-focus-color);
+      outline-offset: var(--jb-focus-offset);
+    }
+    & input[type="range"]:focus-visible {
+      outline: none;
+    }
+  }
+
+  .range-output {
+    min-width: 5ch;
+    text-align: right;
+  }
+
+  :where(.input-wrapper) input[type="range"] {
     unset: all;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -43,23 +75,32 @@ const { title, name, min = 0, max = 100, step = 1, value } = Astro.props;
   }
 
   input[type="range"]::-webkit-slider-thumb {
+    --_slider-thumb-background-color: var(--primary-300);
+    --_slider-thumb-border-color: var(--_input-shadow);
+
     border: none;
     height: 1rem;
     width: 2rem;
     border-radius: 6px;
-    background: #dadada;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -0.2rem;
-    box-shadow: 0px 0px 6px 4px var(--primary-1000);
+    background: var(--_slider-thumb-background-color);
+    box-shadow: 1px 1px 0px 0px var(--_slider-thumb-border-color);
+    border: 1px solid var(--_slider-thumb-border-color);
   }
 
   input[type="range"]::-webkit-slider-runnable-track {
     height: 0.6rem;
     width: 90%;
     /* background-color: tomato; */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' x='0' y='0' fill='white' /%3E%3C/svg%3E");
+    /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' x='0' y='0' fill='white' /%3E%3C/svg%3E"); */
+    background-image: radial-gradient(
+      var(--_input-shadow) 1px,
+      transparent 1px
+    );
     background-size: 4px 4px;
+    /* background-size: 4px 4px; */
     background-repeat: repeat;
     color: white;
   }

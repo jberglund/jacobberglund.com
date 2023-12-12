@@ -14,5 +14,8 @@ export default defineConfig({
       theme: "css-variables",
     }, */
   },
+  devToolbar: {
+    enabled: false,
+  },
   scopedStyleStrategy: "where",
 });

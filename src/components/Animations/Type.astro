@@ -1,0 +1,62 @@
+---
+import { animate } from "motion";
+import { splitStringWithWhitespace } from "@utility/text";
+import { createElement } from "@utility/dom";
+type Props = {
+  text: string;
+};
+
+const { text = "type animations, ye" } = Astro.props;
+const splittedText = splitStringWithWhitespace(text);
+---
+
+<h3 class="type-animation" aria-label={text}>
+  {
+    splittedText.map((word, index) => {
+      // prettier-ignore
+      if (word === " ") return <span class="whitespace">{" "}</span>;
+      else
+        return (
+          <span class="word" style={`--word-index: ${index}`}>
+            {word}
+          </span>
+        );
+    })
+  }
+</h3>
+
+<style>
+  .type-animation {
+    display: inline-block;
+    overflow: hidden;
+    color: var(--color-text);
+  }
+  .whitespace {
+    white-space: nowrap;
+  }
+  .type-animation .word {
+    display: inline-block;
+  }
+
+  @media (--no-reduced-motion) {
+    .type-animation .word {
+      opacity: 0;
+      transform: translateY(1rem);
+      animation: type 0.3s ease-in-out forwards;
+      animation-delay: calc(var(--word-index) * 0.03s);
+    }
+  }
+  @keyframes type {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  import { splitStringWithWhitespace } from "@utility/text";
+  const splittedText = splitStringWithWhitespace("type animations, ye");
+  console.log(splittedText);
+  document.addEventListener("astro:page-load", () => {});
+</script>

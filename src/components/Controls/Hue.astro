@@ -1,13 +1,19 @@
 ---
+import Flex from "@components/utility/Flex.astro";
 import Controls from "./Controls.astro";
 import InputRange from "./InputRange.astro";
-const hue = "270";
-const angle = "240";
 ---
 
 <Controls>
-  <InputRange title="Hue Primary" name="hue" min={0} max={360} value={hue} />
-  <InputRange title="Distance" name="angle" min={0} max={360} value={angle} />
+  <InputRange title="Hue Primary" name="hue-primary" min={0} max={360} />
+  <InputRange title="Distance" name="hue-angle" min={0} max={360} />
+  <InputRange
+    title="Primary -> Gray"
+    name="primary-into-gray"
+    min={0}
+    max={1}
+    step={0.1}
+  />
 
   <div class="wheel" slot="decoration">
     <div class="wheel-indicator"></div>
@@ -31,7 +37,7 @@ const angle = "240";
     height: var(--_size);
     aspect-ratio: 1;
     border-radius: 50%;
-    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-950);
+    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-100);
     position: relative;
   }
 
@@ -49,6 +55,8 @@ const angle = "240";
     width: var(--point-size);
     height: var(--point-size);
     border-radius: 50%;
+    box-shadow: 1px 1px 0px 0px var(--jb-box-shadow-color);
+    border: 1px solid var(--jb-box-shadow-color);
   }
 
   .wheel-point[data-hue="primary"] {
@@ -65,8 +73,43 @@ const angle = "240";
   }
 </style>
 
+<script>
+  import { overrideCSSProperties, type SettingsValue } from "src/store";
+
+  function setPropertyAndValue(
+    inputName: string,
+    cssVariable: keyof SettingsValue
+  ) {
+    const input = document.querySelector(
+      `input[name="${inputName}"]`
+    ) as HTMLInputElement;
+
+    const output = document.querySelector(
+      `output[for="${inputName}"]`
+    ) as HTMLInputElement;
+
+    if (!input && !output) return;
+
+    input.value = overrideCSSProperties.get()[cssVariable];
+    output.value = overrideCSSProperties.get()[cssVariable];
+
+    input.addEventListener("input", (event) => {
+      const target = event.target as HTMLInputElement;
+      overrideCSSProperties.setKey(cssVariable, target.value);
+      output.value = target.value;
+    });
+  }
+  document.addEventListener("astro:page-load", () => {
+    setPropertyAndValue("hue-primary", "--hue-primary");
+    setPropertyAndValue("hue-angle", "--hue-angle");
+    setPropertyAndValue("primary-into-gray", "--gray-multiplier");
+  });
+</script>
+
 <script is:inline>
-  const properties = {
+  // https://docs.astro.build/en/guides/view-transitions/#astrobefore-swap
+  // add some global thingie and set it on the SiteLayout, mebbeh.
+  /* const properties = {
     primary: "--hue-primary",
     angle: "--hue-angle",
   };
@@ -88,5 +131,5 @@ const angle = "240";
   }
 
   setPropertyAndValue("hue", properties.primary);
-  setPropertyAndValue("angle", properties.angle);
+  setPropertyAndValue("angle", properties.angle); */
 </script>
