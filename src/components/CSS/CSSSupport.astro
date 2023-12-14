@@ -26,7 +26,8 @@ const { test, class: providedClass } = Astro.props;
 </Flex>
 
 <script>
-  function doTheThing() {
+
+  document.addEventListener("astro:page-load", () => {
     const elements = document.querySelectorAll(".js-css-supports");
     elements.forEach((element) => {
       if (element instanceof HTMLElement) {
@@ -35,10 +36,6 @@ const { test, class: providedClass } = Astro.props;
         element.dataset.supported = supported ? "supported" : "unsupported";
       }
     });
-  }
-
-  document.addEventListener("astro:page-load", () => {
-    doTheThing();
   });
 </script>
 

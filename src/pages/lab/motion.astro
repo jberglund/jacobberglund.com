@@ -8,6 +8,7 @@ import SiteLayout from "@layouts/SiteLayout.astro";
 ---
 
 <SiteLayout>
+  
   <div class="u-grid index-grid">
     <Flex gap="2xs" direction="column">
       <CSSSupport test="translate: calc(100px * cos(45deg))" />
@@ -16,7 +17,7 @@ import SiteLayout from "@layouts/SiteLayout.astro";
     <div
       style="grid-column: span 6; grid-row: span 5; --card-background: var(--tertiary-300)"
     >
-      <Type text="whaddap internetz?" />
+      <Type text="Is this thing animating on load?" />
     </div>
     <div
       style="grid-column: 2 / span 4; grid-row: span 5; --card-background: var(--tertiary-300)"
