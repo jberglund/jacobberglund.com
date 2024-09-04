@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
-    "postcss-preset-env": "^10.0.2"
+    "postcss-preset-env": "^10.0.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

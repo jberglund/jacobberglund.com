@@ -1,16 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
-import FormattedDate from "@components/formatters/FormattedDate.astro";
-import Flex from "@components/utility/Flex.astro";
-import SiteLayout from "./SiteLayout.astro";
-import KeyTakeaways from "@components/KeyTakeaways.astro";
-import SlideUp from "@components/Animations/SlideUp.astro";
+import FormattedDate from '@components/formatters/FormattedDate.astro';
+import Flex from '@components/utility/Flex.astro';
+import SiteLayout from './SiteLayout.astro';
+import KeyTakeaways from '@components/KeyTakeaways.astro';
+import SlideUp from '@components/Animations/SlideUp.astro';
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, takeaways } =
-  Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, takeaways } = Astro.props;
 ---
 
 <SiteLayout>
@@ -19,9 +18,7 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
       heroImage && (
         <SlideUp index={0}>
           <div class="hero-image">
-            {heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
-            )}
+            {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
           </div>
         </SlideUp>
       )
@@ -49,7 +46,7 @@ const { title, description, pubDate, updatedDate, heroImage, takeaways } =
     </header>
 
     {takeaways && <KeyTakeaways items={takeaways} />}
-    <div class="prose u-grid">
+    <div class="prose typeset u-grid">
       <SlideUp index={2}>
         <slot />
       </SlideUp>

@@ -1,0 +1,134 @@
+ok-stack {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+ok-stack[horizontal],
+ok-stack[horizontal='center'] {
+  align-items: center;
+  flex-direction: row;
+}
+
+ok-stack[horizontal='start'] {
+  align-items: start;
+}
+
+ok-stack[horizontal='end'] {
+  align-items: end;
+}
+
+ok-stack[justify='start'] {
+  justify-content: start;
+}
+ok-stack[justify='center'] {
+  justify-content: center;
+}
+ok-stack[justify='end'] {
+  justify-content: end;
+}
+ok-stack[justify='space-between'] {
+  justify-content: space-between;
+}
+
+ok-stack[gap='4xl'] {
+  gap: var(--space-4xl, 3.5rem);
+}
+ok-stack[gap='3xl'] {
+  gap: var(--space-3xl, 3rem);
+}
+ok-stack[gap='2xl'] {
+  gap: var(--space-2xl, 2.5rem);
+}
+ok-stack[gap='xl'] {
+  gap: var(--space-xl, 2rem);
+}
+ok-stack[gap='l'] {
+  gap: var(--space-l, 1.5rem);
+}
+ok-stack[gap='m'] {
+  gap: var(--space-m, 1rem);
+}
+ok-stack[gap='s'] {
+  gap: var(--space-s, 0.75rem);
+}
+ok-stack[gap='xs'] {
+  gap: var(--space-xs, 0.5rem);
+}
+ok-stack[gap='2xs'] {
+  gap: var(--space-2xs, 0.25rem);
+}
+ok-stack[gap='3xs'] {
+  gap: var(--space-3xs, 0.125rem);
+}
+ok-stack[gap='none'] {
+  gap: 0;
+}
+
+ok-stack[gap-row='4xl'] {
+  row-gap: var(--space-4xl, 3.5rem);
+}
+ok-stack[gap-row='3xl'] {
+  row-gap: var(--space-3xl, 3rem);
+}
+ok-stack[gap-row='2xl'] {
+  row-gap: var(--space-2xl, 2.5rem);
+}
+ok-stack[gap-row='xl'] {
+  row-gap: var(--space-xl, 2rem);
+}
+ok-stack[gap-row='l'] {
+  row-gap: var(--space-l, 1.5rem);
+}
+ok-stack[gap-row='m'] {
+  row-gap: var(--space-m, 1rem);
+}
+ok-stack[gap-row='s'] {
+  row-gap: var(--space-s, 0.75rem);
+}
+ok-stack[gap-row='xs'] {
+  row-gap: var(--space-xs, 0.5rem);
+}
+ok-stack[gap-row='2xs'] {
+  row-gap: var(--space-2xs, 0.25rem);
+}
+ok-stack[gap-row='3xs'] {
+  row-gap: var(--space-3xs, 0.125rem);
+}
+ok-stack[gap-row='none'] {
+  row-gap: 0;
+}
+
+ok-stack[gap-column='4xl'] {
+  column-gap: var(--space-4xl, 3.5rem);
+}
+ok-stack[gap-column='3xl'] {
+  column-gap: var(--space-3xl, 3rem);
+}
+ok-stack[gap-column='2xl'] {
+  column-gap: var(--space-2xl, 2.5rem);
+}
+ok-stack[gap-column='xl'] {
+  column-gap: var(--space-xl, 2rem);
+}
+ok-stack[gap-column='l'] {
+  column-gap: var(--space-l, 1.5rem);
+}
+ok-stack[gap-column='m'] {
+  column-gap: var(--space-m, 1rem);
+}
+ok-stack[gap-column='s'] {
+  column-gap: var(--space-s, 0.75rem);
+}
+ok-stack[gap-column='xs'] {
+  column-gap: var(--space-xs, 0.5rem);
+}
+ok-stack[gap-column='2xs'] {
+  column-gap: var(--space-2xs, 0.25rem);
+}
+ok-stack[gap-column='3xs'] {
+  column-gap: var(--space-3xs, 0.125rem);
+}
+ok-stack[gap-column='none'] {
+  column-gap: 0;
+}

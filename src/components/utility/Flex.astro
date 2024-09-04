@@ -1,29 +1,29 @@
 ---
-import type { HTMLTag, Polymorphic } from "astro/types";
+import type { HTMLTag, Polymorphic } from 'astro/types';
 
 const flex = {
-  gap: ["none", "3xs", "2xs", "xs", "s", "m", "l", "xl", "gutter"],
-  justifyContent: ["between", "center", "around", "start", "end"],
-  alignItems: ["center", "start", "end", "baseline"],
-  direction: ["column", "row"],
-  grow: ["1", "0"],
-  width: ["100%", "max-content", "min-content", "auto"],
+  gap: ['none', '3xs', '2xs', 'xs', 's', 'm', 'l', 'xl', 'gutter'],
+  justifyContent: ['between', 'center', 'around', 'start', 'end'],
+  alignItems: ['center', 'start', 'end', 'baseline'],
+  direction: ['column', 'row'],
+  grow: ['1', '0'],
+  width: ['100%', 'max-content', 'min-content', 'auto'],
 } as const;
 
 type Flex = typeof flex;
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
-  gap?: Flex["gap"][number];
-  justifyContent?: Flex["justifyContent"][number];
-  alignItems?: Flex["alignItems"][number];
-  direction?: Flex["direction"][number];
-  grow?: Flex["grow"][number];
-  width?: Flex["width"][number];
+  gap?: Flex['gap'][number];
+  justifyContent?: Flex['justifyContent'][number];
+  alignItems?: Flex['alignItems'][number];
+  direction?: Flex['direction'][number];
+  grow?: Flex['grow'][number];
+  width?: Flex['width'][number];
 }>;
 
 const {
-  as: Tag = "div",
+  as: Tag = 'div',
   class: providedProps,
   gap,
   justifyContent,

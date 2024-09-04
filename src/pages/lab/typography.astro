@@ -1,0 +1,273 @@
+---
+import CSSSupport from '@components/CSS/CSSSupport.astro';
+import SiteLayout from '@layouts/SiteLayout.astro';
+---
+
+<SiteLayout>
+  <div style="margin: 2rem 0;">
+    <div>
+      <label for="ratioMin">
+        <div class="h6">Typescale at 320</div>
+        <input
+          class="range-slider"
+          name="ratioMin"
+          type="range"
+          min="1"
+          max="1.66666"
+          step="0.01"
+        />
+        <output for="ratioMin"></output>
+      </label>
+    </div>
+
+    <div>
+      <label for="ratioMax">
+        <div>Typescale at 1800</div>
+        <input
+          class="range-slider"
+          name="ratioMax"
+          type="range"
+          min="1"
+          max="1.66666"
+          step="0.01"
+        />
+        <output for="ratioMax"></output>
+      </label>
+    </div>
+
+    <div>
+      <label for="easing">Easing curve</label>
+      <select name="easing" id="easing">
+        <option value="easeOutSine">easeOutSine</option>
+        <option value="easeOutQuad">easeOutQuad</option>
+        <option value="easeInOutSine">easeInOutSine</option>
+      </select>
+    </div>
+  </div>
+  <div class="typeset">
+    <h1>H1 – Harmonic typescale</h1>
+    <h2>H2 – Harmonic typescale</h2>
+    <h3>H3 – Harmonic typescale</h3>
+    <h4>H4 – Harmonic typescale</h4>
+    <h5>H5 – Harmonic typescale</h5>
+    <h6>H6 – Harmonic typescale</h6>
+
+    <div style="margin: 6rem 0">
+      <h5>Something about a jumping fox</h5>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+        amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+        et ea rebum.
+        <p>
+          Omgomgomg
+          <p>deeeerp</p>
+        </p>
+      </p>
+      <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <small> Very small </small>
+  </div>
+  <div class="typeset">
+    <article id="post_detail">
+      <h1>Typography test page with a very long H1 element so that we can test line height</h1>
+
+      <p>
+        This page demonstrates the various typographic styles that are available within WordPress
+        editor fields. As you can probably see, this is a basic paragraph of text. Within it you can
+        include hyperlinks to other pages. When doing so, the link text should always be descriptive
+        of the page that you are linking to. For example, visit the‚ <a
+          href="https://www.google.com"
+          target="_blank"
+          rel="noopener">Google homepage</a
+        > is a much better way of linking than this; to visit the Google homepage, <a
+          href="https://www.google.com"
+          target="_blank"
+          rel="noopener">click here</a
+        >. When creating hyperlinks it’s best practice to open links to external websites (offsite
+        links) in a new window/tab thus allowing the user to still have this website open in their
+        browser when they have finished with the external website.
+      </p>
+      <p>
+        This next paragraph includes‚ <strong>emboldened text</strong>‚ and also some <em
+          >text‚ set in italics</em
+        >. You can also set‚ text to be both <em><strong>emboldened and italicised</strong></em>‚ if
+        you wish. We can also use this paragraph to test <span style="text-decoration: underline;"
+          >underlined text</span
+        >. Obviously, you’d not want to use underlined text as it makes text looks like a hyperlink.
+        Finally, we can also set <del>some text with strikethrough</del> to check that that style works
+        too. Before we take a look at heading styles, let’s just check that the Blockquote style is working:
+      </p>
+      <blockquote cite="http://www.w3schools.com/tags/tag_blockquote.asp">
+        <p>
+          The <a
+            href="http://www.w3schools.com/tags/tag_blockquote.asp"
+            target="_blank"
+            rel="noopener">HTML &lt;blockquote&gt; tag</a
+          >‚ is a semantic element used to define a quote from another source. Unfortunately
+          WordPress currently offers no <strong>way</strong> to add the tags ‘cite’ attribute except
+          by manually adding it with the editor in ‘Text’ mode. Anyway, let’s take a look at <a
+            href="http://www.w3schools.com/tags/tag_hn.asp"
+            target="_blank"
+            rel="noopener">HTML Headings</a
+          >.
+        </p>
+        <p>Some more text here.</p>
+        <p><strong>-Alex Gant, Web Developer Fellowship Productions</strong></p>
+      </blockquote>
+      <h2>Heading 2 – Similarly, this will probably push to two lines as well</h2>
+      <p>
+        Headings are used to separate blocks of text by level of importance. By default a page title
+        in WordPress is always set in Heading 1 because it is the most important heading on the
+        page. A page’s H1 is an important factor for ‘on page’ SEO. You can see that this paragraph
+        is prefaced with a Heading 2 – the second level of heading importance.
+      </p>
+      <blockquote><p>this is a new blockquote.</p></blockquote>
+      <h3>Heading 3</h3>
+      <p>
+        This section of text is prefaced with a Heading 3. We’ll stick in some Latin text just to
+        bulk the paragraph out a bit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Pellentesque sapien metus, faucibus eget massa vel, dictum suscipit mauris. Proin tempor
+        metus est, vel aliquet risus pharetra sed. Curabitur nec semper nisi, vitae egestas turpis.
+        Nunc sit amet magna dignissim tortor suscipit dignissim.
+      </p>
+      <p>Now let’s add a horizontal line below this paragraph to check that they are working.</p>
+      <hr />
+      <h4>Heading 4</h4>
+      <p>
+        Gosh, we’re at a level 4 Heading already. That means that this paragraph should only contain
+        text that is supportive of the main content as opposed to being of high significance to it.
+        While we’re here, we’ll take a quick look at another text style; Preformatted text:
+      </p>
+      <pre>Preformatted text, set in the <a href="http://www.w3schools.com/tags/tag_pre.asp" target="_blank" rel="noopener">HTML &lt;pre&gt; tag</a> is designated as having 'unusual' formatting although in practice, most people use it to display computer code.</pre>
+      <p>
+        Ok, we’re making good progress but we still have a few more default WordPress styles to look
+        at.
+      </p>
+      <h5>Heading 5</h5>
+      <p>
+        We’re really getting to the least important heading styles now. Unlike H1, H2 and H3
+        headings, H4, H5 and H6 are unlikely to be considered by search engines when evaluating a
+        page of content. Therefore, they should only be considered for presentation styles as
+        opposed to SEO significance. However, while we’re here, let’s look at an unordered list,
+        often known as a bullet list.
+      </p>
+      <ul>
+        <li>
+          Unordered lists are written in HTML using the &lt;ul&gt;tag with ul standing for Unordered
+          List*
+        </li>
+        <li>It is unordered as each list item has a graphical ‘bullet’ as opposed to a number</li>
+        <li>
+          Unordered lists can be used used for lots of things and should always be used if any form
+          or ordering in not required
+        </li>
+        <li>
+          Like any other typographical element, unordered lists can display <a
+            href="http://www.w3schools.com/tags/tag_sup.asp">superscript</a
+          > and <a href="http://www.w3schools.com/tags/tag_sub.asp">subscript</a> elements. Superscript
+          elements are often used to show footnotes‚ like this<sup>[1]</sup> while subscript elements
+          are often used in element names like this: H<sub>2</sub>0
+        </li>
+      </ul>
+      <p>
+        Obviously there will be times when you need an ordered list, also known as a numbered list.
+        For those situations you need the <a
+          href="http://www.w3schools.com/tags/tag_ol.asp"
+          target="_blank"
+          rel="noopener">HTML &lt;ol&gt; tag</a
+        > with ol standing for Ordered List:
+      </p>
+      <ol>
+        <li>As you can see, ordered lists include numbers</li>
+        <li>
+          These numbers will automatically adjust themselves as you add, edit and remove list items
+          to keep the list in numeric order
+        </li>
+        <li>
+          Despite the existence of this wonderful tag, people still seem to like to add 1.) 2.) and
+          3.) to the start of paragraphs rather than use an ordered list.
+        </li>
+      </ol>
+      <p>With that all sorted, we’ll take a quick look at H6 and the last few styles.</p>
+      <h6>This text is set in Heading 6. It will be useful for small print.</h6>
+      <p>
+        As you can see, we usually use heading 6 for small print. It’s of such minor importance that
+        it is unlikely to be used by search engines as part of the ‘on page’ SEO quality of a page.
+        Therefore, why not use it as a presentational style?
+      </p>
+      <p>
+        Now‚ let’s just run over some quick notes on adding typographical content to the website. It
+        makes sense to do this in the form of an unordered list so here goes:
+      </p>
+      <ul>
+        <li>
+          If you need to insert a symbol into your text, use the ‘Special characters’ icon. It looks
+          like an omega sign. From there you’ll have access to all manner of symbols such as ™ and
+          ©. You’ll also find accented characters such as Ä and ã as well as fractions like¼ and ¾.
+        </li>
+        <li>
+          When pasting text from another source, be sure to click the ‘Paste as text’ icon before
+          you paste it in to the WordPress editor. This will ensure any formatting is removed.
+          Failure to do this can lead to superfluous HTML being inserted into your pages
+        </li>
+        <li>To remove formatting from selections of text, use the ‘Clear formatting’ icon</li>
+        <li>
+          Err away from using the left align, right align and centre align options. This website has
+          been programmed to align text correctly based on its context so you should never need to
+          align text. If you are tempted to use the ‘Justify’ option you probably shouldn’t be
+          allowed to use a computer ever again!
+        </li>
+      </ul>
+    </article>
+  </div>
+  <style>
+    .index-grid {
+      display: grid;
+      grid-template-rows: repeat(10, minmax(var(--space-2xs, 1fr)));
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: var(--step-0);
+      min-height: 60svh;
+    }
+  </style>
+</SiteLayout>
+
+<script>
+  const root = getComputedStyle(document.documentElement);
+  function setPropertyAndValue(inputName: string, cssVariable?: string) {
+    const input = document.querySelector(`input[name="${inputName}"]`) as HTMLInputElement;
+    const output = document.querySelector(`output[for="${inputName}"]`) as HTMLInputElement;
+    if (!input && !output) return;
+
+    input.value = root.getPropertyValue(cssVariable || `--${inputName}`);
+    output.value = root.getPropertyValue(cssVariable || `--${inputName}`);
+
+    input.addEventListener(
+      'input',
+      (event) => {
+        const target = event.target as HTMLInputElement;
+
+        document.documentElement.style.setProperty(cssVariable || `--${inputName}`, target.value);
+        output.value = target.value;
+      },
+      false
+    );
+  }
+
+  setPropertyAndValue('ratioMin');
+  setPropertyAndValue('ratioMax');
+
+  const easing = document.querySelector('#easing') as HTMLSelectElement;
+
+  easing.addEventListener('change', (event) => {
+    const target = event.target as HTMLSelectElement;
+    document.documentElement.style.setProperty('--easing-curve', `var(--${target.value})`);
+  });
+</script>

@@ -1,0 +1,103 @@
+@property --100vw {
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: false;
+}
+
+@layer typescale;
+
+:root {
+  /* Base values for font-size, ratio, viewport widths */
+  --baseFontSizeMin: 1rem;
+  --ratioMin: var(--minorSecond);
+  --minWidth: 320;
+
+  --baseFontSizeMax: 1.5rem;
+  --ratioMax: var(--augmentedFourth);
+  --maxWidth: 1200;
+
+  font-size: clamp(var(--baseFontSizeMin), 2vw, var(--baseFontSizeMax));
+}
+:root {
+  /* Ratios */
+  --minorSecond: 1.06666;
+  --augmentedFourth: 1.414;
+
+  --currentWidth: calc(
+    100vw / 1vw
+  ); /* Not supported in any browser, although the spec would allow for it */
+
+  /* We are using the property we declared as a <length>, so 100vw is correctly converted to px */
+  --100vw: 100vw;
+  --currentWidth: clamp(var(--minWidth), calc(tan(atan2(var(--100vw), 1px))), var(--maxWidth));
+
+  /* This normalizes the value between 0 and 1 */
+  --x: clamp(
+    0,
+    calc((var(--currentWidth) - var(--minWidth)) / (var(--maxWidth) - var(--minWidth))),
+    1
+  );
+
+  /* A few easing functions */
+  /* EaseOutSine - https://easings.net/#easeOutSine  */
+  --easeOutSine: sin((var(--x) * pi) / 2);
+  /* EaseOutQuad - https://easings.net/#easeOutQuad */
+  --easeOutQuad: calc(1 - (1 - var(--x)) * (1 - var(--x)));
+  /* EaseInOutSine - https://easings.net/#easeInOutSine */
+  --easeInOutSine: calc(- (cos(pi * var(--x)) - 1) / 2);
+
+  /* Which curve do we want to use? */
+  --easing-curve: var(--easeOutSine);
+
+  /* Min and max sizes of the scales are calculated based 
+  on the provided ratio with pow(): 
+  https://developer.mozilla.org/en-US/docs/Web/CSS/pow */
+
+  /* Scale min */
+  --size-min-4: calc(1rem * pow(var(--ratioMin), 4));
+  --size-min-3: calc(1rem * pow(var(--ratioMin), 3));
+  --size-min-2: calc(1rem * pow(var(--ratioMin), 2));
+  --size-min-1: calc(1rem * pow(var(--ratioMin), 1));
+  --size-min-0: calc(1rem * pow(var(--ratioMin), 0));
+  --size-min--1: calc(1rem * pow(var(--ratioMin), -1));
+
+  /* Scale max */
+  --size-max-4: calc(1rem * pow(var(--ratioMax), 4));
+  --size-max-3: calc(1rem * pow(var(--ratioMax), 3));
+  --size-max-2: calc(1rem * pow(var(--ratioMax), 2));
+  --size-max-1: calc(1rem * pow(var(--ratioMax), 1));
+  --size-max-0: calc(1rem * pow(var(--ratioMax), 0));
+  --size-max--1: calc(1rem * pow(var(--ratioMax), -1));
+
+  /* Fluid font sizes with clamp() */
+  --step-4: clamp(
+    var(--size-min-4),
+    var(--size-min-4) + (var(--easing-curve) * (var(--size-max-4) - var(--size-min-4))),
+    var(--size-max-4)
+  );
+  --step-3: clamp(
+    var(--size-min-3),
+    var(--size-min-3) + (var(--easing-curve) * (var(--size-max-3) - var(--size-min-3))),
+    var(--size-max-3)
+  );
+  --step-2: clamp(
+    var(--size-min-2),
+    var(--size-min-2) + (var(--easing-curve) * (var(--size-max-2) - var(--size-min-2))),
+    var(--size-max-2)
+  );
+  --step-1: clamp(
+    var(--size-min-1),
+    var(--size-min-1) + (var(--easing-curve) * (var(--size-max-1) - var(--size-min-1))),
+    var(--size-max-1)
+  );
+  --step-0: clamp(
+    var(--size-min-0),
+    var(--size-min-0) + (var(--easing-curve) * (var(--size-max-0) - var(--size-min-0))),
+    var(--size-max-0)
+  );
+  --step--1: clamp(
+    var(--size-min--1),
+    var(--size-min--1) + (var(--easing-curve) * (var(--size-max--1) - var(--size-min--1))),
+    var(--size-max--1)
+  );
+}

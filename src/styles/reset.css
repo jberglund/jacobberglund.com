@@ -1,3 +1,4 @@
+@layer reset;
 /* Box sizing rules */
 *,
 *::before,
@@ -17,8 +18,8 @@ html {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -29,37 +30,24 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
+:is(h1, h2, h3, h4, button, input, label) {
   line-height: 1.1;
 }
 
 /* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
+:is(h1, h2, h3, h4) {
   text-wrap: balance;
   overflow-wrap: break-word;
 }
 
 /* Make images easier to work with */
-img,
-picture {
+:is(img, picture) {
   max-width: 100%;
   display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
+:is(input, button, textarea, select) {
   font: inherit;
 }
 

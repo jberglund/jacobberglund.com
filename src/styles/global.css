@@ -1,10 +1,16 @@
-@import url("media-queries.css");
-@import url("reset.css");
-@import url("fonts.css");
-@import url("colors.css");
-@import url("variables.css");
-@import url("grid.css");
-@import url("prism.css");
+@import url('variables/typescale.css');
+@import url('misc/media-queries.css');
+@import url('reset.css');
+@import url('fonts.css');
+@import url('colors.css');
+@import url('variables.css');
+
+@import url('classes/typeset.css');
+@import url('classes/padding.css');
+@import url('classes/stack.css');
+
+@import url('grid.css');
+@import url('misc/prism.css');
 
 html {
   background-color: var(--color-background);
@@ -48,9 +54,9 @@ pre {
 }
 
 html {
-  font-size: var(--step-0);
-  font-family: "Epilogue", sans-serif;
+  font-family: 'Epilogue', sans-serif;
   font-weight: 400;
+
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.45;
@@ -63,59 +69,21 @@ body {
   display: grid;
   grid-template-rows: max-content;
   overscroll-behavior-x: none;
+  font-size: var(--step-0);
 }
 
-:is(h1, h2, h3, h4, h5, h6, blockquote) {
+/* :is(h1, h2, h3, h4, h5, h6, blockquote) {
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.03em;
-}
-
-:is(h1, .h1) {
-  font-size: var(--step-4);
-}
-:is(h2, .h2) {
-  font-size: var(--step-3);
-}
-:is(h3, .h3) {
-  font-size: var(--step-3);
-}
-:is(h4, .h4) {
-  font-size: var(--step-2);
-}
-:is(h5, .h5) {
-  font-size: var(--step-2);
-}
-:is(h6, .h6) {
-  font-size: var(--step-1);
-}
-
-:is(p, ul, ol) {
-  margin: var(--space-2xs) 0;
-  text-wrap: pretty;
-}
-
-:is(ol, ul):not([class]) {
-  padding-left: var(--space-s);
-}
-
-ol {
-  list-style: decimal-leading-zero;
-}
-
-li {
-  margin: var(--space-2xs) 0;
-}
-
-li p {
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-xs);
-}
+} */
 
 a {
   color: inherit;
   text-decoration-color: transparent;
-  transition: color linear 0.15s, text-decoration linear 0.15s;
+  transition:
+    color linear 0.15s,
+    text-decoration linear 0.15s;
 }
 
 /* A elements that don't have a class get default styles */
@@ -251,96 +219,4 @@ figure {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
-}
-
-.prose {
-  --space-l1-lg: 4rem;
-  --space-l2-lg: 3rem;
-  --space-l3-lg: 2.5rem;
-  --space-l4-lg: 2rem;
-  --space-l5-lg: 1.5rem;
-  --space-l6-lg: 1rem;
-
-  --space-l1-sm: calc(var(--space-l1-lg) / 4);
-  --space-l2-sm: calc(var(--space-l2-lg) / 4);
-  --space-l3-sm: calc(var(--space-l3-lg) / 4);
-  --space-l4-sm: calc(var(--space-l4-lg) / 4);
-  --space-l5-sm: calc(var(--space-l5-lg) / 4);
-  --space-l6-sm: calc(var(--space-l6-lg) / 4);
-
-  & :is(h1, h2, h3, h4, h5, h6) {
-    color: var(--primary-200);
-    /* margin-top: var(--space-m); */
-    /* font-family: var(--font-monospace); */
-  }
-  h2 {
-    font-size: var(--step-2);
-  }
-  h3 {
-    font-size: var(--step-0);
-  }
-  h4 {
-    font-size: var(--step--1);
-  }
-  h5,
-  h6 {
-    font-size: var(--step--2);
-  }
-
-  /* Non-heading elements should have a big gap after them if followed by a heading. */
-  /* Star selector means that a bunch of stuff should "just work", */
-  /* e.g. if you insert images or other elements between text nodes. */
-  /* But you could change the `*` to `:is(h1,h2,h3,h4,h5,h6)` if you don't want that. */
-  *:has(+ h2) {
-    margin-bottom: var(--space-l2-lg);
-  }
-  *:has(+ h3) {
-    margin-bottom: var(--space-l3-lg);
-  }
-  *:has(+ h4) {
-    margin-bottom: var(--space-l4-lg);
-  }
-  *:has(+ h5) {
-    margin-bottom: var(--space-l5-lg);
-  }
-  *:has(+ h6) {
-    margin-bottom: var(--space-l6-lg);
-  }
-
-  /* Headings followed immediately by a heading of a level down */
-  /* should have only a small gap below. */
-  /* Using :where() for consistent specificity. */
-  :where(h1):has(+ h2) {
-    margin-bottom: var(--space-l1-sm);
-  }
-  :where(h2):has(+ h3) {
-    margin-bottom: var(--space-l2-sm);
-  }
-  :where(h3):has(+ h4) {
-    margin-bottom: var(--space-l3-sm);
-  }
-  :where(h4):has(+ h5) {
-    margin-bottom: var(--space-l4-sm);
-  }
-  :where(h5):has(+ h6) {
-    margin-bottom: var(--space-l5-sm);
-  }
-
-  /* List item spacing. */
-  :where(li):has(+ li) {
-    margin-bottom: var(--space-list-items);
-  }
-
-  /* Nested list spacing. */
-  /* This is the only place we need to use margin-top :'( */
-  :where(li) :is(ul, ol) {
-    margin-top: var(--space-list-items);
-  }
-
-  /* Remove the bottom margin on the last prose element */
-  /* (i.e. if it has no next sibling). */
-  /* Could there be an argument to apply this to ALL elements (*) with no next sibling? */
-  :is(p, ul, ol, h1, h2, h3, h4, h5, h6):not(:has(+ *)) {
-    margin-bottom: 0;
-  }
 }

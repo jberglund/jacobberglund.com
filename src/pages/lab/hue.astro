@@ -1,42 +1,38 @@
 ---
-import HueControl from "@components/Controls/Hue.astro";
-import CSSSupport from "../../components/CSS/CSSSupport.astro";
-import SiteLayout from "../../layouts/SiteLayout.astro";
-import Noise from "@components/Controls/NoiseFilter.astro";
+import HueControl from '@components/Controls/Hue.astro';
+import CSSSupport from '../../components/CSS/CSSSupport.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Noise from '@components/Controls/NoiseFilter.astro';
 ---
 
 <SiteLayout>
   <div class="u-grid" data-space="m">
-    <div class="prose" style="margin-top: var(--space-xl)">
+    <div class="typeset" style="margin-top: var(--space-xl)">
       <h1 class="h4">Welcome to the lab!</h1>
       <p>
-        This is my workbench for mad science. Come to think of it, this whole
-        site is one big experiment
+        This is my workbench for mad science. Come to think of it, this whole site is one big
+        experiment
       </p>
       <p>And this page is a demonstration of how it all works. First out is:</p>
       <h3 class="h4">Colors</h3>
-      <p>
-        Now that the introdutions has been covered, let's adjourn to the study.
-      </p>
+      <p>Now that the introdutions has been covered, let's adjourn to the study.</p>
       <p>
         D'you know of <a
           class="link"
-          href="https://www.interaction-design.org/literature/topics/color-theory"
-          >color theory</a
-        >?. I do, but am positively horrendous at picking colors. So, of course,
-        I made a color system instead.
+          href="https://www.interaction-design.org/literature/topics/color-theory">color theory</a
+        >?. I do, but am positively horrendous at picking colors. So, of course, I made a color
+        system instead.
       </p>
-      <CSSSupport test={"color: oklch(100% 1 150)"} />
+      <CSSSupport test={'color: oklch(100% 1 150)'} />
       <p>
-        If you checked the link above about Color Theory, or if you already know
-        some you might be familiar with Analogous, Triadic, Compound Harmony, or
-        Complementary. Which is fancy speak for the different relationships
-        between colors on a color wheel. Again, I won't pretend to be
-        knowledable beyond the basics.
+        If you checked the link above about Color Theory, or if you already know some you might be
+        familiar with Analogous, Triadic, Compound Harmony, or Complementary. Which is fancy speak
+        for the different relationships between colors on a color wheel. Again, I won't pretend to
+        be knowledable beyond the basics.
       </p>
       <p>
-        Anyway, this system should be able to either give you some indication of
-        how it works. Here, give it a whirl:
+        Anyway, this system should be able to either give you some indication of how it works. Here,
+        give it a whirl:
       </p>
     </div>
     <HueControl />
@@ -228,13 +224,13 @@ import Noise from "@components/Controls/NoiseFilter.astro";
     );
   }
 
-  .gradient[data-variant="2"] {
+  .gradient[data-variant='2'] {
     --_start: var(--primary-300);
     --_center: var(--tertiary-400);
     --_stop: var(--secondary-600);
   }
 
-  .gradient[data-variant="3"] {
+  .gradient[data-variant='3'] {
     --_start: var(--primary-300);
     --_center: var(--tertiary-400);
     --_stop: var(--secondary-600);

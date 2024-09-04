@@ -1,0 +1,167 @@
+:root {
+  --global-font-weight-bold: 700;
+  --global-font-weight-heading: 700;
+  --global-font-weight-default: 400;
+}
+
+:where(.typeset) :where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--global-font-weight-heading);
+  line-height: var(--global-line-height-heading);
+  font-family: var(--global-font-family-brand-headings, inherit);
+}
+
+:where(.typeset) :where(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+:where(.typeset) :is(h1),
+:is(.h1) {
+  font-size: var(--step-4);
+}
+:where(.typeset) :is(h2),
+:is(.h2) {
+  font-size: var(--step-3);
+}
+:where(.typeset) :is(h3),
+:is(.h3) {
+  font-size: var(--step-2);
+}
+:where(.typeset) :is(h4, blockquote),
+:is(.h4) {
+  font-size: var(--step-1);
+}
+:where(.typeset) :is(h5, p),
+:is(.h5) {
+  font-size: var(--step-0);
+}
+:where(.typeset) :is(h6, figcaption, small),
+:is(.h6) {
+  font-size: var(--step--1);
+}
+
+:where(.typeset) {
+  & .h2,
+  & .h3,
+  & .h4,
+  & .h5,
+  & .h6,
+  & :where(h2, h3, h4, h5, h6) {
+    margin: 0.5em 0;
+  }
+
+  & * + .h2,
+  & * + .h3,
+  & * + .h4,
+  & * + .h5,
+  & * + .h6,
+  & * + :where(h2, h3, h4, h5, h6) {
+    margin-block-start: 1.5rem;
+  }
+
+  & :where(p) {
+    max-width: 65ch;
+  }
+
+  /* prettier-ignore */
+  & :where(p, li, dt, dd, blockquote, figcaption, small, pre, code, cite, small) {
+    font-feature-settings: var(--global-font-features);
+    font-weight: var(--global-font-weight-default, inherit);
+    line-height: var(--global-line-height-default, inherit);
+    text-wrap: pretty;
+  }
+
+  /* prettier-ignore */
+  & .text-m,
+  & .text-s,
+  & .text-xs,
+  & :where( p, li, dt, dd, blockquote, figcaption, small, pre, code, cite, small ) {
+    margin: 0.85em 0;
+  }
+
+  & :where(dd) {
+    margin-inline-start: 0.85em;
+  }
+
+  & > :first-child {
+    margin-block-start: 0;
+  }
+
+  & > :last-child {
+    margin-block-end: 0;
+  }
+
+  & :where(ul, ol, dl, blockquote) {
+    margin: 0.5em 0;
+    padding: 0 0 0 1.5em;
+  }
+
+  /* & :where(a:any-link) {
+    color: var(--global-color-accent, currentColor);
+    text-decoration: underline;
+  }
+
+  & :where(a:any-link:hover) {
+    text-decoration: none;
+  } */
+
+  & :where(strong, b) {
+    font-weight: var(--global-font-weight-bold, bold);
+  }
+
+  /* Non-heading elements should have a big gap after them if followed by a heading. */
+  /* Star selector means that a bunch of stuff should "just work", */
+  /* e.g. if you insert images or other elements between text nodes. */
+  /* But you could change the `*` to `:is(h1,h2,h3,h4,h5,h6)` if you don't want that. */
+  & *:has(+ h2) {
+    margin-bottom: var(--space-l);
+  }
+  & *:has(+ h3) {
+    margin-bottom: var(--space-l);
+  }
+  & *:has(+ h4) {
+    margin-bottom: var(--space-l);
+  }
+  & *:has(+ h5) {
+    margin-bottom: var(--space-l);
+  }
+  & *:has(+ h6) {
+    margin-bottom: var(--space-l);
+  }
+
+  /* Headings followed immediately by a heading of a level down */
+  /* should have only a small gap below. */
+  /* Using :where() for consistent specificity. */
+  :where(h1):has(+ h2) {
+    margin-bottom: var(--space-s);
+  }
+  :where(h2):has(+ h3) {
+    margin-bottom: var(--space-s);
+  }
+  :where(h3):has(+ h4) {
+    margin-bottom: var(--space-s);
+  }
+  :where(h4):has(+ h5) {
+    margin-bottom: var(--space-s);
+  }
+  :where(h5):has(+ h6) {
+    margin-bottom: var(--space-s);
+  }
+
+  /* List item spacing. */
+  :where(li):has(+ li) {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Nested list spacing. */
+  /* This is the only place we need to use margin-top :'( */
+  :where(li) :is(ul, ol) {
+    margin-top: var(--space-xs);
+  }
+
+  /* Remove the bottom margin on the last prose element */
+  /* (i.e. if it has no next sibling). */
+  /* Could there be an argument to apply this to ALL elements (*) with no next sibling? */
+  & :is(p, ul, ol, h1, h2, h3, h4, h5, h6):not(:has(+ *)) {
+    margin-bottom: 0;
+  }
+}
