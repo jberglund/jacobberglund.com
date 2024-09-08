@@ -31,6 +31,18 @@ ok-stack[justify='space-between'] {
   justify-content: space-between;
 }
 
+ok-stack[grow='1'] {
+  flex-grow: 1;
+}
+
+ok-stack[grow='2'] {
+  flex-grow: 2;
+}
+
+ok-stack[grow='3'] {
+  flex-grow: 3;
+}
+
 ok-stack[gap='4xl'] {
   gap: var(--space-4xl, 3.5rem);
 }

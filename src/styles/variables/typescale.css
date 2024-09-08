@@ -60,6 +60,8 @@
   --size-min-1: calc(1rem * pow(var(--ratioMin), 1));
   --size-min-0: calc(1rem * pow(var(--ratioMin), 0));
   --size-min--1: calc(1rem * pow(var(--ratioMin), -1));
+  --size-min--2: calc(1rem * pow(var(--ratioMin), -2));
+  --size-min--3: calc(1rem * pow(var(--ratioMin), -3));
 
   /* Scale max */
   --size-max-4: calc(1rem * pow(var(--ratioMax), 4));
@@ -68,6 +70,8 @@
   --size-max-1: calc(1rem * pow(var(--ratioMax), 1));
   --size-max-0: calc(1rem * pow(var(--ratioMax), 0));
   --size-max--1: calc(1rem * pow(var(--ratioMax), -1));
+  --size-max--2: calc(1rem * pow(var(--ratioMax), -2));
+  --size-max--3: calc(1rem * pow(var(--ratioMax), -3));
 
   /* Fluid font sizes with clamp() */
   --step-4: clamp(
@@ -99,5 +103,17 @@
     var(--size-min--1),
     var(--size-min--1) + (var(--easing-curve) * (var(--size-max--1) - var(--size-min--1))),
     var(--size-max--1)
+  );
+
+  --step--2: clamp(
+    var(--size-min--2),
+    var(--size-min--2) + (var(--easing-curve) * (var(--size-max--2) - var(--size-min--2))),
+    var(--size-max--2)
+  );
+
+  --step--3: clamp(
+    var(--size-min--3),
+    var(--size-min--3) + (var(--easing-curve) * (var(--size-max--3) - var(--size-min--3))),
+    var(--size-max--3)
   );
 }

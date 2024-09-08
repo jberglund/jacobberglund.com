@@ -1,12 +1,14 @@
 ---
-import Flex from "@components/utility/Flex.astro";
+import Flex from '@components/utility/Flex.astro';
 ---
 
 <div class="controls">
-  <Flex class="control-wrapper" grow="1">
-    <slot />
-  </Flex>
-  <slot name="decoration" />
+  <ok-stack justify="space-between">
+    <ok-stack class="control-wrapper" gap="xs" grow="1">
+      <slot />
+    </ok-stack>
+    <slot name="decoration" />
+  </ok-stack>
 </div>
 
 <style>
@@ -20,16 +22,16 @@ import Flex from "@components/utility/Flex.astro";
     z-index: 100;
     border: 2px solid var(--primary-950);
     border-radius: var(--radius-2);
-    background-color: var(--gray-300);
-    color: var(--primary-950);
+    background-color: var(--gray-50);
+    color: var(--gray-950);
     container-type: inline-size;
     container-name: controls;
     --shadow-color: color-mix(in oklch, var(--primary-1000) 60%, transparent);
 
-    box-shadow:
+    /* box-shadow:
       1px 4px 25px 12px var(--shadow-color),
       1px 1px 6px 3px var(--shadow-color);
-    box-shadow: 4px 4px 0px 0px var(--shadow-color);
+    box-shadow: 4px 4px 0px 0px var(--shadow-color); */
   }
 
   .control-wrapper {

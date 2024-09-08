@@ -1,6 +1,6 @@
 ---
-import Flex from "@components/utility/Flex.astro";
-import { Code } from "astro:components";
+import Flex from '@components/utility/Flex.astro';
+import { Code } from 'astro:components';
 
 type Props = {
   test: string;
@@ -13,55 +13,49 @@ const { test, class: providedClass } = Astro.props;
   justifyContent="between"
   alignItems="center"
   gap="2xs"
-  class:list={["css-supports js-css-supports", providedClass]}
+  class:list={['css-supports js-css-supports', providedClass]}
   data-test={test}
   data-supported="undetermined"
 >
-  <Code
-    code={`@supports ( ${test} )`}
-    lang="css"
-    inline
-    theme="css-variables"
-  />
+  <Code code={`@supports ( ${test} )`} lang="css" inline theme="css-variables" />
 </Flex>
 
 <script>
-
-  document.addEventListener("astro:page-load", () => {
-    const elements = document.querySelectorAll(".js-css-supports");
+  document.addEventListener('astro:page-load', () => {
+    const elements = document.querySelectorAll('.js-css-supports');
     elements.forEach((element) => {
       if (element instanceof HTMLElement) {
         const test = element.dataset.test as string;
         const supported = CSS.supports(test);
-        element.dataset.supported = supported ? "supported" : "unsupported";
+        element.dataset.supported = supported ? 'supported' : 'unsupported';
       }
     });
   });
 </script>
 
 <style>
-  [data-supported="undetermined"] {
+  [data-supported='undetermined'] {
     --_background: var(--gray-900);
     --_border: var(--gray-800);
     filter: grayscale(50%);
   }
-  [data-supported="unsupported"] {
+  [data-supported='unsupported'] {
     --_background: var(--tertiary-900);
     --_border: var(--tertiary-800);
   }
-  [data-supported="supported"] {
-    --_background: var(--primary-900);
+  [data-supported='supported'] {
+    --_background: var(--gray-900);
     --_border: var(--primary-950);
     text-decoration: none;
     transition: filter 500ms ease;
   }
 
-  [data-supported="unsupported"]:after {
-    content: "👎";
+  [data-supported='unsupported']:after {
+    content: '👎';
   }
 
-  [data-supported="supported"]:after {
-    content: "👍";
+  [data-supported='supported']:after {
+    content: '👍';
   }
 
   .css-supports {

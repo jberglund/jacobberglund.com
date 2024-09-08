@@ -1,25 +1,20 @@
 ---
-import Flex from "@components/utility/Flex.astro";
-import Controls from "./Controls.astro";
-import InputRange from "./InputRange.astro";
+import Flex from '@components/utility/Flex.astro';
+import Controls from './Controls.astro';
+import InputRange from './InputRange.astro';
 ---
 
 <Controls>
   <InputRange title="Hue Primary" name="hue-primary" min={0} max={360} />
   <InputRange title="Distance" name="hue-angle" min={0} max={360} />
-  <InputRange
-    title="Primary -> Gray"
-    name="primary-into-gray"
-    min={0}
-    max={1}
-    step={0.1}
-  />
-
-  <div class="wheel" slot="decoration">
-    <div class="wheel-indicator"></div>
-    <div class="wheel-point" data-hue="primary"></div>
-    <div class="wheel-point" data-hue="secondary"></div>
-    <div class="wheel-point" data-hue="tertiary"></div>
+  <InputRange title="Gray chroma" name="primary-into-gray" min={0} max={1} step={0.1} />
+  <div slot="decoration">
+    <div class="wheel">
+      <div class="wheel-indicator"></div>
+      <div class="wheel-point" data-hue="primary"></div>
+      <div class="wheel-point" data-hue="secondary"></div>
+      <div class="wheel-point" data-hue="tertiary"></div>
+    </div>
   </div>
 </Controls>
 
@@ -37,7 +32,7 @@ import InputRange from "./InputRange.astro";
     height: var(--_size);
     aspect-ratio: 1;
     border-radius: 50%;
-    box-shadow: inset 0px 0px 0px var(--_point-size) var(--primary-100);
+    box-shadow: inset 0px 0px 0px var(--_point-size) var(--gray-200);
     position: relative;
   }
 
@@ -49,8 +44,7 @@ import InputRange from "./InputRange.astro";
     --y: calc(var(--radius) * sin(var(--angle)));
 
     position: absolute;
-    transform: translateX(calc(var(--radius) + var(--x)))
-      translateY(calc(var(--radius) + var(--y)));
+    transform: translateX(calc(var(--radius) + var(--x))) translateY(calc(var(--radius) + var(--y)));
     background-color: var(--_color, currentColor);
     width: var(--point-size);
     height: var(--point-size);
@@ -59,50 +53,43 @@ import InputRange from "./InputRange.astro";
     border: 1px solid var(--jb-box-shadow-color);
   }
 
-  .wheel-point[data-hue="primary"] {
+  .wheel-point[data-hue='primary'] {
     --angle: calc(var(--hue-primary) * 1deg);
     --_color: var(--primary-400);
   }
-  .wheel-point[data-hue="secondary"] {
+  .wheel-point[data-hue='secondary'] {
     --angle: calc(var(--hue-secondary) * 1deg);
     --_color: var(--secondary-400);
   }
-  .wheel-point[data-hue="tertiary"] {
+  .wheel-point[data-hue='tertiary'] {
     --angle: calc(var(--hue-tertiary) * 1deg);
     --_color: var(--tertiary-400);
   }
 </style>
 
 <script>
-  import { overrideCSSProperties, type SettingsValue } from "src/store";
+  import { overrideCSSProperties, type SettingsValue } from 'src/store';
 
-  function setPropertyAndValue(
-    inputName: string,
-    cssVariable: keyof SettingsValue
-  ) {
-    const input = document.querySelector(
-      `input[name="${inputName}"]`
-    ) as HTMLInputElement;
+  function setPropertyAndValue(inputName: string, cssVariable: keyof SettingsValue) {
+    const input = document.querySelector(`input[name="${inputName}"]`) as HTMLInputElement;
 
-    const output = document.querySelector(
-      `output[for="${inputName}"]`
-    ) as HTMLInputElement;
+    const output = document.querySelector(`output[for="${inputName}"]`) as HTMLInputElement;
 
     if (!input && !output) return;
 
     input.value = overrideCSSProperties.get()[cssVariable];
     output.value = overrideCSSProperties.get()[cssVariable];
 
-    input.addEventListener("input", (event) => {
+    input.addEventListener('input', (event) => {
       const target = event.target as HTMLInputElement;
       overrideCSSProperties.setKey(cssVariable, target.value);
       output.value = target.value;
     });
   }
-  document.addEventListener("astro:page-load", () => {
-    setPropertyAndValue("hue-primary", "--hue-primary");
-    setPropertyAndValue("hue-angle", "--hue-angle");
-    setPropertyAndValue("primary-into-gray", "--gray-multiplier");
+  document.addEventListener('astro:page-load', () => {
+    setPropertyAndValue('hue-primary', '--hue-primary');
+    setPropertyAndValue('hue-angle', '--hue-angle');
+    setPropertyAndValue('primary-into-gray', '--gray-multiplier');
   });
 </script>
 
