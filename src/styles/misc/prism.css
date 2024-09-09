@@ -1,7 +1,7 @@
 :root {
   --text-opacity: 1;
   --astro-code-color-text: var(--primary-100);
-  --astro-code-color-background: linear-gradient(160deg, var(--primary-900), var(--primary-1000));
+  --astro-code-color-background: linear-gradient(160deg, var(--gray-200), var(--gray-300));
   --astro-code-color-border: var(--primary-800);
 
   --astro-code-token-string: rgb(253 230 138 / 100%);

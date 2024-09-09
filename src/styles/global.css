@@ -164,13 +164,7 @@ pre {
   margin-block: var(--space-s);
   background: var(--astro-code-color-background);
   padding: var(--space-s);
-  grid-column: 2 / span 10;
-  border: 2px solid var(--astro-code-color-border);
   border-radius: var(--radius-3);
-  grid-column: 2 / span 10;
-  @media (--small) {
-    grid-column: 1 / span 12;
-  }
 }
 
 pre code {
@@ -178,8 +172,9 @@ pre code {
 }
 
 blockquote {
-  border-left: 4px solid var(--astro-code-token-function);
-  color: var(--astro-code-token-function);
+  border-left: 4px solid currentColor;
+  /* color: var(--secondary-700); */
+  background: var(--gray-50);
   font-size: var(--step-1);
   margin: var(--space-s) 0;
   padding-block: var(--space-xs);
