@@ -1,48 +1,27 @@
 ---
+import Controls from '@components/Controls/Controls.astro';
+import InputRange from '@components/Controls/InputRange.astro';
 import CSSSupport from '@components/CSS/CSSSupport.astro';
 import SiteLayout from '@layouts/SiteLayout.astro';
 ---
 
 <SiteLayout>
   <div style="margin: 2rem 0;">
-    <div>
-      <label for="ratioMin">
-        <div class="h6">Typescale at 320</div>
-        <input
-          class="range-slider"
-          name="ratioMin"
-          type="range"
-          min="1"
-          max="1.66666"
-          step="0.01"
-        />
-        <output for="ratioMin"></output>
-      </label>
-    </div>
-
-    <div>
-      <label for="ratioMax">
-        <div>Typescale at 1800</div>
-        <input
-          class="range-slider"
-          name="ratioMax"
-          type="range"
-          min="1"
-          max="1.66666"
-          step="0.01"
-        />
-        <output for="ratioMax"></output>
-      </label>
-    </div>
-
-    <div>
-      <label for="easing">Easing curve</label>
-      <select name="easing" id="easing">
-        <option value="easeOutSine">easeOutSine</option>
-        <option value="easeOutQuad">easeOutQuad</option>
-        <option value="easeInOutSine">easeInOutSine</option>
-      </select>
-    </div>
+    <ok-stack gap="m">
+      <Controls>
+        <InputRange name="ratioMin" title="Typescale at 320" min="1" max="1.66666" step="0.01" />
+        <InputRange name="ratioMax" title="Typescale at 1800" min="1" max="1.66666" step="0.01" />
+        <div>
+          <label for="easing">Easing curve</label>
+          <select name="easing" id="easing">
+            <option value="easeOutSine">easeOutSine</option>
+            <option value="easeOutQuad">easeOutQuad</option>
+            <option value="easeInOutSine">easeInOutSine</option>
+          </select>
+        </div>
+        <div></div>
+      </Controls>
+    </ok-stack>
   </div>
   <div class="typeset">
     <h1>H1 – Harmonic typescale</h1>

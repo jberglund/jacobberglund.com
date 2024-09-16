@@ -1,6 +1,6 @@
 :root {
-  --text-opacity: 1;
-  --astro-code-color-text: var(--primary-100);
+  /*  --text-opacity: 1;
+  
   --astro-code-color-background: linear-gradient(160deg, var(--gray-200), var(--gray-300));
   --astro-code-color-border: var(--primary-800);
 
@@ -9,12 +9,21 @@
 
   --astro-code-token-parameter: #aa0000;
   --astro-code-token-punctuation: var(--gray-500);
-  --astro-code-token-link: #ee0000;
+  --astro-code-token-link: #ee0000; */
 
-  /* themed */
-  --astro-code-token-constant: var(--tertiary-300);
-  --astro-code-token-keyword: var(--secondary-200);
-  --astro-code-token-function: var(--secondary-400);
+  /* themed darkmode*/
+  --astro-code-color-text: var(--primary-400);
+  --astro-code-token-constant: var(--gray-100);
+  --astro-code-token-keyword: var(--tertiary-400);
+  --astro-code-token-function: var(--secondary-300);
+  --astro-code-token-string-expression: var(--tertiary-200);
+}
+
+:root {
+  --astro-code-color-text: var(--primary-400);
+  --astro-code-token-constant: var(--gray-100);
+  --astro-code-token-keyword: var(--tertiary-400);
+  --astro-code-token-function: var(--secondary-300);
   --astro-code-token-string-expression: var(--tertiary-200);
 }
 

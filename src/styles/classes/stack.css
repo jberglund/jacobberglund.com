@@ -31,6 +31,7 @@ ok-stack[justify='space-between'] {
   justify-content: space-between;
 }
 
+ok-stack[grow],
 ok-stack[grow='1'] {
   flex-grow: 1;
 }

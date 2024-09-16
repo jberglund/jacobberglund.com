@@ -6,7 +6,7 @@
   --color-accent: var(--tertiary-300);
 
   --jb-box-shadow-color: var(--primary-950);
-  --jb-focus-color: var(--tertiary-400);
+  --jb-focus-color: var(--primary-950);
   --jb-focus-offset: var(--space-3xs);
 }
 
@@ -40,4 +40,15 @@
   --grid-max-width: 93rem;
   --grid-gutter: var(--space-s-l, clamp(1rem, 0.4345rem + 2.7586vw, 3rem));
   --grid-columns: 12;
+}
+
+select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  --_input-shadow: var(--jb-box-shadow-color, var(--primary-950));
+  border-radius: 0.375rem;
+  border: 2px solid var(--_input-shadow);
+  padding: var(--space-3xs);
+  background: var(--gray-100);
 }

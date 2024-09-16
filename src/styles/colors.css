@@ -54,52 +54,28 @@
 :root {
   --hue-angle: 30;
   --hue-angle: 240;
-  --primary-50: oklch(
-    var(--l-50) var(--c-50) calc(var(--hue-primary) + var(--h-50))
-  );
-  --primary-100: oklch(
-    var(--l-100) var(--c-100) calc(var(--hue-primary) + var(--h-100))
-  );
+  --primary-50: oklch(var(--l-50) var(--c-50) calc(var(--hue-primary) + var(--h-50)));
+  --primary-100: oklch(var(--l-100) var(--c-100) calc(var(--hue-primary) + var(--h-100)));
 
-  --primary-200: oklch(
-    var(--l-200) var(--c-200) calc(var(--hue-primary) + var(--h-200))
-  );
+  --primary-200: oklch(var(--l-200) var(--c-200) calc(var(--hue-primary) + var(--h-200)));
 
-  --primary-300: oklch(
-    var(--l-300) var(--c-300) calc(var(--hue-primary) + var(--h-300))
-  );
+  --primary-300: oklch(var(--l-300) var(--c-300) calc(var(--hue-primary) + var(--h-300)));
 
-  --primary-400: oklch(
-    var(--l-400) var(--c-400) calc(var(--hue-primary) + var(--h-400))
-  );
+  --primary-400: oklch(var(--l-400) var(--c-400) calc(var(--hue-primary) + var(--h-400)));
 
-  --primary-500: oklch(
-    var(--l-500) var(--c-500) calc(var(--hue-primary) + var(--h-500))
-  );
+  --primary-500: oklch(var(--l-500) var(--c-500) calc(var(--hue-primary) + var(--h-500)));
 
-  --primary-600: oklch(
-    var(--l-600) var(--c-600) calc(var(--hue-primary) + var(--h-600))
-  );
+  --primary-600: oklch(var(--l-600) var(--c-600) calc(var(--hue-primary) + var(--h-600)));
 
-  --primary-700: oklch(
-    var(--l-700) var(--c-700) calc(var(--hue-primary) + var(--h-700))
-  );
+  --primary-700: oklch(var(--l-700) var(--c-700) calc(var(--hue-primary) + var(--h-700)));
 
-  --primary-800: oklch(
-    var(--l-800) var(--c-800) calc(var(--hue-primary) + var(--h-800))
-  );
+  --primary-800: oklch(var(--l-800) var(--c-800) calc(var(--hue-primary) + var(--h-800)));
 
-  --primary-900: oklch(
-    var(--l-900) var(--c-900) calc(var(--hue-primary) + var(--h-900))
-  );
+  --primary-900: oklch(var(--l-900) var(--c-900) calc(var(--hue-primary) + var(--h-900)));
 
-  --primary-950: oklch(
-    var(--l-950) var(--c-950) calc(var(--hue-primary) + var(--h-950))
-  );
+  --primary-950: oklch(var(--l-950) var(--c-950) calc(var(--hue-primary) + var(--h-950)));
 
-  --primary-1000: oklch(
-    var(--l-1000) var(--c-1000) calc(var(--hue-primary) + var(--h-1000))
-  );
+  --primary-1000: oklch(var(--l-1000) var(--c-1000) calc(var(--hue-primary) + var(--h-1000)));
 
   --hue-secondary: calc((var(--hue-primary)) - (var(--hue-angle) / 2));
 

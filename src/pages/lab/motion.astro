@@ -1,42 +1,31 @@
 ---
-import Clockwork from "@components/Animations/Clockwork.astro";
-import Type from "@components/Animations/Type.astro";
-import CSSSupport from "@components/CSS/CSSSupport.astro";
-import Card from "@components/Card.astro";
-import Flex from "@components/utility/Flex.astro";
-import SiteLayout from "@layouts/SiteLayout.astro";
+import Clockwork from '@components/Animations/Clockwork.astro';
+import Type from '@components/Animations/Type.astro';
+import CSSSupport from '@components/CSS/CSSSupport.astro';
+import Card from '@components/Card.astro';
+import Flex from '@components/utility/Flex.astro';
+import SiteLayout from '@layouts/SiteLayout.astro';
 ---
 
 <SiteLayout>
-  
   <div class="u-grid index-grid">
-    <Flex gap="2xs" direction="column">
+    <ok-stack gap="2xs">
       <CSSSupport test="translate: calc(100px * cos(45deg))" />
       <CSSSupport test="container-type: inline-size" />
-    </Flex>
-    <div
-      style="grid-column: span 6; grid-row: span 5; --card-background: var(--tertiary-300)"
-    >
+    </ok-stack>
+    <div style="grid-column: span 6; grid-row: span 5; --card-background: var(--tertiary-300)">
       <Type text="Is this thing animating on load?" />
     </div>
-    <div
-      style="grid-column: 2 / span 4; grid-row: span 5; --card-background: var(--tertiary-300)"
-    >
+    <div style="grid-column: 2 / span 4; grid-row: span 5; --card-background: var(--tertiary-300)">
       <Clockwork text="Lab" />
     </div>
-    <div
-      style="grid-column: 6 / span 2; grid-row: span 5; --card-background: var(--primary-300)"
-    >
+    <div style="grid-column: 6 / span 2; grid-row: span 5; --card-background: var(--primary-300)">
       <Clockwork numberOfSteps={12} text="Lab" />
     </div>
-    <div
-      style="grid-column: 8 / span 4; grid-row: 2; --card-background: var(--secondary-400)"
-    >
+    <div style="grid-column: 8 / span 4; grid-row: 2; --card-background: var(--secondary-400)">
       <Clockwork numberOfSteps={8} text="Lab" />
     </div>
-    <div
-      style="grid-column: 8 / span 4; grid-row: 3 / -1; --card-background: var(--tertiary-300)"
-    >
+    <div style="grid-column: 8 / span 4; grid-row: 3 / -1; --card-background: var(--tertiary-300)">
       <Clockwork numberOfSteps={24} text="Lab" />
     </div>
   </div>

@@ -21,7 +21,7 @@ import InputRange from './InputRange.astro';
 <style>
   .wheel {
     --_size: 3.5rem;
-    --_point-size: 1ch;
+    --_point-size: 2ch;
     @container controls (width < 700px) {
       --_size: 5rem;
       --_point-size: 1rem;
@@ -49,8 +49,8 @@ import InputRange from './InputRange.astro';
     width: var(--point-size);
     height: var(--point-size);
     border-radius: 50%;
-    box-shadow: 1px 1px 0px 0px var(--jb-box-shadow-color);
-    border: 1px solid var(--jb-box-shadow-color);
+    /* box-shadow: 1px 1px 0px 0px var(--jb-box-shadow-color); */
+    border: 2px solid var(--jb-box-shadow-color);
   }
 
   .wheel-point[data-hue='primary'] {

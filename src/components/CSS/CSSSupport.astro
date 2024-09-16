@@ -9,16 +9,16 @@ type Props = {
 const { test, class: providedClass } = Astro.props;
 ---
 
-<Flex
-  justifyContent="between"
-  alignItems="center"
+<ok-stack
+  justify="space-between"
+  horizontal
   gap="2xs"
   class:list={['css-supports js-css-supports', providedClass]}
   data-test={test}
   data-supported="undetermined"
 >
   <Code code={`@supports ( ${test} )`} lang="css" inline theme="css-variables" />
-</Flex>
+</ok-stack>
 
 <script>
   document.addEventListener('astro:page-load', () => {
@@ -67,8 +67,5 @@ const { test, class: providedClass } = Astro.props;
     padding: var(--space-3xs) var(--space-xs);
     width: 100%;
     font-family: var(--font-monospace);
-  }
-  .css-supports + .css-supports {
-    margin-top: var(--space-3xs);
   }
 </style>

@@ -1,21 +1,21 @@
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
 
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jacobberglund.com",
+  site: 'https://jacobberglund.com',
   integrations: [mdx(), sitemap()],
   markdown: {
-    syntaxHighlight: "prism",
-    /* shikiConfig: {
+    //syntaxHighlight: 'prism',
+    shikiConfig: {
       wrap: true,
-      theme: "css-variables",
-    }, */
+      theme: 'css-variables',
+    },
   },
   devToolbar: {
     enabled: false,
   },
-  scopedStyleStrategy: "where",
+  scopedStyleStrategy: 'where',
 });

@@ -40,22 +40,22 @@
 }
 
 :where(.typeset) {
-  & .h2,
+  /* & .h2,
   & .h3,
   & .h4,
   & .h5,
   & .h6,
-  & :where(h2, h3, h4, h5, h6) {
+  & :is(h2, h3, h4, h5, h6) {
     margin: 0.5em 0;
-  }
+  } */
 
   & * + .h2,
   & * + .h3,
   & * + .h4,
   & * + .h5,
   & * + .h6,
-  & * + :where(h2, h3, h4, h5, h6) {
-    margin-block-start: 2em;
+  & * + :is(h2, h3, h4, h5, h6) {
+    margin-block-start: 1.5em;
   }
 
   & :where(p) {

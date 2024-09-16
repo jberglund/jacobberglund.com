@@ -3,10 +3,27 @@ import HueControl from '@components/Controls/Hue.astro';
 import CSSSupport from '../../components/CSS/CSSSupport.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import Noise from '@components/Controls/NoiseFilter.astro';
+
+const palettes = ['primary', 'secondary', 'tertiary', 'gray'];
+
+const paletteValues = [
+  '50',
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  '950',
+  '1000',
+];
 ---
 
 <SiteLayout>
-  <div class="u-grid" data-space="m">
+  <ok-stack gap="xl" data-space="m">
     <div class="typeset" style="margin-top: var(--space-xl)">
       <h1 class="h4">Welcome to the lab!</h1>
       <p>
@@ -39,79 +56,18 @@ import Noise from '@components/Controls/NoiseFilter.astro';
     <div class="palettes u-full">
       <div class="palette">
         <div class="swatch-name swatch-title"></div>
-        <div class="swatch-name">50</div>
-        <div class="swatch-name">100</div>
-        <div class="swatch-name">200</div>
-        <div class="swatch-name">300</div>
-        <div class="swatch-name">400</div>
-        <div class="swatch-name">500</div>
-        <div class="swatch-name">600</div>
-        <div class="swatch-name">700</div>
-        <div class="swatch-name">800</div>
-        <div class="swatch-name">900</div>
-        <div class="swatch-name">950</div>
-        <div class="swatch-name">1000</div>
+        {paletteValues.map((value) => <div class="swatch-name">{value}</div>)}
       </div>
-      <div class="palette">
-        <div class="swatch swatch-title">Primary</div>
-        <div class="swatch" style="--swatch: var(--primary-50)"></div>
-        <div class="swatch" style="--swatch: var(--primary-100)"></div>
-        <div class="swatch" style="--swatch: var(--primary-200)"></div>
-        <div class="swatch" style="--swatch: var(--primary-300)"></div>
-        <div class="swatch" style="--swatch: var(--primary-400)"></div>
-        <div class="swatch" style="--swatch: var(--primary-500)"></div>
-        <div class="swatch" style="--swatch: var(--primary-600)"></div>
-        <div class="swatch" style="--swatch: var(--primary-700)"></div>
-        <div class="swatch" style="--swatch: var(--primary-800)"></div>
-        <div class="swatch" style="--swatch: var(--primary-900)"></div>
-        <div class="swatch" style="--swatch: var(--primary-950)"></div>
-        <div class="swatch" style="--swatch: var(--primary-1000)"></div>
-      </div>
-      <div class="palette">
-        <div class="swatch swatch-title">Secondary</div>
-        <div class="swatch" style="--swatch: var(--secondary-50)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-100)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-200)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-300)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-400)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-500)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-600)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-700)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-800)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-900)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-950)"></div>
-        <div class="swatch" style="--swatch: var(--secondary-1000)"></div>
-      </div>
-      <div class="palette">
-        <div class="swatch swatch-title">Tertiary</div>
-        <div class="swatch" style="--swatch: var(--tertiary-50)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-100)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-200)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-300)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-400)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-500)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-600)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-700)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-800)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-900)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-950)"></div>
-        <div class="swatch" style="--swatch: var(--tertiary-1000)"></div>
-      </div>
-      <div class="palette">
-        <div class="swatch swatch-title">Gray</div>
-        <div class="swatch" style="--swatch: var(--gray-50)">50</div>
-        <div class="swatch" style="--swatch: var(--gray-100)">100</div>
-        <div class="swatch" style="--swatch: var(--gray-200)">200</div>
-        <div class="swatch" style="--swatch: var(--gray-300)">300</div>
-        <div class="swatch" style="--swatch: var(--gray-400)">400</div>
-        <div class="swatch" style="--swatch: var(--gray-500)">500</div>
-        <div class="swatch" style="--swatch: var(--gray-600)">600</div>
-        <div class="swatch" style="--swatch: var(--gray-700)">700</div>
-        <div class="swatch" style="--swatch: var(--gray-800)">800</div>
-        <div class="swatch" style="--swatch: var(--gray-900)">900</div>
-        <div class="swatch" style="--swatch: var(--gray-950)">950</div>
-        <div class="swatch" style="--swatch: var(--gray-1000)">1000</div>
-      </div>
+      {
+        palettes.map((palette) => (
+          <div class="palette">
+            <div class="swatch swatch-title">{palette}</div>
+            {paletteValues.map((value) => (
+              <div class="swatch" style={`--swatch: var(--${palette}-${value})`} />
+            ))}
+          </div>
+        ))
+      }
     </div>
 
     <!-- <div>
@@ -140,7 +96,7 @@ import Noise from '@components/Controls/NoiseFilter.astro';
       <div class="gradient" data-variant="2"></div>
       <div class="gradient" data-variant="3"></div>
     </div>
-  </div>
+  </ok-stack>
 </SiteLayout>
 <style>
   .cards {

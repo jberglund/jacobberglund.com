@@ -128,8 +128,10 @@ hr {
   border: 0;
   height: var(--space-s);
   margin: var(--space-m) auto;
-  background-image: var(--background-pattern);
+  /* background-image: var(--background-pattern); */
+  background-image: radial-gradient(var(--_input-shadow) 1px, transparent 1px);
   background-repeat: repeat;
+  background-color: var(--gray-200);
 }
 
 code {
@@ -162,7 +164,7 @@ p code {
 
 pre {
   margin-block: var(--space-s);
-  background: var(--astro-code-color-background);
+  background: var(--gray-200);
   padding: var(--space-s);
   border-radius: var(--radius-3);
 }
