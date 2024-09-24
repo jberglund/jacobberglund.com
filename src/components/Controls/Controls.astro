@@ -3,7 +3,7 @@ import Flex from '@components/utility/Flex.astro';
 ---
 
 <div class="controls">
-  <ok-stack justify="space-between" horizontal grow>
+  <ok-stack>
     <ok-stack class="control-wrapper" gap="xs">
       <slot />
     </ok-stack>
@@ -37,7 +37,7 @@ import Flex from '@components/utility/Flex.astro';
   }
 
   .control-wrapper {
-    flex-direction: row;
+    /*  flex-direction: row; */
     gap: var(--space-xs);
     /* font-size: var(--step--2); */
     /* @container controls (width > 700px) {

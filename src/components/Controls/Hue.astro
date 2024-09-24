@@ -5,9 +5,23 @@ import InputRange from './InputRange.astro';
 ---
 
 <Controls>
-  <InputRange title="Hue Primary" name="hue-primary" min={0} max={360} />
-  <InputRange title="Distance" name="hue-angle" min={0} max={360} />
-  <InputRange title="Gray chroma" name="primary-into-gray" min={0} max={1} step={0.1} />
+  <bind-input-css variable="--primary-color-origin">
+    <label for="color">Color</label>
+
+    <input id="color" type="color" name="primary-color-origin" />
+  </bind-input-css>
+
+  <!-- <bind-input-css variable="--hue-primary">
+    <InputRange title="Hue Primary" name="hue-primary" min={0} max={360} />
+  </bind-input-css> -->
+
+  <bind-input-css variable="--hue-angle">
+    <InputRange title="Distance" name="hue-angle" min={0} max={360} />
+  </bind-input-css>
+  <bind-input-css variable="--gray-multiplier">
+    <InputRange title="Gray chroma" name="gray-multiplier" min={0} max={1} step={0.1} />
+  </bind-input-css>
+
   <div slot="decoration">
     <div class="wheel">
       <div class="wheel-indicator"></div>
@@ -68,55 +82,5 @@ import InputRange from './InputRange.astro';
 </style>
 
 <script>
-  import { overrideCSSProperties, type SettingsValue } from 'src/store';
-
-  function setPropertyAndValue(inputName: string, cssVariable: keyof SettingsValue) {
-    const input = document.querySelector(`input[name="${inputName}"]`) as HTMLInputElement;
-
-    const output = document.querySelector(`output[for="${inputName}"]`) as HTMLInputElement;
-
-    if (!input && !output) return;
-
-    input.value = overrideCSSProperties.get()[cssVariable];
-    output.value = overrideCSSProperties.get()[cssVariable];
-
-    input.addEventListener('input', (event) => {
-      const target = event.target as HTMLInputElement;
-      overrideCSSProperties.setKey(cssVariable, target.value);
-      output.value = target.value;
-    });
-  }
-  document.addEventListener('astro:page-load', () => {
-    setPropertyAndValue('hue-primary', '--hue-primary');
-    setPropertyAndValue('hue-angle', '--hue-angle');
-    setPropertyAndValue('primary-into-gray', '--gray-multiplier');
-  });
-</script>
-
-<script is:inline>
-  // https://docs.astro.build/en/guides/view-transitions/#astrobefore-swap
-  // add some global thingie and set it on the SiteLayout, mebbeh.
-  /* const properties = {
-    primary: "--hue-primary",
-    angle: "--hue-angle",
-  };
-
-  function setPropertyAndValue(inputName, propertyName) {
-    const input = document.querySelector(`input[name="${inputName}"]`);
-    const output = document.querySelector(`output[for="${inputName}"]`);
-    const root = getComputedStyle(document.documentElement);
-
-    input.value = root.getPropertyValue(propertyName);
-
-    input.addEventListener("input", (event) => {
-      document.documentElement.style.setProperty(
-        propertyName,
-        event.target.value
-      );
-      output.value = event.target.value;
-    });
-  }
-
-  setPropertyAndValue("hue", properties.primary);
-  setPropertyAndValue("angle", properties.angle); */
+  import '../../web-components/bind-input-css';
 </script>

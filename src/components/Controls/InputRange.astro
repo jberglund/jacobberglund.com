@@ -1,6 +1,4 @@
 ---
-import Flex from '@components/utility/Flex.astro';
-
 export type Props = {
   title: string;
   name: string;
@@ -15,8 +13,17 @@ const { title, name, min = 0, max = 100, step = 1, value } = Astro.props;
 <ok-stack gap="2xs" grow="1" alignItems="baseline" direction="column" class="input-container">
   <ok-stack horizontal justify="space-between" style="width: 100%" alignItems="baseline">
     <label for={name}>{title}</label>
-    <output class="range-output" for={name}>{value}</output>
+    <input
+      type="number"
+      class="range-output"
+      style="margin-left: auto;"
+      max={max}
+      min={min}
+      step={step}
+      value={value}
+    />
   </ok-stack>
+
   <ok-stack width="100%" class="input-wrapper">
     <input id={name} name={name} type="range" max={max} min={min} step={step} value={value} />
   </ok-stack>
@@ -60,6 +67,7 @@ const { title, name, min = 0, max = 100, step = 1, value } = Astro.props;
     width: 100%;
     cursor: pointer;
     background: transparent;
+    border: unset;
   }
 
   input[type='range']::-webkit-slider-thumb {

@@ -2,6 +2,10 @@
   --global-font-weight-bold: 700;
   --global-font-weight-heading: 700;
   --global-font-weight-default: 400;
+
+  --global-line-height-tight: 1;
+  --global-line-height-default: 1.4;
+  --global-line-height-loose: 1.6;
 }
 
 :where(.typeset) :where(h1, h2, h3, h4, h5, h6) {
@@ -17,14 +21,17 @@
 :where(.typeset) :is(h1),
 :is(.h1) {
   font-size: var(--step-4);
+  line-height: var(--global-line-height-tight);
 }
 :where(.typeset) :is(h2),
 :is(.h2) {
   font-size: var(--step-3);
+  line-height: var(--global-line-height-tight);
 }
 :where(.typeset) :is(h3),
 :is(.h3) {
   font-size: var(--step-2);
+  line-height: var(--global-line-height-tight);
 }
 :where(.typeset) :is(h4, blockquote),
 :is(.h4) {

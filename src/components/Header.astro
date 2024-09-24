@@ -1,20 +1,20 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
 <header class="header u-container">
-  <div class="u-grid">
-    <nav class="nav">
-      <a class="logo" href="/">{SITE_TITLE}</a>
-    </nav>
-  </div>
+  <nav class="nav">
+    <!-- <a class="logo" href="/">{SITE_TITLE}</a> -->
+    <a class="logo" href="/">jacobberglund</a>
+    <span class="slash">/</span>
+    <a>The hue lab</a>
+  </nav>
 </header>
 
 <style>
   .nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: var(--space-3xs) var(--grid-gutter);
     margin-inline: calc(var(--grid-gutter) * -1);
@@ -22,6 +22,10 @@ import { SITE_TITLE } from "../consts";
     background-color: rgba(255, 255, 255, 0.045);
     font-weight: 600;
     grid-column: 3 / span 5;
+    gap: var(--space-3xs);
+  }
+  .slash {
+    color: var(--gray-500);
   }
   .logo {
     /* text-transform: uppercase; */
@@ -29,7 +33,7 @@ import { SITE_TITLE } from "../consts";
     /* font-size: var(--step--1); */
   }
   .header {
-    padding-block: var(--space-l);
+    padding-block: var(--space-xs);
   }
   .internal-links {
     display: flex;

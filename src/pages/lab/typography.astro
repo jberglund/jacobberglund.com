@@ -9,20 +9,49 @@ import SiteLayout from '@layouts/SiteLayout.astro';
   <div style="margin: 2rem 0;">
     <ok-stack gap="m">
       <Controls>
-        <InputRange name="ratioMin" title="Typescale at 320" min="1" max="1.66666" step="0.01" />
-        <InputRange name="ratioMax" title="Typescale at 1800" min="1" max="1.66666" step="0.01" />
+        <bind-input-css variable="--ratioMin">
+          <InputRange name="ratioMin" title="Typescale at 320" min="1" max="1.66666" step="0.01" />
+        </bind-input-css>
+        <bind-input-css variable="--ratioMax">
+          <InputRange name="ratioMax" title="Typescale at 1800" min="1" max="1.66666" step="0.01" />
+        </bind-input-css>
         <div>
-          <label for="easing">Easing curve</label>
-          <select name="easing" id="easing">
-            <option value="easeOutSine">easeOutSine</option>
-            <option value="easeOutQuad">easeOutQuad</option>
-            <option value="easeInOutSine">easeInOutSine</option>
-          </select>
+          <bind-input-css variable="--easing-curve" disable-sync>
+            <fieldset id="easing">
+              <legend>Easing curve</legend>
+              <ok-stack gap="2xs" class="">
+                <label>
+                  <ok-stack class="radio-group" horizontal gap="2xs">
+                    <input name="easing" type="radio" value="var(--easeOutSine)" id="easeOutSine" />
+                    <div>easeOutSine</div>
+                  </ok-stack>
+                </label>
+                <label>
+                  <ok-stack class="radio-group" horizontal gap="2xs">
+                    <input name="easing" type="radio" value="var(--easeOutQuad)" id="easeOutQuad" />
+                    <div>easeOutQuad</div>
+                  </ok-stack>
+                </label>
+                <label>
+                  <ok-stack class="radio-group" horizontal gap="2xs">
+                    <input
+                      name="easing"
+                      type="radio"
+                      value="var(--easeInOutSine)"
+                      id="easeInOutSine"
+                    />
+                    <div>easeInOutSine</div>
+                  </ok-stack>
+                </label>
+              </ok-stack>
+            </fieldset>
+          </bind-input-css>
         </div>
-        <div></div>
       </Controls>
     </ok-stack>
   </div>
+  <div></div>
+
   <div class="typeset">
     <h1>H1 – Harmonic typescale</h1>
     <h2>H2 – Harmonic typescale</h2>
@@ -207,19 +236,27 @@ import SiteLayout from '@layouts/SiteLayout.astro';
       </ul>
     </article>
   </div>
-  <style>
-    .index-grid {
-      display: grid;
-      grid-template-rows: repeat(10, minmax(var(--space-2xs, 1fr)));
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: var(--step-0);
-      min-height: 60svh;
-    }
-  </style>
 </SiteLayout>
+<style>
+  .index-grid {
+    display: grid;
+    grid-template-rows: repeat(10, minmax(var(--space-2xs, 1fr)));
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: var(--step-0);
+    min-height: 60svh;
+  }
+
+  .radio-group {
+    border-radius: 0.5rem;
+    background-color: var(--gray-100);
+    padding: var(--space-2xs);
+  }
+</style>
 
 <script>
-  const root = getComputedStyle(document.documentElement);
+  import '../../web-components/bind-input-css';
+
+  /* const root = getComputedStyle(document.documentElement);
   function setPropertyAndValue(inputName: string, cssVariable?: string) {
     const input = document.querySelector(`input[name="${inputName}"]`) as HTMLInputElement;
     const output = document.querySelector(`output[for="${inputName}"]`) as HTMLInputElement;
@@ -241,12 +278,12 @@ import SiteLayout from '@layouts/SiteLayout.astro';
   }
 
   setPropertyAndValue('ratioMin');
-  setPropertyAndValue('ratioMax');
+  setPropertyAndValue('ratioMax'); */
 
-  const easing = document.querySelector('#easing') as HTMLSelectElement;
+  /* const easing = document.querySelector('#easing') as HTMLSelectElement;
 
   easing.addEventListener('change', (event) => {
     const target = event.target as HTMLSelectElement;
     document.documentElement.style.setProperty('--easing-curve', `var(--${target.value})`);
-  });
+  }); */
 </script>

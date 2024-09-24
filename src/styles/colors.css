@@ -179,4 +179,128 @@
     var(--l-1000) calc(var(--c-1000) * var(--gray-multiplier))
       calc(var(--gray-follows-primary) + var(--h-1000))
   );
+
+  --scale-start: 0.02; /* Adjust this to change the start of the scale */
+  --scale-stop: 0.8; /* Adjust this to change the end of the scale */
+  --scale-base: 10; /* Base for the exponential scale */
+
+  --scale-delta: calc(var(--scale-stop) - var(--scale-start));
+
+  /* Helper function to calculate steps */
+  --calc-step: calc(pow(var(--scale-base), var(--scale-delta)) * var(--scale-start));
+
+  /* Generate the scale */
+  --step-25: calc(pow(var(--scale-delta), -0.05) * var(--step-100));
+  --step-50: calc(pow(var(--scale-delta), -0.2) * var(--step-100));
+  --step-100: calc(pow(var(--scale-delta), 1));
+  --step-200: calc(pow(var(--scale-delta), 2) * var(--step-100));
+  --step-300: calc(pow(var(--scale-delta), 3) * var(--step-100));
+  --step-400: calc(pow(var(--scale-delta), 4) * var(--step-100));
+  --step-500: calc(pow(var(--scale-delta), 5) * var(--step-100));
+  --step-600: calc(pow(var(--scale-delta), 6) * var(--step-100));
+  --step-700: calc(pow(var(--scale-delta), 7) * var(--step-100));
+  --step-800: calc(pow(var(--scale-delta), 8) * var(--step-100));
+  --step-900: calc(pow(var(--scale-delta), 9) * var(--step-100));
+  --step-950: calc(pow(var(--scale-delta), 9.5) * var(--step-100));
+
+  --step-25: 0.03;
+  --step-50: 0.08;
+  --step-100: 0.12;
+  --step-200: 0.2;
+  --step-300: 0.33;
+  --step-400: 0.4;
+  --step-500: 0.52;
+  --step-600: 0.64;
+  --step-700: 0.7;
+  --step-800: 0.81;
+  --step-900: 0.85;
+  --step-950: 0.9;
+  --step-1000: 0.9;
+
+  --primary-color-origin: oklch(79.5% 0.184 90);
+
+  /* --primary-25: oklch(from var(--primary-color-origin) 97% calc((sin(0.03 * pi) * c)) h);
+  --primary-50: oklch(from var(--primary-color-origin) 95% calc((sin(0.08 * pi) * c)) h);
+  --primary-100: oklch(from var(--primary-color-origin) 90% calc((sin(0.12 * pi) * c)) h);
+  --primary-200: oklch(from var(--primary-color-origin) 80% calc((sin(0.2 * pi) * c)) h);
+  --primary-300: oklch(from var(--primary-color-origin) 70% calc((sin(0.33 * pi) * c)) h);
+  --primary-400: oklch(from var(--primary-color-origin) 60% calc((sin(0.4 * pi) * c)) h);
+  --primary-500: oklch(from var(--primary-color-origin) 50% calc((sin(0.52 * pi) * c)) h);
+  --primary-600: oklch(from var(--primary-color-origin) 40% calc((sin(0.64 * pi) * c)) h);
+  --primary-700: oklch(from var(--primary-color-origin) 30% calc((sin(0.7 * pi) * c)) h);
+  --primary-800: oklch(from var(--primary-color-origin) 20% calc((sin(0.81 * pi) * c)) h);
+  --primary-900: oklch(from var(--primary-color-origin) 12% calc((sin(0.85 * pi) * c)) h);
+  --primary-950: oklch(from var(--primary-color-origin) 5% calc((sin(0.9 * pi) * c)) h); */
+
+  --primary-25: oklch(from var(--primary-color-origin) 98% calc((sin(var(--step-25) * pi) * c)) h);
+  --primary-50: oklch(from var(--primary-color-origin) 98% calc((sin(var(--step-50) * pi) * c)) h);
+  --primary-100: oklch(
+    from var(--primary-color-origin) 95% calc((sin(var(--step-100) * pi) * c)) h
+  );
+  --primary-200: oklch(
+    from var(--primary-color-origin) 90% calc((sin(var(--step-200) * pi) * c)) h
+  );
+  --primary-300: oklch(
+    from var(--primary-color-origin) 85% calc((sin(var(--step-300) * pi) * c)) h
+  );
+  --primary-400: oklch(
+    from var(--primary-color-origin) 78% calc((sin(var(--step-400) * pi) * c)) h
+  );
+  --primary-500: oklch(
+    from var(--primary-color-origin) 70% calc((sin(var(--step-500) * pi) * c)) h
+  );
+  --primary-600: oklch(
+    from var(--primary-color-origin) 60% calc((sin(var(--step-600) * pi) * c)) h
+  );
+  --primary-700: oklch(
+    from var(--primary-color-origin) 50% calc((sin(var(--step-700) * pi) * c)) h
+  );
+  --primary-800: oklch(
+    from var(--primary-color-origin) 42% calc((sin(var(--step-800) * pi) * c)) h
+  );
+  --primary-900: oklch(
+    from var(--primary-color-origin) 33% calc((sin(var(--step-900) * pi) * c)) h
+  );
+  --primary-950: oklch(
+    from var(--primary-color-origin) 27% calc((sin(var(--step-1000) * pi) * c)) h
+  );
+
+  --secondary-50: oklch(from var(--primary-50) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-100: oklch(from var(--primary-100) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-200: oklch(from var(--primary-200) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-300: oklch(from var(--primary-300) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-400: oklch(from var(--primary-400) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-500: oklch(from var(--primary-500) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-600: oklch(from var(--primary-600) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-700: oklch(from var(--primary-700) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-800: oklch(from var(--primary-800) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-900: oklch(from var(--primary-900) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-950: oklch(from var(--primary-950) l c calc(h - (var(--hue-angle) / 2)));
+  --secondary-1000: oklch(from var(--primary-1000) l c calc(h - (var(--hue-angle) / 2)));
+
+  --tertiary-50: oklch(from var(--primary-50) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-100: oklch(from var(--primary-100) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-200: oklch(from var(--primary-200) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-300: oklch(from var(--primary-300) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-400: oklch(from var(--primary-400) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-500: oklch(from var(--primary-500) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-600: oklch(from var(--primary-600) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-700: oklch(from var(--primary-700) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-800: oklch(from var(--primary-800) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-900: oklch(from var(--primary-900) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-950: oklch(from var(--primary-950) l c calc(h + (var(--hue-angle) / 2)));
+  --tertiary-1000: oklch(from var(--primary-1000) l c calc(h + (var(--hue-angle) / 2)));
+
+  --gray-50: oklch(from var(--primary-50) l calc(c * var(--gray-multiplier)) h);
+  --gray-100: oklch(from var(--primary-100) l calc(c * var(--gray-multiplier)) h);
+  --gray-200: oklch(from var(--primary-200) l calc(c * var(--gray-multiplier)) h);
+  --gray-300: oklch(from var(--primary-300) l calc(c * var(--gray-multiplier)) h);
+  --gray-400: oklch(from var(--primary-400) l calc(c * var(--gray-multiplier)) h);
+  --gray-500: oklch(from var(--primary-500) l calc(c * var(--gray-multiplier)) h);
+  --gray-600: oklch(from var(--primary-600) l calc(c * var(--gray-multiplier)) h);
+  --gray-700: oklch(from var(--primary-700) l calc(c * var(--gray-multiplier)) h);
+  --gray-800: oklch(from var(--primary-800) l calc(c * var(--gray-multiplier)) h);
+  --gray-900: oklch(from var(--primary-900) l calc(c * var(--gray-multiplier)) h);
+  --gray-950: oklch(from var(--primary-950) l calc(c * var(--gray-multiplier)) h);
+  --gray-1000: oklch(from var(--primary-1000) l calc(c * var(--gray-multiplier)) h);
 }
